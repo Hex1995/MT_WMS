@@ -65,6 +65,12 @@
     <Compile Include="Forms\BaseFrm.Designer.cs">
       <DependentUpon>BaseFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmMask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMask.Designer.cs">
+      <DependentUpon>FrmMask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
@@ -74,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\BaseFrm.resx">
       <DependentUpon>BaseFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMask.resx">
+      <DependentUpon>FrmMask.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

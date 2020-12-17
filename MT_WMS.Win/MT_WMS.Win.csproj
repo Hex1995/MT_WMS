@@ -107,6 +107,10 @@
       <Project>{9f92fed3-e0b5-4930-9584-012fae0f8030}</Project>
       <Name>MT_WMS.IBusiness</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MT_WMS.Win.ControlLibrary\MT_WMS.Win.ControlLibrary.csproj">
+      <Project>{b4305324-0d61-47f0-8fcd-a15dfa1d4bf8}</Project>
+      <Name>MT_WMS.Win.ControlLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MT_WMS\MT_WMS.csproj">
       <Project>{4556bbe8-c8f6-4fd3-84ae-764db53be190}</Project>
       <Name>MT_WMS</Name>

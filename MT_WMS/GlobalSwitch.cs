@@ -32,7 +32,7 @@ namespace MT_WMS
         {
             AllAssemblies.Add(assembly);
             AllTypes.AddRange(assembly.GetTypes());
-            SnowflakeId a = new SnowflakeId(1l, 2l);
+            SnowflakeId a = new SnowflakeId(1L, 2L);
             a.NextId();
         }
         GlobalSwitch()
