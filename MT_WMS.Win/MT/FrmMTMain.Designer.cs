@@ -1,7 +1,7 @@
 ﻿
-namespace MT_WMS.Win
+namespace MT_WMS.Win.MT
 {
-    partial class BaseUI
+    partial class FrmMTMain
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@ namespace MT_WMS.Win
         {
             this.SuspendLayout();
             // 
-            // BaseUI
+            // FrmMTMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 466);
-            this.Name = "BaseUI";
-            this.Text = "BaseUI";
+            this.ClientSize = new System.Drawing.Size(1304, 746);
+            this.Name = "FrmMTMain";
+            this.Text = "FrmMTMain";
             this.ResumeLayout(false);
 
         }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MT_WMS;
+using MT_WMS.Win.MT;
 
 namespace MT_WMS.Win
 {
@@ -31,7 +32,7 @@ namespace MT_WMS.Win
 
             
 
-            Application.Run(new BaseUI());
+            Application.Run(new FrmMTMain());
         }
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

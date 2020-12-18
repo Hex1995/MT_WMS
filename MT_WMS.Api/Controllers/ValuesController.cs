@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MT_WMS.Api.DataSource;
+using MT_WMS.Entitys;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +11,7 @@ namespace MT_WMS.Api.Controllers
 {
     public class ValuesController : ApiController
     {
+        MTDbContext db = new MTDbContext();
         // GET api/values
         public IEnumerable<string> Get()
         {
@@ -16,9 +19,10 @@ namespace MT_WMS.Api.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public List<SYSOBJECT> Get(int id)
         {
-            return "value";
+            return db.SYSOBJECTS.ToList();
+            //return "value";
         }
 
         // POST api/values
