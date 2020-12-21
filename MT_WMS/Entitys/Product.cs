@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
 namespace MT_WMS.Entitys
 {
+    [Table("Part_Product")]
+    /// <summary>
+    /// Part_Product
+    /// </summary>
     public class Product
     {
+        [Key]
         public string ProductId { get; set; }
         public string ProductName { get; set; }
         public string ProductSpec { get; set; }

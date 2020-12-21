@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
 namespace MT_WMS.Entitys
 {
+    [Table("Part_ProductLabelRecord")]
     public class ProductLabelRecord
     {
+        [Key]
         public string Id { get; set; }
         public string ProductSN { get; set; }
         public string BatchId { get; set; }

@@ -43,8 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BaseBusiness.T.cs" />
+    <Compile Include="MT\ProductBusiness.cs" />
+    <Compile Include="MT\SysObjectBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MT_WMS.IBusiness\MT_WMS.IBusiness.csproj">
+      <Project>{9f92fed3-e0b5-4930-9584-012fae0f8030}</Project>
+      <Name>MT_WMS.IBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MT_WMS\MT_WMS.csproj">
+      <Project>{4556bbe8-c8f6-4fd3-84ae-764db53be190}</Project>
+      <Name>MT_WMS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
