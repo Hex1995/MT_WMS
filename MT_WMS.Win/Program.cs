@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MT_WMS;
 using MT_WMS.Win.MT;
+using MT_WMS.Win.Test;
 
 namespace MT_WMS.Win
 {

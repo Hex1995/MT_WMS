@@ -1,5 +1,6 @@
-﻿using MT_WMS.Business.MS;
-using MT_WMS.IBusiness;
+﻿using MT_WMS.IBusiness;
+using MT_WMS.Win.ControlLibrary.Controls.MT.Print;
+using MT_WMS.Win.Test;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,11 @@ namespace MT_WMS.Win.MT
         public FrmMTMain()
         {
             InitializeComponent();
-            Bus = new ProductBusiness();
         }
-        IProductBusiness Bus;
-        private void iconButton1_Click(object sender, EventArgs e)
+
+        private void Model_QRCodePrint_Print_Click(object sender, EventArgs e)
         {
-            richTextBox1.AppendText(Bus.GetTheData("").ToJson());
+            UIHelper.Instance.AddControl("打印条码", new UCQRCodePrint(), this.tabControl1);
         }
     }
 }

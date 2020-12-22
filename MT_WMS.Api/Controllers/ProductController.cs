@@ -16,13 +16,29 @@ namespace MT_WMS.Api.Controllers
     public class ProductController : ApiController
     {
         private MTDbContext db = new MTDbContext();
-        [HttpGet]
-        public Product GetTheData(string input)
+        public Product GetTheData(string id)
         {
-            var data = db.Product.Where(x => x.ProductId == input).ToList().FirstOrDefault();
+            var data = db.Product.Where(x => x.ProductId == id).ToList().FirstOrDefault();
             return data;
         }
-
+        public List<Product> GetDataList()
+        {
+            return db.Product.ToList();
+        }
+        [HttpGet]
+        public DataTable GetTable()
+        {
+            var sql = $@"
+SELECT 
+        [ProductId] as '编码'
+      ,[ProductName] as '产品名称'
+      ,[ProductSpec] as '规格'
+      ,[ProductUnit] as '单位'
+      ,[ProductType] as '类型'
+  FROM [dbo].[Part_Product]
+";
+            return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -65,9 +65,11 @@
     <Compile Include="Helpes\EncryptionHelper.cs" />
     <Compile Include="Helpes\HttpHelper.cs" />
     <Compile Include="Helpes\IdHelper.cs" />
+    <Compile Include="Helpes\SqlDbHelpr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AjaxResult.cs" />
     <Compile Include="Util\AjaxResult.T.cs" />
+    <Compile Include="Util\FactoryService.cs" />
     <Compile Include="Util\IdInputDTO.cs" />
   </ItemGroup>
   <ItemGroup>

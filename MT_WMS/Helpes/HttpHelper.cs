@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MT_WMS.Helpes
+namespace MT_WMS
 {
     /// <summary>
     /// 网络请求类
@@ -45,12 +45,12 @@ namespace MT_WMS.Helpes
         /// <param name="url">请求url</param>
         /// <param name="dic">自定义参数</param>
         /// <returns></returns>
-        public static string Get(string url, Dictionary<string, string> dic)
+        public static string Get(string url, Dictionary<string, string> dic=null)
         {
             string result = "";
             StringBuilder builder = new StringBuilder();
             builder.Append(url);
-            if (dic.Count > 0)
+            if (!dic.IsNullOrEmpty())
             {
                 builder.Append("?");
                 int i = 0;

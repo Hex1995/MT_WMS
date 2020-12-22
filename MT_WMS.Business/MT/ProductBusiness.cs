@@ -2,17 +2,23 @@
 using MT_WMS.IBusiness;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace MT_WMS.Business.MS
+namespace MT_WMS.Business.MT
 {
     public class ProductBusiness: BaseBusiness<Product>, IProductBusiness
     {
-        public override Product GetTheData(string Id)
+        public ProductBusiness()
         {
-            RouteUrl = "Product/GetTheData";
-            return base.GetTheData(Id);
+        }
+        protected override string RouteUrl => "Product";
+
+        public DataTable GetTable()
+        {
+            ActionUrl = "GetTable";
+            return  HttpGetService(null).ToDataTable();
         }
     }
 }

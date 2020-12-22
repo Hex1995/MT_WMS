@@ -17,7 +17,7 @@ namespace MT_WMS
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        private static string GetKeyValue(string key)
+        public static string GetKeyValue(string key)
         {
             return ConfigurationManager.AppSettings[key];
         }
