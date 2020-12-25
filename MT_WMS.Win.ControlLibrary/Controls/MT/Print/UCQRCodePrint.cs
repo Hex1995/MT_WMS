@@ -18,7 +18,11 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            
+            DataBind.InitialItems("仓库", cbbCK);
+            DataBind.InitialItems("班组", cbbBz);
+            DataBind.InitialItems("机器号", cbbJqh);
+            DataBind.InitialItems("检验员", cbbJyy);
+            Dgv.DataSource = _bus.GetProducts(new List<string>());
         }
         IProductBusiness _bus= FactoryService.BulidByConfigKey<IProductBusiness>("MT0001");
         private void iconButton1_Click(object sender, EventArgs e)
@@ -27,7 +31,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             List<string> filter = new List<string>();
             filter.Add($"ProductName like'%{name}%'");
             Dgv.DataSource = _bus.GetProducts(filter);
-
         }
 
     }
