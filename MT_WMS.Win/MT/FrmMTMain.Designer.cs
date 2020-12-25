@@ -32,19 +32,61 @@ namespace MT_WMS.Win.MT
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMTMain));
+            this.Model_QRCodePrint_Print = new DevComponents.DotNetBar.ButtonItem();
+            this.Model_QRCodePrint_Test = new DevComponents.DotNetBar.ButtonItem();
+            this.tabControl1 = new DevComponents.DotNetBar.TabControl();
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
             this.Model_QRCodePrint = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabItem2 = new DevComponents.DotNetBar.RibbonTabItem();
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
-            this.tabControl1 = new DevComponents.DotNetBar.TabControl();
-            this.Model_QRCodePrint_Print = new DevComponents.DotNetBar.ButtonItem();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
+            this.ribbonPanel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // Model_QRCodePrint_Print
+            // 
+            this.Model_QRCodePrint_Print.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.Model_QRCodePrint_Print.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Model_QRCodePrint_Print.Image = ((System.Drawing.Image)(resources.GetObject("Model_QRCodePrint_Print.Image")));
+            this.Model_QRCodePrint_Print.ImagePaddingHorizontal = 4;
+            this.Model_QRCodePrint_Print.ImagePaddingVertical = 4;
+            this.Model_QRCodePrint_Print.Name = "Model_QRCodePrint_Print";
+            this.Model_QRCodePrint_Print.SubItemsExpandWidth = 14;
+            this.Model_QRCodePrint_Print.Text = "条码打印";
+            this.Model_QRCodePrint_Print.Click += new System.EventHandler(this.Model_QRCodePrint_Print_Click);
+            // 
+            // Model_QRCodePrint_Test
+            // 
+            this.Model_QRCodePrint_Test.Name = "Model_QRCodePrint_Test";
+            this.Model_QRCodePrint_Test.SubItemsExpandWidth = 14;
+            this.Model_QRCodePrint_Test.Text = "元组测试";
+            this.Model_QRCodePrint_Test.Click += new System.EventHandler(this.Model_QRCodePrint_Test_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.AutoCloseTabs = true;
+            this.tabControl1.BackColor = System.Drawing.Color.White;
+            this.tabControl1.CanReorderTabs = true;
+            this.tabControl1.CloseButtonOnTabsVisible = true;
+            this.tabControl1.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
+            this.tabControl1.CloseButtonVisible = true;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 180);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedTabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
+            this.tabControl1.SelectedTabIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1275, 650);
+            this.tabControl1.Style = DevComponents.DotNetBar.eTabStripStyle.Office2007Dock;
+            this.tabControl1.TabIndex = 1;
+            this.tabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
+            this.tabControl1.Text = "tabControl1";
             // 
             // ribbonControl1
             // 
@@ -107,7 +149,9 @@ namespace MT_WMS.Win.MT
             this.ribbonBar1.ContainerControlProcessDialogKey = true;
             this.ribbonBar1.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.Model_QRCodePrint_Print});
+            this.Model_QRCodePrint_Print,
+            this.Model_QRCodePrint_Test,
+            this.buttonItem1});
             this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar1.Name = "ribbonBar1";
             this.ribbonBar1.Size = new System.Drawing.Size(485, 123);
@@ -123,9 +167,16 @@ namespace MT_WMS.Win.MT
             // 
             this.ribbonBar1.TitleStyleMouseOver.Class = "";
             // 
+            // buttonItem1
+            // 
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.SubItemsExpandWidth = 14;
+            this.buttonItem1.Text = "buttonItem1";
+            // 
             // ribbonPanel2
             // 
             this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel2.Controls.Add(this.ribbonBar2);
             this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ribbonPanel2.Location = new System.Drawing.Point(0, 26);
             this.ribbonPanel2.Name = "ribbonPanel2";
@@ -146,6 +197,34 @@ namespace MT_WMS.Win.MT
             this.ribbonPanel2.TabIndex = 2;
             this.ribbonPanel2.Visible = false;
             // 
+            // ribbonBar2
+            // 
+            this.ribbonBar2.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar2.BackgroundMouseOverStyle.Class = "";
+            // 
+            // 
+            // 
+            this.ribbonBar2.BackgroundStyle.Class = "";
+            this.ribbonBar2.ContainerControlProcessDialogKey = true;
+            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar2.Name = "ribbonBar2";
+            this.ribbonBar2.Size = new System.Drawing.Size(445, 123);
+            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar2.TabIndex = 0;
+            this.ribbonBar2.Text = "ribbonBar2";
+            // 
+            // 
+            // 
+            this.ribbonBar2.TitleStyle.Class = "";
+            // 
+            // 
+            // 
+            this.ribbonBar2.TitleStyleMouseOver.Class = "";
+            // 
             // Model_QRCodePrint
             // 
             this.Model_QRCodePrint.Checked = true;
@@ -163,37 +242,6 @@ namespace MT_WMS.Win.MT
             // 
             this.qatCustomizeItem1.Name = "qatCustomizeItem1";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.AutoCloseTabs = true;
-            this.tabControl1.BackColor = System.Drawing.Color.White;
-            this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.CloseButtonOnTabsVisible = true;
-            this.tabControl1.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
-            this.tabControl1.CloseButtonVisible = true;
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 180);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedTabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
-            this.tabControl1.SelectedTabIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1275, 650);
-            this.tabControl1.Style = DevComponents.DotNetBar.eTabStripStyle.Office2007Dock;
-            this.tabControl1.TabIndex = 1;
-            this.tabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
-            this.tabControl1.Text = "tabControl1";
-            // 
-            // Model_QRCodePrint_Print
-            // 
-            this.Model_QRCodePrint_Print.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.Model_QRCodePrint_Print.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Model_QRCodePrint_Print.Image = ((System.Drawing.Image)(resources.GetObject("Model_QRCodePrint_Print.Image")));
-            this.Model_QRCodePrint_Print.ImagePaddingHorizontal = 4;
-            this.Model_QRCodePrint_Print.ImagePaddingVertical = 4;
-            this.Model_QRCodePrint_Print.Name = "Model_QRCodePrint_Print";
-            this.Model_QRCodePrint_Print.SubItemsExpandWidth = 14;
-            this.Model_QRCodePrint_Print.Text = "条码打印";
-            this.Model_QRCodePrint_Print.Click += new System.EventHandler(this.Model_QRCodePrint_Print_Click);
-            // 
             // FrmMTMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -203,10 +251,11 @@ namespace MT_WMS.Win.MT
             this.Controls.Add(this.ribbonControl1);
             this.Name = "FrmMTMain";
             this.Text = "河南明泰铝业股份有限公司";
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.ribbonControl1.ResumeLayout(false);
             this.ribbonControl1.PerformLayout();
             this.ribbonPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
+            this.ribbonPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -222,5 +271,8 @@ namespace MT_WMS.Win.MT
         private QatCustomizeItem qatCustomizeItem1;
         private TabControl tabControl1;
         private ButtonItem Model_QRCodePrint_Print;
+        private ButtonItem Model_QRCodePrint_Test;
+        private ButtonItem buttonItem1;
+        private RibbonBar ribbonBar2;
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MT_WMS;
+using MT_WMS.IBusiness;
 using MT_WMS.Win.MT;
 using MT_WMS.Win.Test;
 
@@ -31,8 +32,16 @@ namespace MT_WMS.Win
 
             GlobalSwitch.Instance.AddAssembly(assembly);
 
-            
-
+            //基础数据获取
+            ISysObjectBusiness sys = FactoryService.Build<ISysObjectBusiness>("MT_WMS.Business.MT.SysObjectBusiness");
+            var data = sys.GetDataList();
+            foreach (var item in data)
+            {
+                if (GlobalSwitch.Instance.objValues.ContainsKey(item.ObjectName))
+                {
+                    Dictionary<string, string> arr = new Dictionary<string, string>();
+                }
+            }
             Application.Run(new FrmMTMain());
         }
 

@@ -1,4 +1,5 @@
-﻿using MT_WMS.IBusiness;
+﻿using DevComponents.DotNetBar;
+using MT_WMS.IBusiness;
 using MT_WMS.Win.ControlLibrary.Controls.MT.Print;
 using MT_WMS.Win.Test;
 using System;
@@ -19,9 +20,21 @@ namespace MT_WMS.Win.MT
             InitializeComponent();
         }
 
+
+
+        private void MenuBtnClick(object sender, EventArgs e)
+        {
+            
+        }
+
         private void Model_QRCodePrint_Print_Click(object sender, EventArgs e)
         {
-            UIHelper.Instance.AddControl("打印条码", new UCQRCodePrint(), this.tabControl1);
+            UIHelper.Instance.AddControl("条码打印", new UCQRCodePrint(), this.tabControl1);
+        }
+
+        private void Model_QRCodePrint_Test_Click(object sender, EventArgs e)
+        {
+            UIHelper.Instance.AddControl("测试", new UCTest(), this.tabControl1);
         }
     }
 }

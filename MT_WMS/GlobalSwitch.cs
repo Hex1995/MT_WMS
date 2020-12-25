@@ -73,6 +73,8 @@ namespace MT_WMS
                 }
             }
         }
+
+        public  Dictionary<string, Dictionary<string, string>> objValues = new Dictionary<string, Dictionary<string, string>>();
         #region 缓存相关
         /// <summary>
         /// 自带简易缓存

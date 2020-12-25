@@ -4,29 +4,20 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MT_WMS.Entitys
 {
-
     /// <summary>
-    /// 系统字典名称
+    /// CODE与对象的关联表
     /// </summary>
-    [Table("SYS_OBJECT")]
-    public class SYSOBJECT
+    [Table("SYS_CODE_OBJECT")]
+    public class SYSCODEOBJECT
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        /// <summary>
-        /// 键的唯一
-        /// </summary>
         public int PKID { get; set; }
-        /// <summary>
-        /// 键ID
-        /// </summary>
+        public string CODEID { get; set; }
         public string OBJECTID { get; set; }
-        /// <summary>
-        /// 键名称
-        /// </summary>
-        public string OBJECTNAME { get; set; }
     }
 }

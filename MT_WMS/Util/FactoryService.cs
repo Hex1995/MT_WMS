@@ -14,7 +14,7 @@ namespace MT_WMS
         /// <typeparam name="T">返回类型</typeparam>
         /// <param name="assemblyName">类的完全限定名</param>
         /// <returns></returns>
-        private static T Build<T>(string assemblyName)
+        public static T Build<T>(string assemblyName)
         {
             var type = GlobalSwitch.Instance.AllTypes.Where(x => x.FullName == assemblyName).FirstOrDefault();
             var a = type.Assembly.CreateInstance(assemblyName);

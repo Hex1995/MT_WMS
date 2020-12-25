@@ -1,4 +1,5 @@
 ﻿using DevComponents.DotNetBar;
+using MT_WMS.IBusiness;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,10 +21,12 @@ namespace MT_WMS.Win
                 if (instance == null)
                 {
                     instance = new UIHelper();
+                    
                 }
                 return UIHelper.instance;
             }
         }
+
         public bool tempbool1 = false;
         public void AddControl(string name, Control addcontrol, DevComponents.DotNetBar.TabControl tabControl1)
         {

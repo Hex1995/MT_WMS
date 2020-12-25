@@ -37,6 +37,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -56,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Entitys\Product.cs" />
     <Compile Include="Entitys\ProductLabelRecord.cs" />
+    <Compile Include="Entitys\SYSCODEOBJECT.cs" />
     <Compile Include="Entitys\SYSOBJECT.cs" />
     <Compile Include="Entitys\SYSOBJECTVALUE.cs" />
     <Compile Include="Extention\Extention.Json.cs" />
@@ -67,10 +71,13 @@
     <Compile Include="Helpes\IdHelper.cs" />
     <Compile Include="Helpes\SqlDbHelpr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestHelper.cs" />
     <Compile Include="Util\AjaxResult.cs" />
     <Compile Include="Util\AjaxResult.T.cs" />
+    <Compile Include="Util\DataBind.cs" />
     <Compile Include="Util\FactoryService.cs" />
     <Compile Include="Util\IdInputDTO.cs" />
+    <Compile Include="Util\UserObjects.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

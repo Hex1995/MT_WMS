@@ -25,5 +25,9 @@ namespace MT_WMS.Api.DataSource
         /// 产品表
         /// </summary>
         public DbSet<Product> Product { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public DbSet<SYSCODEOBJECT> SYSCODEOBJECT { get; set; }
     }
 }

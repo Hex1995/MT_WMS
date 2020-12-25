@@ -18,7 +18,9 @@ namespace MT_WMS.Business
         /// <summary>
         /// 数据请求Http基础链接
         /// </summary>
-        private readonly string BaseUrl = "http://localhost:25672/api";
+        private readonly string BaseUrl = "http://localhost/mt/api";
+
+
         /// <summary>
         /// 服务器路由地址
         /// </summary>
@@ -55,7 +57,7 @@ namespace MT_WMS.Business
              this.ActionUrl= ActionUrl;
             var dic = new Dictionary<string, string>();
             dic.Add("Id",Id);
-            var res = HttpGetService(dic, GetUrl());
+            var res = HttpHelper.HttpData(GetUrl(), dic:dic);
             return res.ToObject<T>();
         }
         /// <summary>
@@ -71,22 +73,8 @@ namespace MT_WMS.Business
         {
             this.ActionUrl = ActionUrl;
             var dic = new Dictionary<string, string>();
-            var res = HttpGetService( dic, GetUrl());
+            var res = HttpHelper.HttpData(GetUrl(), dic: dic);// HttpGetService( dic, GetUrl());
             return res.ToList<T>();
-        }
-        /// <summary>
-        /// Get服务
-        /// </summary>
-        /// <param name="url"></param>
-        /// <param name="dic"></param>
-        /// <returns></returns>
-        public virtual string HttpGetService(Dictionary<string, string> dic,string url="")
-        {
-            if (url.IsNullOrEmpty())
-            {
-                url = GetUrl();
-            }
-            return HttpHelper.Get(url, dic);
         }
     }
 }

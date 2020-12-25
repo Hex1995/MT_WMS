@@ -10,6 +10,7 @@ namespace MT_WMS.Entitys
     /// <summary>
     /// 系统字典值
     /// </summary>
+    [Table("SYS_OBJECT_VALUE")]
     public class SYSOBJECTVALUE
     {
         [Key]

@@ -1,4 +1,5 @@
-﻿using MT_WMS.Win.ControlLibrary.Forms;
+﻿using MT_WMS.IBusiness;
+using MT_WMS.Win.ControlLibrary.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace MT_WMS.Win
         {
             InitializeComponent();
         }
+  
 
         #region 遮挡体
         /// <summary>

@@ -21,6 +21,25 @@ namespace MT_WMS.Api.Controllers
             var data = db.Product.Where(x => x.ProductId == id).ToList().FirstOrDefault();
             return data;
         }
+        [HttpPost]
+        public DataTable GetProducts(List<string> filter)
+        {
+            var sql = $@"
+SELECT 
+        [ProductId] as '编码'
+      ,[ProductName] as '产品名称'
+      ,[ProductSpec] as '规格'
+      ,[ProductUnit] as '单位'
+      ,[ProductType] as '类型'
+  FROM [dbo].[Part_Product]
+ where 1=1 
+";
+            foreach (var item in filter)
+            {
+                sql += $" and {item} ";
+            }
+            return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
+        }
         public List<Product> GetDataList()
         {
             return db.Product.ToList();

@@ -23,7 +23,12 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         IProductBusiness _bus= FactoryService.BulidByConfigKey<IProductBusiness>("MT0001");
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            Dgv.DataSource = _bus.GetTable();
+            var name = TxtName.Text;
+            List<string> filter = new List<string>();
+            filter.Add($"ProductName like'%{name}%'");
+            Dgv.DataSource = _bus.GetProducts(filter);
+
         }
+
     }
 }
