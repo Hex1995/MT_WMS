@@ -115,6 +115,7 @@
     <EmbeddedResource Include="Test\FrmTest.resx">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="LocalData\mt.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
