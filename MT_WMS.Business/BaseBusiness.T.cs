@@ -76,5 +76,22 @@ namespace MT_WMS.Business
             var res = HttpHelper.HttpData(GetUrl(), dic: dic);// HttpGetService( dic, GetUrl());
             return res.ToList<T>();
         }
+        /// <summary>
+        /// 保存当前数据，返回影响行数
+        /// </summary>
+        /// <param name="theData">保存的数据</param>
+        /// <returns></returns>
+        public virtual int SaveData(T theData)
+        {
+            ActionUrl = "SaveData";
+            return SaveData(theData,ActionUrl);
+        }
+        public virtual int SaveData(T theData, string ActionUrl)
+        {
+            this.ActionUrl = ActionUrl;
+            var dic = new Dictionary<string, string>();
+            var res = HttpHelper.HttpData(GetUrl(),HttpMethod:"POST", dic: dic,Parameter:theData.ToJson());// HttpGetService( dic, GetUrl());
+            return int.Parse(res);
+        }
     }
 }

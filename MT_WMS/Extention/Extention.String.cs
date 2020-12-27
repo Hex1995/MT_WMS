@@ -27,9 +27,9 @@ namespace MT_WMS
         {
             return bool.Parse(str);
         }
-        public static Bitmap ToQrCode(this string str)
+        public static Bitmap ToQrCode(this string str,string lev="L")
         {
-            return QRCodeHelper.RenderQrCode(str);
+            return QRCodeHelper.RenderQrCode(str,lev);
         }
         /// <summary>
         /// 转为字节数组

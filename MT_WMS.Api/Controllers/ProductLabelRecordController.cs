@@ -22,7 +22,21 @@ namespace MT_WMS.Api.Controllers
         {
             return db.ProductLabelRecord;
         }
+        [HttpPost]
+        public int SaveData(ProductLabelRecord theData)
+        {
+            db.ProductLabelRecord.Add(theData);
 
+            try
+            {
+                return db.SaveChanges();
+            }
+            catch
+            {
+                return 0;
+            }
+
+        }
         // GET: api/ProductLabelRecord/5
         [ResponseType(typeof(ProductLabelRecord))]
         public IHttpActionResult GetProductLabelRecord(string id)

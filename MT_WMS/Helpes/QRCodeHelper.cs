@@ -13,10 +13,15 @@ namespace MT_WMS
     /// </summary>
     public class QRCodeHelper
     {
-        public static Bitmap RenderQrCode(string str)
+        /// <summary>
+        /// 生成白底黑码的二维码
+        /// </summary>
+        /// <param name="str">字符穿</param>
+        /// <param name="level">等级L、M、Q、H</param>
+        /// <returns>生成二维码</returns>
+        public static Bitmap RenderQrCode(string str, string level="L")
         {
             Bitmap tmp;
-            string level = "L";
             QRCodeGenerator.ECCLevel eccLevel = (QRCodeGenerator.ECCLevel)(level == "L" ? 0 : level == "M" ? 1 : level == "Q" ? 2 : 3);
             using (QRCodeGenerator qrGenerator = new QRCodeGenerator())
             {
@@ -24,7 +29,7 @@ namespace MT_WMS
                 {
                     using (QRCode qrCode = new QRCode(qrCodeData))
                     {
-                        tmp= qrCode.GetGraphic(20, Color.Black, Color.White,null, (int)0);
+                        tmp= qrCode.GetGraphic(20, Color.Black, Color.White,null, 0);
                     }
                 }
             }

@@ -7,6 +7,28 @@ using System.Windows.Forms;
 
 namespace MT_WMS
 {
+    public class ComboxItem
+    {
+        string _value;
+        string _txt;
+        public ComboxItem(string Value, string Txt)
+        {
+            _value = Value;
+            _txt = Txt;
+        }
+        /// <summary>
+        /// 获取选中的值
+        /// </summary>
+        /// <returns></returns>
+        public string Value()
+        {
+            return _value;
+        }
+        public override string ToString()
+        {
+            return _txt;
+        }
+    }
     public class DataBind
     {
         /// <summary>
@@ -25,7 +47,7 @@ namespace MT_WMS
                     {
                         if (!string.IsNullOrEmpty(dic.Key))
                         {
-                            ctr.Items.Add(dic.Key);
+                            ctr.Items.Add(new ComboxItem(dic.Value, dic.Key));
                         }
                     }
                     if (ctr.Items.Count > 0)
