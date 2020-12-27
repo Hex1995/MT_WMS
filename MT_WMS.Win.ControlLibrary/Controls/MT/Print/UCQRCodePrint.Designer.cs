@@ -29,8 +29,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
@@ -40,6 +40,12 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.jjq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -64,15 +70,9 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Dgv = new System.Windows.Forms.DataGridView();
-            this.jjq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -225,18 +225,54 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.dataGridView1.Location = new System.Drawing.Point(3, 393);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(692, 270);
             this.dataGridView1.TabIndex = 24;
+            // 
+            // jjq
+            // 
+            this.jjq.HeaderText = "机器号";
+            this.jjq.Name = "jjq";
+            this.jjq.ReadOnly = true;
+            // 
+            // tm
+            // 
+            this.tm.HeaderText = "条码";
+            this.tm.Name = "tm";
+            this.tm.ReadOnly = true;
+            // 
+            // bz
+            // 
+            this.bz.HeaderText = "班组";
+            this.bz.Name = "bz";
+            this.bz.ReadOnly = true;
+            // 
+            // pm
+            // 
+            this.pm.HeaderText = "品名";
+            this.pm.Name = "pm";
+            this.pm.ReadOnly = true;
+            // 
+            // gg
+            // 
+            this.gg.HeaderText = "规格";
+            this.gg.Name = "gg";
+            this.gg.ReadOnly = true;
+            // 
+            // zl
+            // 
+            this.zl.HeaderText = "重量";
+            this.zl.Name = "zl";
+            this.zl.ReadOnly = true;
             // 
             // label17
             // 
@@ -315,7 +351,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // iconButton7
             // 
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.EllipsisH;
             this.iconButton7.IconColor = System.Drawing.Color.Black;
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 32;
@@ -503,6 +539,19 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel3.Size = new System.Drawing.Size(579, 59);
             this.panel3.TabIndex = 2;
             // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label18.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label18.Location = new System.Drawing.Point(0, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(579, 59);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "页面消息...";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.Dgv);
@@ -525,67 +574,18 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.Dgv.Location = new System.Drawing.Point(0, 0);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv.RowTemplate.Height = 23;
             this.Dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dgv.Size = new System.Drawing.Size(579, 607);
             this.Dgv.TabIndex = 0;
-            // 
-            // jjq
-            // 
-            this.jjq.HeaderText = "机器号";
-            this.jjq.Name = "jjq";
-            this.jjq.ReadOnly = true;
-            // 
-            // tm
-            // 
-            this.tm.HeaderText = "条码";
-            this.tm.Name = "tm";
-            this.tm.ReadOnly = true;
-            // 
-            // bz
-            // 
-            this.bz.HeaderText = "班组";
-            this.bz.Name = "bz";
-            this.bz.ReadOnly = true;
-            // 
-            // pm
-            // 
-            this.pm.HeaderText = "品名";
-            this.pm.Name = "pm";
-            this.pm.ReadOnly = true;
-            // 
-            // gg
-            // 
-            this.gg.HeaderText = "规格";
-            this.gg.Name = "gg";
-            this.gg.ReadOnly = true;
-            // 
-            // zl
-            // 
-            this.zl.HeaderText = "重量";
-            this.zl.Name = "zl";
-            this.zl.ReadOnly = true;
-            // 
-            // label18
-            // 
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label18.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label18.Location = new System.Drawing.Point(0, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(579, 59);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "页面消息...";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // UCQRCodePrint
             // 

@@ -51,6 +51,7 @@ namespace MT_WMS.Win
                     GlobalSwitch.Instance.objValues.Add(item.ObjectName, arr);
                 }
             }
+
             Application.Run(new FrmMTMain());
         }
 

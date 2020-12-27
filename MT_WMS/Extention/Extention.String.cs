@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -26,7 +27,10 @@ namespace MT_WMS
         {
             return bool.Parse(str);
         }
-
+        public static Bitmap ToQrCode(this string str)
+        {
+            return QRCodeHelper.RenderQrCode(str);
+        }
         /// <summary>
         /// 转为字节数组
         /// </summary>

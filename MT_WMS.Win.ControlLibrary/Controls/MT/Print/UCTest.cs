@@ -22,10 +22,12 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         ISysObjectBusiness sys;
         private void BtnTest_Click(object sender, EventArgs e)
         {
-            var res= TestHelper.GetTest();
-            RicTxt.AppendText(res.Item1+"\r\n");
-            RicTxt.AppendText(res.Item2 + "\r\n");
-            RicTxt.AppendText(sys.GetDataList().ToJson() + "\r\n");
+            //var res= TestHelper.GetTest();
+            //RicTxt.AppendText(res.Item1+"\r\n");
+            //RicTxt.AppendText(res.Item2 + "\r\n");
+            //RicTxt.AppendText(sys.GetDataList().ToJson() + "\r\n");
+            string qrcode = RicTxt.Text;
+            pictureBox1.Image = qrcode.ToQrCode();
         }
     }
 }

@@ -31,6 +31,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         {
             this.BtnTest = new FontAwesome.Sharp.IconButton();
             this.RicTxt = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnTest
@@ -38,7 +40,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnTest.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnTest.FlatAppearance.BorderSize = 0;
             this.BtnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTest.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnTest.IconChar = FontAwesome.Sharp.IconChar.MugHot;
             this.BtnTest.IconColor = System.Drawing.Color.Black;
             this.BtnTest.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnTest.Location = new System.Drawing.Point(0, 0);
@@ -46,27 +48,39 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnTest.Size = new System.Drawing.Size(771, 89);
             this.BtnTest.TabIndex = 0;
             this.BtnTest.Text = "测试";
+            this.BtnTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnTest.UseVisualStyleBackColor = true;
             this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
             // 
             // RicTxt
             // 
             this.RicTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RicTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RicTxt.Dock = System.Windows.Forms.DockStyle.Top;
             this.RicTxt.Location = new System.Drawing.Point(0, 89);
             this.RicTxt.Name = "RicTxt";
-            this.RicTxt.Size = new System.Drawing.Size(771, 462);
+            this.RicTxt.Size = new System.Drawing.Size(771, 153);
             this.RicTxt.TabIndex = 1;
             this.RicTxt.Text = "";
             // 
-            // Test
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(3, 248);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(282, 277);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // UCTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.RicTxt);
             this.Controls.Add(this.BtnTest);
-            this.Name = "Test";
+            this.Name = "UCTest";
             this.Size = new System.Drawing.Size(771, 551);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -75,5 +89,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
 
         private FontAwesome.Sharp.IconButton BtnTest;
         private System.Windows.Forms.RichTextBox RicTxt;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
