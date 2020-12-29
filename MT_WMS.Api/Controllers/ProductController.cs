@@ -24,15 +24,28 @@ namespace MT_WMS.Api.Controllers
         [HttpPost]
         public DataTable GetProducts(List<string> filter)
         {
-            var sql = $@"
-SELECT 
+            /*
         [ProductId] as '编码'
       ,[ProductName] as '产品名称'
       ,[ProductSpec] as '规格'
       ,[ProductUnit] as '单位'
       ,[ProductType] as '类型'
+             */
+            var sql = $@"
+SELECT 
+	   [ProductId]
+      ,[ProductName]
+      ,[ProductSpec]
+      ,[ProductUnit]
+      ,[ProductTypeName]
+      ,[ProductType]
+      ,[ProductWeight]
+      ,[Barcode]
+      ,[AttributeName]
+      ,[CategoryId]
+      ,[IsTrace]
   FROM [dbo].[Part_Product]
- where 1=1 
+  where 1=1 and EnableMark=1
 ";
             foreach (var item in filter)
             {

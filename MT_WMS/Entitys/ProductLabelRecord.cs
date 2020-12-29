@@ -11,7 +11,7 @@ namespace MT_WMS.Entitys
     public class ProductLabelRecord
     {
         /// <summary>
-        /// GUID
+        /// 数据ID
         /// </summary>
         [Key]
         public string Id { get; set; }

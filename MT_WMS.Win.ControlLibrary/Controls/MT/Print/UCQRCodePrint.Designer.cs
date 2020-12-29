@@ -29,8 +29,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
@@ -39,7 +39,11 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnQuery = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
+            this.cbAuto = new System.Windows.Forms.CheckBox();
+            this.TxtPZ = new System.Windows.Forms.TextBox();
+            this.TxtMZ = new System.Windows.Forms.TextBox();
+            this.TxtZZL = new System.Windows.Forms.TextBox();
+            this.LabSerial = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.jjq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tm = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,8 +51,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.LabSpec = new System.Windows.Forms.Label();
+            this.LabName = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.cbbJyy = new System.Windows.Forms.ComboBox();
             this.cbbBz = new System.Windows.Forms.ComboBox();
@@ -60,11 +64,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.LabJz = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.LabPZ = new System.Windows.Forms.Label();
-            this.LabMZ = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.LabZZL = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -177,10 +178,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.cbAuto);
+            this.panel2.Controls.Add(this.TxtPZ);
+            this.panel2.Controls.Add(this.TxtMZ);
+            this.panel2.Controls.Add(this.TxtZZL);
+            this.panel2.Controls.Add(this.LabSerial);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.LabSpec);
+            this.panel2.Controls.Add(this.LabName);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.cbbJyy);
             this.panel2.Controls.Add(this.cbbBz);
@@ -192,11 +197,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel2.Controls.Add(this.LabJz);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.LabPZ);
-            this.panel2.Controls.Add(this.LabMZ);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.LabZZL);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
@@ -208,17 +210,68 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel2.Size = new System.Drawing.Size(698, 666);
             this.panel2.TabIndex = 1;
             // 
-            // label19
+            // cbAuto
             // 
-            this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.label19.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(391, 221);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(280, 40);
-            this.label19.TabIndex = 25;
-            this.label19.Text = "0";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbAuto.AutoSize = true;
+            this.cbAuto.Location = new System.Drawing.Point(591, 31);
+            this.cbAuto.Name = "cbAuto";
+            this.cbAuto.Size = new System.Drawing.Size(72, 16);
+            this.cbAuto.TabIndex = 29;
+            this.cbAuto.Text = "自动读取";
+            this.cbAuto.UseVisualStyleBackColor = true;
+            // 
+            // TxtPZ
+            // 
+            this.TxtPZ.BackColor = System.Drawing.Color.Black;
+            this.TxtPZ.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPZ.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.TxtPZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.TxtPZ.Location = new System.Drawing.Point(466, 91);
+            this.TxtPZ.Multiline = true;
+            this.TxtPZ.Name = "TxtPZ";
+            this.TxtPZ.Size = new System.Drawing.Size(119, 30);
+            this.TxtPZ.TabIndex = 28;
+            this.TxtPZ.Text = "0";
+            this.TxtPZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtMZ
+            // 
+            this.TxtMZ.BackColor = System.Drawing.Color.Black;
+            this.TxtMZ.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtMZ.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.TxtMZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.TxtMZ.Location = new System.Drawing.Point(324, 89);
+            this.TxtMZ.Multiline = true;
+            this.TxtMZ.Name = "TxtMZ";
+            this.TxtMZ.Size = new System.Drawing.Size(119, 32);
+            this.TxtMZ.TabIndex = 27;
+            this.TxtMZ.Text = "0";
+            this.TxtMZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtZZL
+            // 
+            this.TxtZZL.BackColor = System.Drawing.Color.Black;
+            this.TxtZZL.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtZZL.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TxtZZL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.TxtZZL.Location = new System.Drawing.Point(324, 17);
+            this.TxtZZL.Multiline = true;
+            this.TxtZZL.Name = "TxtZZL";
+            this.TxtZZL.Size = new System.Drawing.Size(261, 33);
+            this.TxtZZL.TabIndex = 26;
+            this.TxtZZL.Text = "0";
+            this.TxtZZL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // LabSerial
+            // 
+            this.LabSerial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.LabSerial.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LabSerial.ForeColor = System.Drawing.Color.Red;
+            this.LabSerial.Location = new System.Drawing.Point(383, 198);
+            this.LabSerial.Name = "LabSerial";
+            this.LabSerial.Size = new System.Drawing.Size(280, 40);
+            this.LabSerial.TabIndex = 25;
+            this.LabSerial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dataGridView1
             // 
@@ -239,14 +292,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.dataGridView1.Location = new System.Drawing.Point(3, 328);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(692, 335);
@@ -288,29 +341,29 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.zl.Name = "zl";
             this.zl.ReadOnly = true;
             // 
-            // label17
+            // LabSpec
             // 
-            this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label17.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label17.Location = new System.Drawing.Point(99, 156);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(197, 40);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "0";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LabSpec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.LabSpec.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LabSpec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.LabSpec.Location = new System.Drawing.Point(99, 156);
+            this.LabSpec.Name = "LabSpec";
+            this.LabSpec.Size = new System.Drawing.Size(197, 40);
+            this.LabSpec.TabIndex = 23;
+            this.LabSpec.Text = "0";
+            this.LabSpec.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label16
+            // LabName
             // 
-            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label16.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label16.Location = new System.Drawing.Point(99, 104);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(197, 40);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "0";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LabName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.LabName.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LabName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.LabName.Location = new System.Drawing.Point(99, 104);
+            this.LabName.Name = "LabName";
+            this.LabName.Size = new System.Drawing.Size(197, 40);
+            this.LabName.TabIndex = 22;
+            this.LabName.Text = "0";
+            this.LabName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label15
             // 
@@ -369,7 +422,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnReset.IconColor = System.Drawing.Color.Black;
             this.BtnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnReset.IconSize = 32;
-            this.BtnReset.Location = new System.Drawing.Point(599, 109);
+            this.BtnReset.Location = new System.Drawing.Point(591, 86);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(72, 40);
             this.BtnReset.TabIndex = 16;
@@ -384,7 +437,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnHistory.IconColor = System.Drawing.Color.Black;
             this.BtnHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnHistory.IconSize = 32;
-            this.BtnHistory.Location = new System.Drawing.Point(525, 274);
+            this.BtnHistory.Location = new System.Drawing.Point(517, 251);
             this.BtnHistory.Name = "BtnHistory";
             this.BtnHistory.Size = new System.Drawing.Size(146, 46);
             this.BtnHistory.TabIndex = 15;
@@ -399,7 +452,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnPrint.IconColor = System.Drawing.Color.Black;
             this.BtnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnPrint.IconSize = 32;
-            this.BtnPrint.Location = new System.Drawing.Point(332, 274);
+            this.BtnPrint.Location = new System.Drawing.Point(324, 251);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(146, 46);
             this.BtnPrint.TabIndex = 14;
@@ -413,7 +466,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.LabJz.BackColor = System.Drawing.Color.Black;
             this.LabJz.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LabJz.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.LabJz.Location = new System.Drawing.Point(392, 165);
+            this.LabJz.Location = new System.Drawing.Point(384, 142);
             this.LabJz.Name = "LabJz";
             this.LabJz.Size = new System.Drawing.Size(279, 40);
             this.LabJz.TabIndex = 13;
@@ -424,7 +477,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(329, 236);
+            this.label13.Location = new System.Drawing.Point(321, 213);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 16);
             this.label13.TabIndex = 12;
@@ -434,41 +487,17 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(329, 180);
+            this.label12.Location = new System.Drawing.Point(321, 157);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 16);
             this.label12.TabIndex = 11;
             this.label12.Text = "净重";
             // 
-            // LabPZ
-            // 
-            this.LabPZ.BackColor = System.Drawing.Color.Black;
-            this.LabPZ.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabPZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.LabPZ.Location = new System.Drawing.Point(470, 109);
-            this.LabPZ.Name = "LabPZ";
-            this.LabPZ.Size = new System.Drawing.Size(123, 40);
-            this.LabPZ.TabIndex = 10;
-            this.LabPZ.Text = "0";
-            this.LabPZ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabMZ
-            // 
-            this.LabMZ.BackColor = System.Drawing.Color.Black;
-            this.LabMZ.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabMZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.LabMZ.Location = new System.Drawing.Point(328, 109);
-            this.LabMZ.Name = "LabMZ";
-            this.LabMZ.Size = new System.Drawing.Size(123, 40);
-            this.LabMZ.TabIndex = 9;
-            this.LabMZ.Text = "0";
-            this.LabMZ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(471, 85);
+            this.label9.Location = new System.Drawing.Point(463, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 16);
             this.label9.TabIndex = 8;
@@ -478,23 +507,11 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(329, 85);
+            this.label8.Location = new System.Drawing.Point(321, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 16);
             this.label8.TabIndex = 7;
             this.label8.Text = "打印毛重";
-            // 
-            // LabZZL
-            // 
-            this.LabZZL.BackColor = System.Drawing.Color.Black;
-            this.LabZZL.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabZZL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.LabZZL.Location = new System.Drawing.Point(331, 10);
-            this.LabZZL.Name = "LabZZL";
-            this.LabZZL.Size = new System.Drawing.Size(340, 58);
-            this.LabZZL.TabIndex = 6;
-            this.LabZZL.Text = "0";
-            this.LabZZL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -590,14 +607,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.Dgv.Location = new System.Drawing.Point(0, 0);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv.RowTemplate.Height = 23;
             this.Dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dgv.Size = new System.Drawing.Size(579, 607);
@@ -644,7 +661,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label LabZZL;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private FontAwesome.Sharp.IconButton BtnReset;
@@ -653,11 +669,9 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.Label LabJz;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label LabPZ;
-        private System.Windows.Forms.Label LabMZ;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label LabSpec;
+        private System.Windows.Forms.Label LabName;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cbbJyy;
         private System.Windows.Forms.ComboBox cbbBz;
@@ -670,6 +684,10 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.DataGridViewTextBoxColumn gg;
         private System.Windows.Forms.DataGridViewTextBoxColumn zl;
         private System.Windows.Forms.Label LabMsg;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label LabSerial;
+        private System.Windows.Forms.TextBox TxtZZL;
+        private System.Windows.Forms.TextBox TxtPZ;
+        private System.Windows.Forms.TextBox TxtMZ;
+        private System.Windows.Forms.CheckBox cbAuto;
     }
 }

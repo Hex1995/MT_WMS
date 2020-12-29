@@ -64,7 +64,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         Product selectedProduct;
         #endregion
         /// <summary>
-        /// 每隔10毫秒读取秤砣数据的线程
+        /// 每隔10毫秒读取数据的线程
         /// </summary>
         Thread thread;
         IProductLabelRecordBusiness _printbus= FactoryService.BulidByConfigKey<IProductLabelRecordBusiness>("MT0002");
@@ -81,7 +81,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private void BtnReset_Click(object sender, EventArgs e)
         {
             pz = zzl;
-            RefreshLabData();
+            RefreshData();
 
         }
         private void BtnPrint_Click(object sender, EventArgs e)
@@ -95,50 +95,71 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 readcom = false;
                 mz = zzl;
                 jz = zzl - pz;
-                RefreshLabData();
+                RefreshData();
                 string ckId = ((ComboxItem)cbbCK.SelectedItem).Value();
                 string hjd = ((ComboxItem)cbbhjd.SelectedItem).Value();
 
-                //提交数据
+                //构造二维码数据
                 ProductLabelRecord data = new ProductLabelRecord()
                 {
-                    BatchId = "1",
-                    CreateDate = DateTime.Now,
-                    CreateUserId = "Admin",
-                    CreateUserName = "何旭阳",
+                    Id = Guid.NewGuid().ToString(),
+                    ProductId = selectedProduct.ProductId,
+                    //暂时用雪花ID
+                    ProductSN = IdHelper.GetSnowflakeId(1, 2).ToString(),
+                    ProductSpec = selectedProduct.ProductSpec,
+                    ProductUnit = selectedProduct.ProductUnit,
+                    ProductLength = "1000",
+                    BatchId = "test",
+
+                    //初始状态参数
+                    StatusMark = 0,
                     DeleteMark = 0,
                     EnableMark = 1,
-                    Id = Guid.NewGuid().ToString(),
+
+                    //重要输入参数绑定
                     PrintIn_StoreId = ckId,
                     StoreId = ckId,
-                    StatusMark = 0,
-                    GroWeight = mz,
                     MixDegree = hjd,
-                    Num = zzl,
+                    GroWeight = mz,
+                    Num = jz,
+                    StoreNum = jz,
+
+
+                    //其他暂时不重要
                     InStorePlaceId = "",
                     OrignBillId = "",
                     SupplierId = "",
                     SupplierName = "",
-                    StoreNum = jz,
 
+                    
+                    CreateDate = DateTime.Now,
+                    CreateUserId = "Admin",
+                    CreateUserName = "何旭阳",
 
                 };
-
                 _printbus.SaveData(data);
             }
-            
-
-
         }
         /// <summary>
-        /// 刷新相关数据
+        /// 刷新UI相关数据
         /// </summary>
-        private void RefreshLabData()
+        private void RefreshData()
         {
-            LabZZL.Text = zzl.ToString();
+            if (selectedProduct.IsNullOrEmpty())
+            {
+                LabName.Text = "";
+                LabSpec.Text = "";
+            }
+            else
+            {
+                LabName.Text = selectedProduct.ProductName;
+                LabSpec.Text = selectedProduct.ProductSpec;
+            }
+            LabSerial.Text = lsh;
+            TxtZZL.Text = zzl.ToString();
+            TxtMZ.Text = mz.ToString();
+            TxtPZ.Text = pz.ToString();
             LabJz.Text = jz.ToString();
-            LabMZ.Text = mz.ToString();
-            LabPZ.Text = pz.ToString();
             LabMsg.Text = msg;
         }
         
@@ -147,7 +168,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         /// </summary>
         private void LoopGetZzl()
         {
-            Action action = new Action(RefreshLabData);
+            Action action = new Action(RefreshData);
             while (true)
             {
                 if (readcom)
@@ -197,20 +218,23 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
 
         private void Dgv_SelectionChanged(object sender, EventArgs e)
         {
-            if (Dgv.DataSource==null&& Dgv.Rows.Count<=0)
+            var select = Dgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (select > 0)
             {
-                msg = "系统:无数据";
+                var dr = Dgv.SelectedRows[0];
+                var tmp = new Product();
+                tmp.ProductId = dr.Cells["ProductId"].Value.ToString();
+                tmp.ProductName= dr.Cells["ProductName"].Value.ToString();
+                tmp.ProductSpec = dr.Cells["ProductSpec"].Value.ToString();
+                tmp.ProductUnit = dr.Cells["ProductUnit"].Value.ToString();
+                tmp.ProductTypeName = dr.Cells["ProductTypeName"].Value.ToString();
+                tmp.ProductType = dr.Cells["ProductType"].Value.ToString();
+                tmp.Barcode = dr.Cells["Barcode"].Value.ToString();
+                selectedProduct = tmp;
             }
             else
             {
-                var select = Dgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                if (select>0)
-                {
-                    var dr = Dgv.SelectedRows[0];
-                    var tmp = new Product();
-                    
-
-                }
+                selectedProduct = null;
             }
         }
     }
