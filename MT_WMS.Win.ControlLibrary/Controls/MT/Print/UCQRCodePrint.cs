@@ -109,7 +109,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                     ProductSpec = selectedProduct.ProductSpec,
                     ProductUnit = selectedProduct.ProductUnit,
                     ProductLength = "1000",
-                    BatchId = "test",
+                    BatchId = IdHelper.GetNumber(),
 
                     //初始状态参数
                     StatusMark = 0,

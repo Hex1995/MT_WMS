@@ -16,6 +16,31 @@ namespace MT_WMS
             long id  = new SnowflakeId(datacenterId, workerId).NextId();
             return id;
         }
+        /// <summary>
+        /// 生成规则如下
+        /// yyyymmdd+team+code
+        /// </summary>
+        /// <param name="team">班组</param>
+        /// <param name="code">后缀自定义字符</param>
+        /// <returns></returns>
+        public static string GetNumber(string team="", string code="")
+        {
+            string str =$@"{ DateTime.Now.ToString("yyyyMMdd")}{team}{code}";
+            return str;
+        }
+
+    }
+    public enum IdType
+    {
+        /// <summary>
+        /// Guid
+        /// </summary>
+        Guid,
+        /// <summary>
+        /// 批次
+        /// </summary>
+        Batch,
+
     }
     /// <summary>
     /// 雪花ID
