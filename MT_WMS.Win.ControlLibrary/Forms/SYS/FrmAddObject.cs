@@ -66,8 +66,10 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
                     OBJECTVALUE = objectvalue,
                     OBJECTDESCR = objectdescr
                 };
-            }
 
+            }
+            else
+                MessageBox.Show("对象值不能为空！","值添加提醒");
         }
     }
 }
