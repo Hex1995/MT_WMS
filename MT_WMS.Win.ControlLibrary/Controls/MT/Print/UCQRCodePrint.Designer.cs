@@ -35,7 +35,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.TxtName = new System.Windows.Forms.TextBox();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.BtnQuery = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -75,6 +74,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.LabMsg = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Dgv = new System.Windows.Forms.DataGridView();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -134,21 +134,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.iconButton3.Text = "修改";
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.Location = new System.Drawing.Point(577, 53);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(94, 46);
-            this.iconButton2.TabIndex = 2;
-            this.iconButton2.Text = "新增";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
             // 
             // BtnQuery
             // 
@@ -621,6 +606,21 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.Dgv.TabIndex = 0;
             this.Dgv.SelectionChanged += new System.EventHandler(this.Dgv_SelectionChanged);
             // 
+            // iconButton2
+            // 
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 32;
+            this.iconButton2.Location = new System.Drawing.Point(577, 53);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(94, 46);
+            this.iconButton2.TabIndex = 2;
+            this.iconButton2.Text = "新增";
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
             // UCQRCodePrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -648,7 +648,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton BtnQuery;
-        private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton4;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.TextBox TxtName;
@@ -689,5 +688,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.TextBox TxtPZ;
         private System.Windows.Forms.TextBox TxtMZ;
         private System.Windows.Forms.CheckBox cbAuto;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }

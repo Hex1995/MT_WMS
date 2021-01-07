@@ -102,15 +102,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 //构造二维码数据
                 ProductLabelRecord data = new ProductLabelRecord()
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = IdHelper.GetId(IdType.Guid,"",""),
                     ProductId = selectedProduct.ProductId,
                     //暂时用雪花ID
-                    ProductSN = IdHelper.GetSnowflakeId(1, 2).ToString(),
+                    ProductSN = IdHelper.GetId(IdType.Snowflake).ToString(),
                     ProductSpec = selectedProduct.ProductSpec,
                     ProductUnit = selectedProduct.ProductUnit,
                     ProductLength = "1000",
-                    BatchId = IdHelper.GetNumber(),
-
+                    BatchId = IdHelper.GetId(IdType.Batch,"",""),
                     //初始状态参数
                     StatusMark = 0,
                     DeleteMark = 0,

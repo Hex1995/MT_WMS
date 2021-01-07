@@ -34,23 +34,24 @@ namespace MT_WMS.Win
 
             //基础数据加载
             ISysObjectBusiness sys = FactoryService.Build<ISysObjectBusiness>("MT_WMS.Business.MT.SysObjectBusiness");
-            var data = sys.GetDataList();
-            foreach (var item in data)
-            {
-                Dictionary<string, string> arr = new Dictionary<string, string>();
-                arr.Add(item.ObjectValue, item.ValueDesc);
-                if (GlobalSwitch.Instance.objValues.ContainsKey(item.ObjectName))
-                {
-                    arr = GlobalSwitch.Instance.objValues[item.ObjectName];
-                    if (!arr.ContainsKey(item.ObjectValue))
-                        arr.Add(item.ObjectValue, item.ValueDesc);
+            sys.UpdateObject();
+            //var data = sys.GetDataList();
+            //foreach (var item in data)
+            //{
+            //    Dictionary<string, string> arr = new Dictionary<string, string>();
+            //    arr.Add(item.ObjectValue, item.ValueDesc);
+            //    if (GlobalSwitch.Instance.objValues.ContainsKey(item.ObjectName))
+            //    {
+            //        arr = GlobalSwitch.Instance.objValues[item.ObjectName];
+            //        if (!arr.ContainsKey(item.ObjectValue))
+            //            arr.Add(item.ObjectValue, item.ValueDesc);
 
-                }
-                else
-                {
-                    GlobalSwitch.Instance.objValues.Add(item.ObjectName, arr);
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        GlobalSwitch.Instance.objValues.Add(item.ObjectName, arr);
+            //    }
+            //}
 
             Application.Run(new FrmMTMain());
         }

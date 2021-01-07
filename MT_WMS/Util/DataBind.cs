@@ -33,6 +33,7 @@ namespace MT_WMS
     {
         /// <summary>
         /// 初始化ComboBox的值
+        /// 指定
         /// </summary>
         /// <param name="obj">权限对象</param>
         /// <param name="ctr"></param>
@@ -55,6 +56,35 @@ namespace MT_WMS
                         ctr.SelectedIndex = 0;
                     }
                 }
+            }
+        }
+        /// <summary>
+        /// 初始化ComboBox的值
+        /// </summary>
+        /// <param name="ctr"></param>
+        public static void InitialItems(ComboBox ctr)
+        {
+            ctr.Items.Clear();
+            if (GlobalSwitch.Instance.objValues != null && GlobalSwitch.Instance.objValues.Count > 0)
+            {
+                foreach (var key in GlobalSwitch.Instance.objValues.Keys)
+                {
+                    if (GlobalSwitch.Instance.objValues.Keys.Contains(key))
+                    {
+
+                            if (!string.IsNullOrEmpty(key))
+                            {
+                                ctr.Items.Add(new ComboxItem("", key));
+                            }
+                        
+                        if (ctr.Items.Count > 0)
+                        {
+                            ctr.SelectedIndex = 0;
+                        }
+                    }
+                }
+
+
             }
         }
     }

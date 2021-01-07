@@ -26,6 +26,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             //RicTxt.AppendText(res.Item1+"\r\n");
             //RicTxt.AppendText(res.Item2 + "\r\n");
             //RicTxt.AppendText(sys.GetDataList().ToJson() + "\r\n");
+            RicTxt.Text = IdHelper.GetId(IdType.Base8);
             string qrcode = RicTxt.Text;
             pictureBox1.Image = qrcode.ToQrCode();
         }

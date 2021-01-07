@@ -7,11 +7,65 @@ namespace MT_WMS
 {
     public sealed class IdHelper
     {
+
+
+        /// <summary>
+        /// 获取相关Id
+        /// base N 和 雪花ID
+        /// </summary>
+        /// <param name="type">Id类型</param>
+        /// <param name="team">班组</param>
+        /// <param name="code">相关编码</param>
+        public static string GetId(IdType type, string team = "", string code = "")
+        {
+            long datacenterId = GlobalSwitch.Instance.datacenterId;
+            long workerId = GlobalSwitch.Instance.workerId;
+            StringBuilder builder = new StringBuilder("");
+            switch (type)
+            {
+                case IdType.Base8:
+                    builder.Append(GetBase(8));
+                    break;
+                case IdType.Base16:
+                    builder.Append(GetBase(16));
+                    break;
+                case IdType.Base32:
+                    builder.Append(GetBase(32));
+                    break;
+                case IdType.Guid:
+                    builder.Append(GetBase(0));
+                    break;
+                case IdType.Snowflake:
+                    builder.Append(GetSnowflakeId(datacenterId, workerId));
+                    break;
+                case IdType.Batch:
+                    builder.Append(GetNumber(team,code));
+                    break;
+                default:
+                    builder.Append("");
+                    break;
+            }
+            return builder.ToString();
+        }
+        private static string GetBase(int Length)
+        {
+            if (Length==0)
+            {
+                return Guid.NewGuid().ToString();
+            }
+            long i = 1;
+            foreach (byte b in Guid.NewGuid().ToByteArray())
+            {
+                i *= ((int)b + 1);
+            }
+            return string.Format("{0:x}", i - DateTime.Now.Ticks);
+        }
+
         /// <summary>
         ///  获取雪花ID
         /// </summary>
         /// <returns></returns>
-        public static long GetSnowflakeId(long datacenterId, long workerId)
+        private static long GetSnowflakeId(long datacenterId, long workerId)
         {
             long id  = new SnowflakeId(datacenterId, workerId).NextId();
             return id;
@@ -23,24 +77,40 @@ namespace MT_WMS
         /// <param name="team">班组</param>
         /// <param name="code">后缀自定义字符</param>
         /// <returns></returns>
-        public static string GetNumber(string team="", string code="")
+        private static string GetNumber(string team="", string code="")
         {
             string str =$@"{ DateTime.Now.ToString("yyyyMMdd")}{team}{code}";
             return str;
         }
 
+        
     }
     public enum IdType
     {
+        /// <summary>
+        /// 基础Id，8位
+        /// </summary>
+        Base8,
+        /// <summary>
+        /// 基础Id，16位
+        /// </summary>
+        Base16,
+        /// <summary>
+        /// 基础Id，32位
+        /// </summary>
+        Base32,
         /// <summary>
         /// Guid
         /// </summary>
         Guid,
         /// <summary>
+        /// 雪花ID
+        /// </summary>
+        Snowflake,
+        /// <summary>
         /// 批次
         /// </summary>
         Batch,
-
     }
     /// <summary>
     /// 雪花ID

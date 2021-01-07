@@ -92,6 +92,12 @@
     <Compile Include="Forms\FrmMask.Designer.cs">
       <DependentUpon>FrmMask.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SYS\FrmAddObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SYS\FrmAddObject.Designer.cs">
+      <DependentUpon>FrmAddObject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -117,6 +123,9 @@
     <EmbeddedResource Include="Forms\FrmMask.resx">
       <DependentUpon>FrmMask.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SYS\FrmAddObject.resx">
+      <DependentUpon>FrmAddObject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -131,6 +140,9 @@
       <Project>{4556bbe8-c8f6-4fd3-84ae-764db53be190}</Project>
       <Name>MT_WMS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\SYS\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

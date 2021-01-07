@@ -73,6 +73,16 @@ namespace MT_WMS
                 }
             }
         }
+        /// <summary>
+        /// 雪花Id相关
+        /// 数据中心
+        /// </summary>
+        public long datacenterId = 0;
+        /// <summary>
+        /// 雪花Id相关
+        /// 工作Id
+        /// </summary>
+        public long workerId = 0;
 
         public  Dictionary<string, Dictionary<string, string>> objValues = new Dictionary<string, Dictionary<string, string>>();
         #region 缓存相关
@@ -105,5 +115,7 @@ namespace MT_WMS
             return CacheDictionary.ContainsKey(key);
         }
         #endregion
+
+
     }
 }

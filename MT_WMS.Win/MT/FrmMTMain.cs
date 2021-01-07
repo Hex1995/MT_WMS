@@ -1,6 +1,7 @@
 ﻿using DevComponents.DotNetBar;
 using MT_WMS.IBusiness;
 using MT_WMS.Win.ControlLibrary.Controls.MT.Print;
+using MT_WMS.Win.ControlLibrary.Forms.SYS;
 using MT_WMS.Win.Test;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,12 @@ namespace MT_WMS.Win.MT
         private void Model_QRCodePrint_Test_Click(object sender, EventArgs e)
         {
             UIHelper.Instance.AddControl("测试", new UCTest(), this.tabControl1);
+        }
+
+        private void buttonItem1_Click(object sender, EventArgs e)
+        {
+            FrmAddObject add = new FrmAddObject();
+            add.ShowDialog();
         }
     }
 }

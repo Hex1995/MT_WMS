@@ -14,6 +14,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms
 {
     public partial class BaseFrm : DialogSkinForm
     {
+
         public BaseFrm()
         {
             InitializeComponent();

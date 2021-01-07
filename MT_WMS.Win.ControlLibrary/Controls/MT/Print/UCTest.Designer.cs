@@ -64,7 +64,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 248);
+            this.pictureBox1.Location = new System.Drawing.Point(240, 248);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(282, 277);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

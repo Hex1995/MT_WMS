@@ -172,6 +172,7 @@ namespace MT_WMS.Win.MT
             this.buttonItem1.Name = "buttonItem1";
             this.buttonItem1.SubItemsExpandWidth = 14;
             this.buttonItem1.Text = "buttonItem1";
+            this.buttonItem1.Click += new System.EventHandler(this.buttonItem1_Click);
             // 
             // ribbonPanel2
             // 
