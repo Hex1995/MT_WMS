@@ -34,6 +34,7 @@ namespace MT_WMS.Business.MT
         #region 数据更新
         public void UpdateObject()
         {
+            GlobalSwitch.Instance.objValues.Clear();
             var data = GetDataList();
             foreach (var item in data)
             {

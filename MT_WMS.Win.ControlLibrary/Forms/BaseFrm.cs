@@ -18,6 +18,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms
         public BaseFrm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         /// <summary>
         /// 窗体开启双缓冲

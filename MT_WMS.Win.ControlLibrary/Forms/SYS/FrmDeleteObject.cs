@@ -35,16 +35,18 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
                 };
                 TrvObject.Nodes.Add(t);
             }
+            _object.UpdateObject();
 
         }
         void RefreshValueData()
         {
+            TrvObjectValue.Nodes.Clear();
             var node = TrvObject.SelectedNode;
-            if (node.Tag.ToString().IsNullOrEmpty())
-                objectdata.Clear();
+            if (node.IsNullOrEmpty())
+                valuedata.Clear();
             else
             {
-                
+                valuedata = _value.GetDataListByObjectid(node.Tag.ToString());
                 foreach (var item in valuedata)
                 {
                     TreeNode t = new TreeNode()
@@ -56,6 +58,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
                     TrvObjectValue.Nodes.Add(t);
                 }
             }
+            _object.UpdateObject();
 
 
         }
@@ -118,7 +121,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             var data =  ids.Count>0? _value.DeleteData(ids):0;
             if (data > 0)
             {
-                TrvObjectValue.Nodes.Clear();
+                RefreshValueData();
                 MessageBox.Show($"删除{data}条数据\n\r{str.ToString()}","删除提醒");
             }
             else
