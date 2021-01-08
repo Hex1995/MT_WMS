@@ -113,7 +113,7 @@
     <Compile Include="Util\FactoryService.cs" />
     <Compile Include="Util\IdInputDTO.cs" />
     <Compile Include="Util\Logger.cs" />
-    <Compile Include="Util\BuildBitmap.cs" />
+    <Compile Include="Util\BuildBitmapUtil.cs" />
     <Compile Include="Util\SearchEngineUtil.cs" />
     <Compile Include="Util\UserObjects.cs" />
   </ItemGroup>
