@@ -73,7 +73,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         {
             var name = TxtName.Text;
             List<string> filter = new List<string>();
-            filter.Add($"ProductName like'%{name}%'");
+            filter.Add($"and ProductName like'%{name}%'");
             Dgv.DataSource = _bus.GetProducts(filter);
 
         }
@@ -137,6 +137,11 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
 
                 };
                 _printbus.SaveData(data);
+                //打印
+                PicPreview.Image = data.ProductSN.ToQrCode();
+                List<string> filter = new List<string>();
+                filter.Add(" order by a.CreateDate desc");
+                DgvLs.DataSource= _printbus.GetTableTop10(filter);
             }
         }
         /// <summary>
@@ -228,7 +233,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 tmp.ProductUnit = dr.Cells["ProductUnit"].Value.ToString();
                 tmp.ProductTypeName = dr.Cells["ProductTypeName"].Value.ToString();
                 tmp.ProductType = dr.Cells["ProductType"].Value.ToString();
-                tmp.Barcode = dr.Cells["Barcode"].Value.ToString();
                 selectedProduct = tmp;
             }
             else

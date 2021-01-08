@@ -17,11 +17,6 @@ namespace MT_WMS.Api.Controllers
     {
         private MTDbContext db = new MTDbContext();
 
-        // GET: api/ProductLabelRecord
-        public IQueryable<ProductLabelRecord> GetProductLabelRecord()
-        {
-            return db.ProductLabelRecord;
-        }
         [HttpPost]
         public int SaveData(ProductLabelRecord theData)
         {
@@ -37,98 +32,27 @@ namespace MT_WMS.Api.Controllers
             }
 
         }
-        // GET: api/ProductLabelRecord/5
-        [ResponseType(typeof(ProductLabelRecord))]
-        public IHttpActionResult GetProductLabelRecord(string id)
+        [HttpPost]
+        public DataTable GetTableTop10(List<string> filter)
         {
-            ProductLabelRecord productLabelRecord = db.ProductLabelRecord.Find(id);
-            if (productLabelRecord == null)
+            var sql = $@"
+  SELECT TOP 10
+  a.ProductSN,
+  b.ProductId,
+ a.ProductSpec,
+  b.ProductName,
+ a.Num,
+  a.MixDegree,
+  a.GroWeight
+  FROM [dbo].[Part_ProductLabelRecord] as a 
+  inner join [dbo].[Part_Product] as b on a.ProductId=b.ProductId 
+ where 1=1
+";
+            foreach (var item in filter)
             {
-                return NotFound();
+                sql += $" {item} ";
             }
-
-            return Ok(productLabelRecord);
-        }
-
-        // PUT: api/ProductLabelRecord/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutProductLabelRecord(string id, ProductLabelRecord productLabelRecord)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != productLabelRecord.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(productLabelRecord).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductLabelRecordExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/ProductLabelRecord
-        [ResponseType(typeof(ProductLabelRecord))]
-        public IHttpActionResult PostProductLabelRecord(ProductLabelRecord productLabelRecord)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.ProductLabelRecord.Add(productLabelRecord);
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (ProductLabelRecordExists(productLabelRecord.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = productLabelRecord.Id }, productLabelRecord);
-        }
-
-        // DELETE: api/ProductLabelRecord/5
-        [ResponseType(typeof(ProductLabelRecord))]
-        public IHttpActionResult DeleteProductLabelRecord(string id)
-        {
-            ProductLabelRecord productLabelRecord = db.ProductLabelRecord.Find(id);
-            if (productLabelRecord == null)
-            {
-                return NotFound();
-            }
-
-            db.ProductLabelRecord.Remove(productLabelRecord);
-            db.SaveChanges();
-
-            return Ok(productLabelRecord);
+            return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
         }
 
         protected override void Dispose(bool disposing)

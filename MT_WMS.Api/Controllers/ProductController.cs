@@ -40,16 +40,12 @@ SELECT
       ,[ProductTypeName]
       ,[ProductType]
       ,[ProductWeight]
-      ,[Barcode]
-      ,[AttributeName]
-      ,[CategoryId]
-      ,[IsTrace]
   FROM [dbo].[Part_Product]
-  where 1=1 and EnableMark=1
+  where 1=1 and EnableMark=1 
 ";
             foreach (var item in filter)
             {
-                sql += $" and {item} ";
+                sql += $" {item} ";
             }
             return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
         }
