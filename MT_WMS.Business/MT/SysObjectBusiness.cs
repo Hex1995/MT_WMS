@@ -58,6 +58,14 @@ namespace MT_WMS.Business.MT
             ActionUrl = "GetAllData";
             return HttpHelper.HttpData(GetUrl()).ToList<SYSOBJECT>();
         }
+
+        public int GetValueCount(string id)
+        {
+            ActionUrl = "GetValueCount";
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("id", id);
+            return HttpHelper.HttpData(GetUrl(),"GET",dic).ToInt();
+        }
         #endregion
     }
 }

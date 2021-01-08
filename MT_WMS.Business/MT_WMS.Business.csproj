@@ -47,6 +47,7 @@
     <Compile Include="MT\ProductBusiness.cs" />
     <Compile Include="MT\ProductLabelRecordBusiness.cs" />
     <Compile Include="MT\SysObjectBusiness.cs" />
+    <Compile Include="MT\SysObjectValueBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

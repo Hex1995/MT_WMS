@@ -93,5 +93,17 @@ namespace MT_WMS.Business
             var res = HttpHelper.HttpData(GetUrl(),HttpMethod:"POST", dic: dic,Parameter:theData.ToJson());// HttpGetService( dic, GetUrl());
             return int.Parse(res);
         }
+        public int DeleteData(List<string> ids)
+        {
+            ActionUrl = "DeleteData";
+            return DeleteData(ids, ActionUrl);
+        }
+        public int DeleteData(List<string> ids,string ActionUrl)
+        {
+            this.ActionUrl = ActionUrl;
+            var dic = new Dictionary<string, string>();
+            var res = HttpHelper.HttpData(GetUrl(), HttpMethod: "POST", dic: dic, Parameter: ids.ToJson());// HttpGetService( dic, GetUrl());
+            return int.Parse(res);
+        }
     }
 }

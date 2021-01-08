@@ -198,7 +198,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.ClientSize = new System.Drawing.Size(400, 400);
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmAddObject";
-            this.Text = "增加系统对象";
+            this.Text = "增加字典对象";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

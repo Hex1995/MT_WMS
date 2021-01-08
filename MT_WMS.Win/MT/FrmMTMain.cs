@@ -43,5 +43,17 @@ namespace MT_WMS.Win.MT
             FrmAddObject add = new FrmAddObject();
             add.ShowDialog();
         }
+
+        private void BtnObjectAdd_Click(object sender, EventArgs e)
+        {
+            FrmAddObject add = new FrmAddObject();
+            add.ShowDialog();
+        }
+
+        private void BtnObjectDelete_Click(object sender, EventArgs e)
+        {
+            FrmDeleteObject delete = new FrmDeleteObject();
+            delete.ShowDialog();
+        }
     }
 }

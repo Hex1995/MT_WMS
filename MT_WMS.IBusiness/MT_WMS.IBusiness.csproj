@@ -46,6 +46,7 @@
     <Compile Include="IProductBusiness.cs" />
     <Compile Include="IProductLabelRecordBusiness.cs" />
     <Compile Include="ISysObjectBusiness.cs" />
+    <Compile Include="ISysObjectValueBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

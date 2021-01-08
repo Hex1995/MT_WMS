@@ -14,5 +14,7 @@ namespace MT_WMS.IBusiness
         bool UserObjectsExistsByName(string name);
         void UpdateObject();
         List<SYSOBJECT> GetAllData();
+        int GetValueCount(string id);
+        int DeleteData(List<string> ids);
     }
 }

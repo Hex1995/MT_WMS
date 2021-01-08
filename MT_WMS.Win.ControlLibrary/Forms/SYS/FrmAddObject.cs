@@ -17,20 +17,24 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
         public FrmAddObject()
         {
             InitializeComponent();
+            RefreshData();
+        }
+        ISysObjectBusiness _sys = FactoryService.BulidByConfigKey<ISysObjectBusiness>("SYS0001");
+        ISysObjectValueBusiness _value = FactoryService.BulidByConfigKey<ISysObjectValueBusiness>("SYS0002");
+        private void RefreshData()
+        {
             var data = _sys.GetAllData();
             cbbObject.Items.Clear();
 
             foreach (var item in data)
             {
-                cbbObject.Items.Add(new ComboxItem(item.OBJECTID,item.OBJECTNAME));
+                cbbObject.Items.Add(new ComboxItem(item.OBJECTID, item.OBJECTNAME));
             }
-            if (data.Count>0)
+            if (data.Count > 0)
             {
                 cbbObject.SelectedIndex = 0;
             }
         }
-        ISysObjectBusiness _sys= FactoryService.BulidByConfigKey<ISysObjectBusiness>("SYS0001");
-
         private void BtnAddObject_Click(object sender, EventArgs e)
         {
             var name = TxtObjectName.Text.Trim();
@@ -47,7 +51,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
                         OBJECTNAME = name
                     };
                     _sys.SaveData(sys);
-                    _sys.UpdateObject();
+                    RefreshData();
                 }
             }
 
@@ -66,7 +70,14 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
                     OBJECTVALUE = objectvalue,
                     OBJECTDESCR = objectdescr
                 };
-
+                var save = _value.SaveData(values) == 1;
+                if (save)
+                {
+                    MessageBox.Show("添加成功！", "值添加提醒");
+                    _sys.UpdateObject();
+                }
+                else
+                    MessageBox.Show("当前值对象下不可重复添加！", "值添加提醒");
             }
             else
                 MessageBox.Show("对象值不能为空！","值添加提醒");
