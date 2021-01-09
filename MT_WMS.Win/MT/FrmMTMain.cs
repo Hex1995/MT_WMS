@@ -55,5 +55,11 @@ namespace MT_WMS.Win.MT
             FrmDeleteObject delete = new FrmDeleteObject();
             delete.ShowDialog();
         }
+
+        private void BtnObject_Click(object sender, EventArgs e)
+        {
+            FrmPreviewObject preiew = new FrmPreviewObject();
+            preiew.ShowDialog();
+        }
     }
 }
