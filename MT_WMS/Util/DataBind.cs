@@ -9,12 +9,12 @@ namespace MT_WMS
 {
     public class ComboxItem
     {
-        string _value;
-        string _txt;
-        public ComboxItem(string Value, string Txt)
+        string _objectvalue;
+        string _objectdescr;
+        public ComboxItem(string ObjectValue, string ObjectDescr)
         {
-            _value = Value;
-            _txt = Txt;
+            _objectvalue = ObjectValue;
+            _objectdescr = ObjectDescr;
         }
         /// <summary>
         /// 获取选中的值
@@ -22,11 +22,11 @@ namespace MT_WMS
         /// <returns></returns>
         public string Value()
         {
-            return _value;
+            return _objectvalue;
         }
         public override string ToString()
         {
-            return _txt;
+            return _objectdescr;
         }
     }
     public class DataBind
@@ -48,7 +48,7 @@ namespace MT_WMS
                     {
                         if (!string.IsNullOrEmpty(dic.Key))
                         {
-                            ctr.Items.Add(new ComboxItem(dic.Value, dic.Key));
+                            ctr.Items.Add(new ComboxItem(dic.Key, dic.Value));
                         }
                     }
                     if (ctr.Items.Count > 0)
@@ -56,35 +56,6 @@ namespace MT_WMS
                         ctr.SelectedIndex = 0;
                     }
                 }
-            }
-        }
-        /// <summary>
-        /// 初始化ComboBox的值
-        /// </summary>
-        /// <param name="ctr"></param>
-        public static void InitialItems(ComboBox ctr)
-        {
-            ctr.Items.Clear();
-            if (GlobalSwitch.Instance.objValues != null && GlobalSwitch.Instance.objValues.Count > 0)
-            {
-                foreach (var key in GlobalSwitch.Instance.objValues.Keys)
-                {
-                    if (GlobalSwitch.Instance.objValues.Keys.Contains(key))
-                    {
-
-                            if (!string.IsNullOrEmpty(key))
-                            {
-                                ctr.Items.Add(new ComboxItem("", key));
-                            }
-                        
-                        if (ctr.Items.Count > 0)
-                        {
-                            ctr.SelectedIndex = 0;
-                        }
-                    }
-                }
-
-
             }
         }
     }

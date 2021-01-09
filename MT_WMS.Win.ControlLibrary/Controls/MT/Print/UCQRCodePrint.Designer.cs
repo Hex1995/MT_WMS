@@ -29,9 +29,11 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PicPreview = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -44,7 +46,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.TxtMZ = new System.Windows.Forms.TextBox();
             this.TxtZZL = new System.Windows.Forms.TextBox();
             this.LabSerial = new System.Windows.Forms.Label();
-            this.DgvLs = new System.Windows.Forms.DataGridView();
             this.LabSpec = new System.Windows.Forms.Label();
             this.LabName = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -76,23 +77,22 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvLs = new System.Windows.Forms.DataGridView();
             this.PId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Team = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MixDegree = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jzl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.PicPreview = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicPreview)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicPreview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -110,6 +110,26 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1277, 180);
             this.panel1.TabIndex = 0;
+            // 
+            // PicPreview
+            // 
+            this.PicPreview.BackColor = System.Drawing.Color.Transparent;
+            this.PicPreview.Location = new System.Drawing.Point(889, 3);
+            this.PicPreview.Name = "PicPreview";
+            this.PicPreview.Size = new System.Drawing.Size(352, 174);
+            this.PicPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicPreview.TabIndex = 13;
+            this.PicPreview.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(843, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 16);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "预览";
             // 
             // TxtName
             // 
@@ -192,12 +212,12 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.DgvLs);
             this.panel2.Controls.Add(this.cbAuto);
             this.panel2.Controls.Add(this.TxtPZ);
             this.panel2.Controls.Add(this.TxtMZ);
             this.panel2.Controls.Add(this.TxtZZL);
             this.panel2.Controls.Add(this.LabSerial);
-            this.panel2.Controls.Add(this.DgvLs);
             this.panel2.Controls.Add(this.LabSpec);
             this.panel2.Controls.Add(this.LabName);
             this.panel2.Controls.Add(this.label15);
@@ -286,40 +306,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.LabSerial.Size = new System.Drawing.Size(280, 40);
             this.LabSerial.TabIndex = 25;
             this.LabSerial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // DgvLs
-            // 
-            this.DgvLs.AllowUserToAddRows = false;
-            this.DgvLs.AllowUserToDeleteRows = false;
-            this.DgvLs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvLs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(248)))));
-            this.DgvLs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvLs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvLs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PId,
-            this.tm,
-            this.bz,
-            this.pm,
-            this.gg,
-            this.MixDegree,
-            this.zl,
-            this.jzl});
-            this.DgvLs.GridColor = System.Drawing.Color.MediumSpringGreen;
-            this.DgvLs.Location = new System.Drawing.Point(3, 316);
-            this.DgvLs.Name = "DgvLs";
-            this.DgvLs.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.DgvLs.RowTemplate.Height = 23;
-            this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvLs.Size = new System.Drawing.Size(747, 347);
-            this.DgvLs.TabIndex = 24;
             // 
             // LabSpec
             // 
@@ -595,14 +581,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.Dgv.Location = new System.Drawing.Point(0, 0);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv.RowTemplate.Height = 23;
             this.Dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dgv.Size = new System.Drawing.Size(524, 568);
@@ -658,6 +644,43 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductWeight.Name = "ProductWeight";
             this.ProductWeight.ReadOnly = true;
             // 
+            // DgvLs
+            // 
+            this.DgvLs.AllowUserToAddRows = false;
+            this.DgvLs.AllowUserToDeleteRows = false;
+            this.DgvLs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgvLs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvLs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(248)))));
+            this.DgvLs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvLs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvLs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PId,
+            this.tm,
+            this.Team,
+            this.pm,
+            this.gg,
+            this.MixDegree,
+            this.zl,
+            this.jzl});
+            this.DgvLs.GridColor = System.Drawing.Color.MediumSpringGreen;
+            this.DgvLs.Location = new System.Drawing.Point(3, 321);
+            this.DgvLs.Name = "DgvLs";
+            this.DgvLs.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvLs.RowTemplate.Height = 23;
+            this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvLs.Size = new System.Drawing.Size(747, 303);
+            this.DgvLs.TabIndex = 30;
+            // 
             // PId
             // 
             this.PId.DataPropertyName = "ProductId";
@@ -672,11 +695,12 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.tm.Name = "tm";
             this.tm.ReadOnly = true;
             // 
-            // bz
+            // Team
             // 
-            this.bz.HeaderText = "班组";
-            this.bz.Name = "bz";
-            this.bz.ReadOnly = true;
+            this.Team.DataPropertyName = "Team";
+            this.Team.HeaderText = "班组";
+            this.Team.Name = "Team";
+            this.Team.ReadOnly = true;
             // 
             // pm
             // 
@@ -713,26 +737,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.jzl.Name = "jzl";
             this.jzl.ReadOnly = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(843, 13);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "预览";
-            // 
-            // PicPreview
-            // 
-            this.PicPreview.BackColor = System.Drawing.Color.Transparent;
-            this.PicPreview.Location = new System.Drawing.Point(889, 3);
-            this.PicPreview.Name = "PicPreview";
-            this.PicPreview.Size = new System.Drawing.Size(352, 174);
-            this.PicPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicPreview.TabIndex = 13;
-            this.PicPreview.TabStop = false;
-            // 
             // UCQRCodePrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -745,13 +749,13 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.Size = new System.Drawing.Size(1277, 807);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicPreview)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicPreview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -781,7 +785,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.Label LabJz;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView DgvLs;
         private System.Windows.Forms.Label LabSpec;
         private System.Windows.Forms.Label LabName;
         private System.Windows.Forms.Label label15;
@@ -803,15 +806,16 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductWeight;
+        private System.Windows.Forms.PictureBox PicPreview;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView DgvLs;
         private System.Windows.Forms.DataGridViewTextBoxColumn PId;
         private System.Windows.Forms.DataGridViewTextBoxColumn tm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Team;
         private System.Windows.Forms.DataGridViewTextBoxColumn pm;
         private System.Windows.Forms.DataGridViewTextBoxColumn gg;
         private System.Windows.Forms.DataGridViewTextBoxColumn MixDegree;
         private System.Windows.Forms.DataGridViewTextBoxColumn zl;
         private System.Windows.Forms.DataGridViewTextBoxColumn jzl;
-        private System.Windows.Forms.PictureBox PicPreview;
-        private System.Windows.Forms.Label label7;
     }
 }

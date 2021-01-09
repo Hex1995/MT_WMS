@@ -37,11 +37,11 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.BtnObjectValueSave = new FontAwesome.Sharp.IconButton();
             this.TxtObjectDescr = new System.Windows.Forms.TextBox();
-            this.TxtObjectValue = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbbObject = new System.Windows.Forms.ComboBox();
+            this.labObjectValue = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -106,9 +106,9 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.labObjectValue);
             this.tabPage2.Controls.Add(this.BtnObjectValueSave);
             this.tabPage2.Controls.Add(this.TxtObjectDescr);
-            this.tabPage2.Controls.Add(this.TxtObjectValue);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label2);
@@ -143,13 +143,6 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.TxtObjectDescr.Name = "TxtObjectDescr";
             this.TxtObjectDescr.Size = new System.Drawing.Size(193, 21);
             this.TxtObjectDescr.TabIndex = 25;
-            // 
-            // TxtObjectValue
-            // 
-            this.TxtObjectValue.Location = new System.Drawing.Point(163, 140);
-            this.TxtObjectValue.Name = "TxtObjectValue";
-            this.TxtObjectValue.Size = new System.Drawing.Size(193, 21);
-            this.TxtObjectValue.TabIndex = 24;
             // 
             // label4
             // 
@@ -191,6 +184,15 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.cbbObject.Size = new System.Drawing.Size(193, 27);
             this.cbbObject.TabIndex = 20;
             // 
+            // labObjectValue
+            // 
+            this.labObjectValue.AutoSize = true;
+            this.labObjectValue.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold);
+            this.labObjectValue.Location = new System.Drawing.Point(160, 140);
+            this.labObjectValue.Name = "labObjectValue";
+            this.labObjectValue.Size = new System.Drawing.Size(0, 14);
+            this.labObjectValue.TabIndex = 27;
+            // 
             // FrmAddObject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -219,9 +221,9 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
         private System.Windows.Forms.ComboBox cbbObject;
         private FontAwesome.Sharp.IconButton BtnObjectValueSave;
         private System.Windows.Forms.TextBox TxtObjectDescr;
-        private System.Windows.Forms.TextBox TxtObjectValue;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labObjectValue;
     }
 }

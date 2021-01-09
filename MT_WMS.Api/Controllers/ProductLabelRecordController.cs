@@ -40,12 +40,16 @@ namespace MT_WMS.Api.Controllers
   a.ProductSN,
   b.ProductId,
  a.ProductSpec,
+ c.OBJECTDESCR as Team,
+ d.OBJECTDESCR as Quality,
   b.ProductName,
  a.Num,
   a.MixDegree,
   a.GroWeight
   FROM [dbo].[Part_ProductLabelRecord] as a 
-  inner join [dbo].[Part_Product] as b on a.ProductId=b.ProductId 
+  inner join [Part_Product] as b on a.ProductId=b.ProductId 
+  left join [SYS_OBJECT_VALUE] as c on a.TeamId=c.OBJECTVALUE
+  left join [SYS_OBJECT_VALUE] as d on a.QualityId=d.OBJECTVALUE
  where 1=1
 ";
             foreach (var item in filter)

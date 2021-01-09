@@ -53,7 +53,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
                     {
                         Name = item.OBJECTVALUE,
                         Tag = item.PKID,
-                        Text = item.OBJECTVALUE
+                        Text = item.OBJECTDESCR
                     };
                     TrvObjectValue.Nodes.Add(t);
                 }

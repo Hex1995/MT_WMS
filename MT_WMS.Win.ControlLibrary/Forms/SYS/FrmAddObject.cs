@@ -18,6 +18,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
         {
             InitializeComponent();
             RefreshData();
+            labObjectValue.Text = IdHelper.GetId(IdType.Base16);
         }
         ISysObjectBusiness _sys = FactoryService.BulidByConfigKey<ISysObjectBusiness>("SYS0001");
         ISysObjectValueBusiness _value = FactoryService.BulidByConfigKey<ISysObjectValueBusiness>("SYS0002");
@@ -60,9 +61,9 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
         private void BtnObjectValueSave_Click(object sender, EventArgs e)
         {
             var Select = (ComboxItem)cbbObject.SelectedItem;
-            var objectvalue = TxtObjectValue.Text.Trim();
+            var objectvalue = labObjectValue.Text.Trim();
             var objectdescr = TxtObjectDescr.Text.Trim();
-            if (!objectvalue.IsNullOrEmpty())
+            if (!objectdescr.IsNullOrEmpty())
             {
                 SYSOBJECTVALUE values = new SYSOBJECTVALUE()
                 {
@@ -73,14 +74,20 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
                 var save = _value.SaveData(values) == 1;
                 if (save)
                 {
+                    labObjectValue.Text = IdHelper.GetId(IdType.Base16);
+                    TxtObjectDescr.Text = "";
                     MessageBox.Show("添加成功！", "值添加提醒");
                     _sys.UpdateObject();
                 }
                 else
-                    MessageBox.Show("当前值对象下不可重复添加！", "值添加提醒");
+                {
+                    TxtObjectDescr.SelectAll();
+                    MessageBox.Show("当前值对象下不可重复添加相同的描述内容！", "值添加提醒");
+                }
+                    
             }
             else
-                MessageBox.Show("对象值不能为空！","值添加提醒");
+                MessageBox.Show("对象值描述不能为空！","值添加提醒");
         }
     }
 }

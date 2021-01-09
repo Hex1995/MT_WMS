@@ -68,7 +68,7 @@ namespace MT_WMS.Win.MT
             // 
             this.Model_QRCodePrint_Test.Name = "Model_QRCodePrint_Test";
             this.Model_QRCodePrint_Test.SubItemsExpandWidth = 14;
-            this.Model_QRCodePrint_Test.Text = "元组测试";
+            this.Model_QRCodePrint_Test.Text = "二维码测试";
             this.Model_QRCodePrint_Test.Click += new System.EventHandler(this.Model_QRCodePrint_Test_Click);
             // 
             // BtnObjectAdd
@@ -122,8 +122,8 @@ namespace MT_WMS.Win.MT
             // 
             // 
             this.ribbonControl1.BackgroundStyle.Class = "";
-            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Controls.Add(this.ribbonPanel1);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.Model_QRCodePrint,
@@ -162,6 +162,7 @@ namespace MT_WMS.Win.MT
             // 
             this.ribbonPanel2.StyleMouseOver.Class = "";
             this.ribbonPanel2.TabIndex = 2;
+            this.ribbonPanel2.Visible = false;
             // 
             // ribbonBar2
             // 
@@ -217,7 +218,6 @@ namespace MT_WMS.Win.MT
             // 
             this.ribbonPanel1.StyleMouseOver.Class = "";
             this.ribbonPanel1.TabIndex = 1;
-            this.ribbonPanel1.Visible = false;
             // 
             // ribbonBar1
             // 
@@ -252,13 +252,13 @@ namespace MT_WMS.Win.MT
             // 
             // Model_QRCodePrint
             // 
+            this.Model_QRCodePrint.Checked = true;
             this.Model_QRCodePrint.Name = "Model_QRCodePrint";
             this.Model_QRCodePrint.Panel = this.ribbonPanel1;
             this.Model_QRCodePrint.Text = "二维码打印";
             // 
             // ribbonTabItem2
             // 
-            this.ribbonTabItem2.Checked = true;
             this.ribbonTabItem2.Name = "ribbonTabItem2";
             this.ribbonTabItem2.Panel = this.ribbonPanel2;
             this.ribbonTabItem2.Text = "系统相关";

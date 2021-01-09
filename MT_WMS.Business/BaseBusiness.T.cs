@@ -18,7 +18,7 @@ namespace MT_WMS.Business
         /// <summary>
         /// 数据请求Http基础链接
         /// </summary>
-        private readonly string BaseUrl = "http://localhost/mt/api";
+        private readonly string BaseUrl = ConfigHelper.GetKeyValue("URL001") ;
 
 
         /// <summary>

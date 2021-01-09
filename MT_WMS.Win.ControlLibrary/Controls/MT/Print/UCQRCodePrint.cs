@@ -96,9 +96,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 mz = zzl;
                 jz = zzl - pz;
                 RefreshData();
-                string ckId = ((ComboxItem)cbbCK.SelectedItem).Value();
-                string hjd = ((ComboxItem)cbbhjd.SelectedItem).Value();
-
+                //仓库ID
+                string StoreId = ((ComboxItem)cbbCK.SelectedItem).IsNullOrEmpty()?"": ((ComboxItem)cbbCK.SelectedItem).Value();
+                //班组
+                string teamId = ((ComboxItem)cbbBz.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbBz.SelectedItem).Value();
+                //合金度
+                string MixDegree =((ComboxItem)cbbhjd.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbhjd.SelectedItem).ToString();
+                //质检员
+                string QualityId = ((ComboxItem)cbbJyy.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbJyy.SelectedItem).Value();
                 //构造二维码数据
                 ProductLabelRecord data = new ProductLabelRecord()
                 {
@@ -116,13 +121,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                     EnableMark = 1,
 
                     //重要输入参数绑定
-                    PrintIn_StoreId = ckId,
-                    StoreId = ckId,
-                    MixDegree = hjd,
+                    PrintIn_StoreId = StoreId,
+                    StoreId = StoreId,
+                    MixDegree = MixDegree,
                     GroWeight = mz,
                     Num = jz,
                     StoreNum = jz,
-
+                    TeamId=teamId,
+                    QualityId=QualityId,
 
                     //其他暂时不重要
                     InStorePlaceId = "",
@@ -134,6 +140,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                     CreateDate = DateTime.Now,
                     CreateUserId = "Admin",
                     CreateUserName = "何旭阳",
+
 
                 };
                 _printbus.SaveData(data);

@@ -15,7 +15,7 @@ namespace MT_WMS.Api.Controllers
         [HttpPost]
         public int SaveData(SYSOBJECTVALUE theData)
         {
-            var t=  db.SYSOBJECTVALUES.Count(x => x.OBJECTID == theData.OBJECTID && x.OBJECTVALUE == theData.OBJECTVALUE) > 0 ?  null: db.SYSOBJECTVALUES.Add(theData);
+            var t=  db.SYSOBJECTVALUES.Count(x => x.OBJECTID == theData.OBJECTID && x.OBJECTDESCR==theData.OBJECTDESCR) > 0 ?  null: db.SYSOBJECTVALUES.Add(theData);
             return db.SaveChanges();
         }
         [HttpGet]

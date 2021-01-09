@@ -20,6 +20,14 @@ namespace MT_WMS.Entitys
         /// </summary>
         public string ProductSN { get; set; }
         /// <summary>
+        /// 班组Id
+        /// </summary>
+        public string TeamId { get; set; }
+        /// <summary>
+        /// 质检员Id
+        /// </summary>
+        public string QualityId { get; set; }
+        /// <summary>
         /// 批次ID
         /// </summary>
         public string BatchId { get; set; }
