@@ -53,6 +53,9 @@
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="HZH_Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HZH_Controls.1.0.14\lib\net40\HZH_Controls.dll</HintPath>
+    </Reference>
     <Reference Include="StyleWinForm">
       <HintPath>..\dll\StyleWinForm.dll</HintPath>
     </Reference>
@@ -68,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\MT\Print\FrmHistoryPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\MT\Print\FrmHistoryPrint.Designer.cs">
+      <DependentUpon>FrmHistoryPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MT\Print\UCTest.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +132,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\MT\Print\FrmHistoryPrint.resx">
+      <DependentUpon>FrmHistoryPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\MT\Print\UCTest.resx">
       <DependentUpon>UCTest.cs</DependentUpon>
     </EmbeddedResource>

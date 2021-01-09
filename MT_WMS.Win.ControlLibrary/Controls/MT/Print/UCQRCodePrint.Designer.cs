@@ -29,8 +29,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PicPreview = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnQuery = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DgvLs = new System.Windows.Forms.DataGridView();
             this.cbAuto = new System.Windows.Forms.CheckBox();
             this.TxtPZ = new System.Windows.Forms.TextBox();
             this.TxtMZ = new System.Windows.Forms.TextBox();
@@ -77,22 +78,22 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DgvLs = new System.Windows.Forms.DataGridView();
             this.PId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Team = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MixDegree = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quality = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jzl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPreview)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -243,6 +244,44 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(753, 627);
             this.panel2.TabIndex = 1;
+            // 
+            // DgvLs
+            // 
+            this.DgvLs.AllowUserToAddRows = false;
+            this.DgvLs.AllowUserToDeleteRows = false;
+            this.DgvLs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgvLs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvLs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(248)))));
+            this.DgvLs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvLs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvLs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PId,
+            this.tm,
+            this.Team,
+            this.pm,
+            this.gg,
+            this.MixDegree,
+            this.quality,
+            this.zl,
+            this.jzl});
+            this.DgvLs.GridColor = System.Drawing.Color.MediumSpringGreen;
+            this.DgvLs.Location = new System.Drawing.Point(3, 321);
+            this.DgvLs.Name = "DgvLs";
+            this.DgvLs.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvLs.RowTemplate.Height = 23;
+            this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvLs.Size = new System.Drawing.Size(747, 303);
+            this.DgvLs.TabIndex = 30;
             // 
             // cbAuto
             // 
@@ -644,43 +683,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductWeight.Name = "ProductWeight";
             this.ProductWeight.ReadOnly = true;
             // 
-            // DgvLs
-            // 
-            this.DgvLs.AllowUserToAddRows = false;
-            this.DgvLs.AllowUserToDeleteRows = false;
-            this.DgvLs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DgvLs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvLs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(248)))));
-            this.DgvLs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvLs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvLs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PId,
-            this.tm,
-            this.Team,
-            this.pm,
-            this.gg,
-            this.MixDegree,
-            this.zl,
-            this.jzl});
-            this.DgvLs.GridColor = System.Drawing.Color.MediumSpringGreen;
-            this.DgvLs.Location = new System.Drawing.Point(3, 321);
-            this.DgvLs.Name = "DgvLs";
-            this.DgvLs.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DgvLs.RowTemplate.Height = 23;
-            this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvLs.Size = new System.Drawing.Size(747, 303);
-            this.DgvLs.TabIndex = 30;
-            // 
             // PId
             // 
             this.PId.DataPropertyName = "ProductId";
@@ -723,6 +725,13 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.MixDegree.Name = "MixDegree";
             this.MixDegree.ReadOnly = true;
             // 
+            // quality
+            // 
+            this.quality.DataPropertyName = "Quality";
+            this.quality.HeaderText = "质检";
+            this.quality.Name = "quality";
+            this.quality.ReadOnly = true;
+            // 
             // zl
             // 
             this.zl.DataPropertyName = "GroWeight";
@@ -752,10 +761,10 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             ((System.ComponentModel.ISupportInitialize)(this.PicPreview)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -815,6 +824,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.DataGridViewTextBoxColumn pm;
         private System.Windows.Forms.DataGridViewTextBoxColumn gg;
         private System.Windows.Forms.DataGridViewTextBoxColumn MixDegree;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quality;
         private System.Windows.Forms.DataGridViewTextBoxColumn zl;
         private System.Windows.Forms.DataGridViewTextBoxColumn jzl;
     }
