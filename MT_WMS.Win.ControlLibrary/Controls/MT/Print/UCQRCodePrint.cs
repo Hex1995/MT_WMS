@@ -247,5 +247,11 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 selectedProduct = null;
             }
         }
+
+        private void BtnHistory_Click(object sender, EventArgs e)
+        {
+            FrmHistoryPrint frmHistory = new FrmHistoryPrint();
+            frmHistory.ShowDialog();
+        }
     }
 }
