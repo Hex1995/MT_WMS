@@ -100,6 +100,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 string StoreId = ((ComboxItem)cbbCK.SelectedItem).IsNullOrEmpty()?"": ((ComboxItem)cbbCK.SelectedItem).Value();
                 //班组
                 string teamId = ((ComboxItem)cbbBz.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbBz.SelectedItem).Value();
+                //班组字符
+                string teamStr = ((ComboxItem)cbbBz.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbBz.SelectedItem).ToString();
                 //合金度
                 string MixDegree =((ComboxItem)cbbhjd.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbhjd.SelectedItem).ToString();
                 //质检员
@@ -114,7 +116,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                     ProductSpec = selectedProduct.ProductSpec,
                     ProductUnit = selectedProduct.ProductUnit,
                     ProductLength = "1000",
-                    BatchId = IdHelper.GetId(IdType.Batch,"",""),
+                    BatchId = IdHelper.GetId(IdType.Batch, teamStr, ""),
                     //初始状态参数
                     StatusMark = 0,
                     DeleteMark = 0,
@@ -170,6 +172,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             TxtZZL.Text = zzl.ToString();
             TxtMZ.Text = mz.ToString();
             TxtPZ.Text = pz.ToString();
+            if (jz<0)
+            {
+                LabJz.ForeColor = Color.Red;
+            }
+            else
+            {
+                LabJz.ForeColor = Color.FromArgb(0, 192, 0);
+            }
             LabJz.Text = jz.ToString();
             LabMsg.Text = msg;
         }

@@ -41,7 +41,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ucDatePickerExt1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ucDatePickerExt1.IsRadius = true;
             this.ucDatePickerExt1.IsShowRect = true;
-            this.ucDatePickerExt1.Location = new System.Drawing.Point(106, 40);
+            this.ucDatePickerExt1.Location = new System.Drawing.Point(154, 40);
             this.ucDatePickerExt1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucDatePickerExt1.Name = "ucDatePickerExt1";
             this.ucDatePickerExt1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);

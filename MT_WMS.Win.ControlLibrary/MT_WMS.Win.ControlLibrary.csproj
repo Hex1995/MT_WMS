@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\MT\Print\FrmAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\MT\Print\FrmAddProduct.Designer.cs">
+      <DependentUpon>FrmAddProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MT\Print\FrmHistoryPrint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\MT\Print\FrmAddProduct.resx">
+      <DependentUpon>FrmAddProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\MT\Print\FrmHistoryPrint.resx">
       <DependentUpon>FrmHistoryPrint.cs</DependentUpon>
     </EmbeddedResource>

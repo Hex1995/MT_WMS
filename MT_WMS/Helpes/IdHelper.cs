@@ -79,7 +79,7 @@ namespace MT_WMS
         /// <returns></returns>
         private static string GetNumber(string team="", string code="")
         {
-            string str =$@"{ DateTime.Now.ToString("yyyyMMdd")}{team}{code}";
+            string str =$@"{ DateTime.Now.ToString("yyyyMMdd")}-{team}{code}";
             return str;
         }
 

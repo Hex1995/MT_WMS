@@ -84,7 +84,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
                 valuedata.Clear();
                 valuedata.AddRange(_value.GetDataListByObjectid(objectid));
                 RefreshValueData();
-                label2.Text = $"【{e.Node.Text}】对象值";
+                label2.Text = $"【{e.Node.Text}】对象值描述";
             }
         }
         //删除对象

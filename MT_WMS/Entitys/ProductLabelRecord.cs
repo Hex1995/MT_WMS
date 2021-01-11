@@ -32,6 +32,10 @@ namespace MT_WMS.Entitys
         /// </summary>
         public string BatchId { get; set; }
         /// <summary>
+        /// 流水号
+        /// </summary>
+        public string SerialNumber { get; set; }
+        /// <summary>
         /// 源头单号
         /// </summary>
         public string OrignBillId { get; set; }

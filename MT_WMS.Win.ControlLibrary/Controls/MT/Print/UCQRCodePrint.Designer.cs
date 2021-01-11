@@ -29,8 +29,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PicPreview = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,6 +42,15 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DgvLs = new System.Windows.Forms.DataGridView();
+            this.PId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Team = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MixDegree = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jzl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbAuto = new System.Windows.Forms.CheckBox();
             this.TxtPZ = new System.Windows.Forms.TextBox();
             this.TxtMZ = new System.Windows.Forms.TextBox();
@@ -78,15 +87,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Team = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MixDegree = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jzl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPreview)).BeginInit();
             this.panel2.SuspendLayout();
@@ -109,15 +109,15 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1277, 180);
+            this.panel1.Size = new System.Drawing.Size(1277, 77);
             this.panel1.TabIndex = 0;
             // 
             // PicPreview
             // 
             this.PicPreview.BackColor = System.Drawing.Color.Transparent;
-            this.PicPreview.Location = new System.Drawing.Point(889, 3);
+            this.PicPreview.Location = new System.Drawing.Point(902, 3);
             this.PicPreview.Name = "PicPreview";
-            this.PicPreview.Size = new System.Drawing.Size(352, 174);
+            this.PicPreview.Size = new System.Drawing.Size(69, 71);
             this.PicPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicPreview.TabIndex = 13;
             this.PicPreview.TabStop = false;
@@ -135,7 +135,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // TxtName
             // 
             this.TxtName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TxtName.Location = new System.Drawing.Point(79, 67);
+            this.TxtName.Location = new System.Drawing.Point(79, 23);
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(211, 26);
             this.TxtName.TabIndex = 5;
@@ -147,7 +147,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.iconButton4.IconColor = System.Drawing.Color.Black;
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 32;
-            this.iconButton4.Location = new System.Drawing.Point(743, 57);
+            this.iconButton4.Location = new System.Drawing.Point(743, 13);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(94, 46);
             this.iconButton4.TabIndex = 4;
@@ -162,7 +162,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 32;
-            this.iconButton3.Location = new System.Drawing.Point(614, 57);
+            this.iconButton3.Location = new System.Drawing.Point(614, 13);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(94, 46);
             this.iconButton3.TabIndex = 3;
@@ -177,7 +177,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 32;
-            this.iconButton2.Location = new System.Drawing.Point(485, 57);
+            this.iconButton2.Location = new System.Drawing.Point(485, 13);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(94, 46);
             this.iconButton2.TabIndex = 2;
@@ -192,7 +192,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnQuery.IconColor = System.Drawing.Color.Black;
             this.BtnQuery.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnQuery.IconSize = 32;
-            this.BtnQuery.Location = new System.Drawing.Point(356, 57);
+            this.BtnQuery.Location = new System.Drawing.Point(356, 13);
             this.BtnQuery.Name = "BtnQuery";
             this.BtnQuery.Size = new System.Drawing.Size(94, 46);
             this.BtnQuery.TabIndex = 1;
@@ -205,7 +205,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(17, 70);
+            this.label1.Location = new System.Drawing.Point(17, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 0;
@@ -240,9 +240,9 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(524, 180);
+            this.panel2.Location = new System.Drawing.Point(524, 77);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(753, 627);
+            this.panel2.Size = new System.Drawing.Size(753, 730);
             this.panel2.TabIndex = 1;
             // 
             // DgvLs
@@ -270,18 +270,81 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.DgvLs.Location = new System.Drawing.Point(3, 321);
             this.DgvLs.Name = "DgvLs";
             this.DgvLs.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvLs.RowTemplate.Height = 23;
             this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvLs.Size = new System.Drawing.Size(747, 303);
+            this.DgvLs.Size = new System.Drawing.Size(747, 406);
             this.DgvLs.TabIndex = 30;
+            // 
+            // PId
+            // 
+            this.PId.DataPropertyName = "ProductId";
+            this.PId.HeaderText = "物料编号";
+            this.PId.Name = "PId";
+            this.PId.ReadOnly = true;
+            // 
+            // tm
+            // 
+            this.tm.DataPropertyName = "ProductSN";
+            this.tm.HeaderText = "条码";
+            this.tm.Name = "tm";
+            this.tm.ReadOnly = true;
+            // 
+            // Team
+            // 
+            this.Team.DataPropertyName = "Team";
+            this.Team.HeaderText = "班组";
+            this.Team.Name = "Team";
+            this.Team.ReadOnly = true;
+            // 
+            // pm
+            // 
+            this.pm.DataPropertyName = "ProductName";
+            this.pm.HeaderText = "品名";
+            this.pm.Name = "pm";
+            this.pm.ReadOnly = true;
+            // 
+            // gg
+            // 
+            this.gg.DataPropertyName = "ProductSpec";
+            this.gg.HeaderText = "规格";
+            this.gg.Name = "gg";
+            this.gg.ReadOnly = true;
+            // 
+            // MixDegree
+            // 
+            this.MixDegree.DataPropertyName = "MixDegree";
+            this.MixDegree.HeaderText = "合金度";
+            this.MixDegree.Name = "MixDegree";
+            this.MixDegree.ReadOnly = true;
+            // 
+            // quality
+            // 
+            this.quality.DataPropertyName = "Quality";
+            this.quality.HeaderText = "质检";
+            this.quality.Name = "quality";
+            this.quality.ReadOnly = true;
+            // 
+            // zl
+            // 
+            this.zl.DataPropertyName = "GroWeight";
+            this.zl.HeaderText = "毛重";
+            this.zl.Name = "zl";
+            this.zl.ReadOnly = true;
+            // 
+            // jzl
+            // 
+            this.jzl.DataPropertyName = "Num";
+            this.jzl.HeaderText = "净重";
+            this.jzl.Name = "jzl";
+            this.jzl.ReadOnly = true;
             // 
             // cbAuto
             // 
@@ -595,9 +658,9 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.panel4.Controls.Add(this.Dgv);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 180);
+            this.panel4.Location = new System.Drawing.Point(0, 77);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(524, 568);
+            this.panel4.Size = new System.Drawing.Size(524, 671);
             this.panel4.TabIndex = 3;
             // 
             // Dgv
@@ -621,17 +684,17 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.Dgv.Location = new System.Drawing.Point(0, 0);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv.RowTemplate.Height = 23;
             this.Dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dgv.Size = new System.Drawing.Size(524, 568);
+            this.Dgv.Size = new System.Drawing.Size(524, 671);
             this.Dgv.TabIndex = 0;
             this.Dgv.SelectionChanged += new System.EventHandler(this.Dgv_SelectionChanged);
             // 
@@ -683,69 +746,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductWeight.HeaderText = "产品重量";
             this.ProductWeight.Name = "ProductWeight";
             this.ProductWeight.ReadOnly = true;
-            // 
-            // PId
-            // 
-            this.PId.DataPropertyName = "ProductId";
-            this.PId.HeaderText = "物料编号";
-            this.PId.Name = "PId";
-            this.PId.ReadOnly = true;
-            // 
-            // tm
-            // 
-            this.tm.DataPropertyName = "ProductSN";
-            this.tm.HeaderText = "条码";
-            this.tm.Name = "tm";
-            this.tm.ReadOnly = true;
-            // 
-            // Team
-            // 
-            this.Team.DataPropertyName = "Team";
-            this.Team.HeaderText = "班组";
-            this.Team.Name = "Team";
-            this.Team.ReadOnly = true;
-            // 
-            // pm
-            // 
-            this.pm.DataPropertyName = "ProductName";
-            this.pm.HeaderText = "品名";
-            this.pm.Name = "pm";
-            this.pm.ReadOnly = true;
-            // 
-            // gg
-            // 
-            this.gg.DataPropertyName = "ProductSpec";
-            this.gg.HeaderText = "规格";
-            this.gg.Name = "gg";
-            this.gg.ReadOnly = true;
-            // 
-            // MixDegree
-            // 
-            this.MixDegree.DataPropertyName = "MixDegree";
-            this.MixDegree.HeaderText = "合金度";
-            this.MixDegree.Name = "MixDegree";
-            this.MixDegree.ReadOnly = true;
-            // 
-            // quality
-            // 
-            this.quality.DataPropertyName = "Quality";
-            this.quality.HeaderText = "质检";
-            this.quality.Name = "quality";
-            this.quality.ReadOnly = true;
-            // 
-            // zl
-            // 
-            this.zl.DataPropertyName = "GroWeight";
-            this.zl.HeaderText = "毛重";
-            this.zl.Name = "zl";
-            this.zl.ReadOnly = true;
-            // 
-            // jzl
-            // 
-            this.jzl.DataPropertyName = "Num";
-            this.jzl.HeaderText = "净重";
-            this.jzl.Name = "jzl";
-            this.jzl.ReadOnly = true;
             // 
             // UCQRCodePrint
             // 
