@@ -96,7 +96,10 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
 
                 readcom = false;
 
-
+                string zzlStr = TxtZZL.Text.Trim();
+                string mzStr = TxtMZ.Text.Trim();
+                string pzStr = TxtPZ.Text.Trim();
+                string jzStr = LabJz.Text.Trim();
 
                 mz = zzl;
                 jz = zzl - pz;
@@ -293,12 +296,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
 
         private void BtnHistory_Click(object sender, EventArgs e)
         {
+            msg = "历史打印...";
             FrmHistoryPrint frmHistory = new FrmHistoryPrint();
             frmHistory.ShowDialog();
         }
 
         private void BtnAddProduct_Click(object sender, EventArgs e)
         {
+            msg = "产品添加...";
             FrmAddProduct addProduct = new FrmAddProduct();
             addProduct.ShowDialog();
         }
@@ -306,9 +311,17 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private void cbAuto_CheckedChanged(object sender, EventArgs e)
         {
             if (cbAuto.Checked == true)
+            {
                 readcom = true;
+                msg = "自动获取磅秤信息...";
+            }
+
             else
+            {
                 readcom = false;
+                msg = "手动录入重量...";
+            }
+
         }
     }
 }

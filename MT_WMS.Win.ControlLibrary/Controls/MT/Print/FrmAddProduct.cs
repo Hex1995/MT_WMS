@@ -16,19 +16,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         public FrmAddProduct()
         {
             InitializeComponent();
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                Dispose();
-            }
         }
     }
 }

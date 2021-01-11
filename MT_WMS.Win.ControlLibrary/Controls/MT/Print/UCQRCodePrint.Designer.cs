@@ -285,7 +285,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvLs.RowTemplate.Height = 23;
             this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvLs.Size = new System.Drawing.Size(747, 430);
+            this.DgvLs.Size = new System.Drawing.Size(750, 433);
             this.DgvLs.TabIndex = 30;
             // 
             // PId
