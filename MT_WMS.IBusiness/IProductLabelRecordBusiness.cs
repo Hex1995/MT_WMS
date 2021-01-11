@@ -12,5 +12,11 @@ namespace MT_WMS.IBusiness
     {
         int SaveData(ProductLabelRecord theData);
         DataTable GetTableTop10(List<string> filter);
+        /// <summary>
+        /// 获取流水号
+        /// </summary>
+        /// <param name="filter">查询条件</param>
+        /// <returns></returns>
+        int GetSwiftNumber(List<string> filter);
     }
 }

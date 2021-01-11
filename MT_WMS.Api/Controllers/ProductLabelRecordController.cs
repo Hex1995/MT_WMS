@@ -58,7 +58,25 @@ namespace MT_WMS.Api.Controllers
             }
             return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
         }
-
+        [HttpPost]
+        public int GetSwiftNumber(List<string> filter)
+        {
+            var sql = $@"
+  SELECT TOP 1
+    SwiftNumber
+  FROM [dbo].[Part_ProductLabelRecord]
+ where 1=1
+";
+            foreach (var item in filter)
+            {
+                sql += $" {item} ";
+            }
+            var tb = SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
+            if (tb.Rows.Count > 0)
+                return tb.Rows[0]["SwiftNumber"].ToString().ToInt()+1;
+            else
+                return 1;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

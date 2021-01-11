@@ -13,6 +13,12 @@ namespace MT_WMS.Business.MT
     {
         protected override string RouteUrl => "ProductLabelRecord";
 
+        public int GetSwiftNumber(List<string> filter)
+        {
+            ActionUrl = "GetSwiftNumber";
+            return HttpHelper.HttpData(GetUrl(), "POST", new Dictionary<string, string>(), filter.ToJson()).ToInt();
+        }
+
         public DataTable GetTableTop10(List<string> filter)
         {
             ActionUrl = "GetTableTop10";

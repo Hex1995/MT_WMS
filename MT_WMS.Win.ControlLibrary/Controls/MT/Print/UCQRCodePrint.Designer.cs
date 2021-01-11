@@ -37,7 +37,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.TxtName = new System.Windows.Forms.TextBox();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.BtnAddProduct = new FontAwesome.Sharp.IconButton();
             this.BtnQuery = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -87,6 +87,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbbJqh = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPreview)).BeginInit();
             this.panel2.SuspendLayout();
@@ -103,7 +105,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel1.Controls.Add(this.TxtName);
             this.panel1.Controls.Add(this.iconButton4);
             this.panel1.Controls.Add(this.iconButton3);
-            this.panel1.Controls.Add(this.iconButton2);
+            this.panel1.Controls.Add(this.BtnAddProduct);
             this.panel1.Controls.Add(this.BtnQuery);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -115,9 +117,9 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // PicPreview
             // 
             this.PicPreview.BackColor = System.Drawing.Color.Transparent;
-            this.PicPreview.Location = new System.Drawing.Point(902, 3);
+            this.PicPreview.Location = new System.Drawing.Point(889, 0);
             this.PicPreview.Name = "PicPreview";
-            this.PicPreview.Size = new System.Drawing.Size(69, 71);
+            this.PicPreview.Size = new System.Drawing.Size(83, 77);
             this.PicPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicPreview.TabIndex = 13;
             this.PicPreview.TabStop = false;
@@ -170,20 +172,21 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
             // 
-            // iconButton2
+            // BtnAddProduct
             // 
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.Location = new System.Drawing.Point(485, 13);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(94, 46);
-            this.iconButton2.TabIndex = 2;
-            this.iconButton2.Text = "新增";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.BtnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAddProduct.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.BtnAddProduct.IconColor = System.Drawing.Color.Black;
+            this.BtnAddProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnAddProduct.IconSize = 32;
+            this.BtnAddProduct.Location = new System.Drawing.Point(485, 13);
+            this.BtnAddProduct.Name = "BtnAddProduct";
+            this.BtnAddProduct.Size = new System.Drawing.Size(94, 46);
+            this.BtnAddProduct.TabIndex = 2;
+            this.BtnAddProduct.Text = "新增";
+            this.BtnAddProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAddProduct.UseVisualStyleBackColor = true;
+            this.BtnAddProduct.Click += new System.EventHandler(this.BtnAddProduct_Click);
             // 
             // BtnQuery
             // 
@@ -213,6 +216,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cbbJqh);
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.DgvLs);
             this.panel2.Controls.Add(this.cbAuto);
             this.panel2.Controls.Add(this.TxtPZ);
@@ -267,7 +272,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.zl,
             this.jzl});
             this.DgvLs.GridColor = System.Drawing.Color.MediumSpringGreen;
-            this.DgvLs.Location = new System.Drawing.Point(3, 321);
+            this.DgvLs.Location = new System.Drawing.Point(3, 297);
             this.DgvLs.Name = "DgvLs";
             this.DgvLs.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -280,7 +285,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvLs.RowTemplate.Height = 23;
             this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvLs.Size = new System.Drawing.Size(747, 406);
+            this.DgvLs.Size = new System.Drawing.Size(747, 430);
             this.DgvLs.TabIndex = 30;
             // 
             // PId
@@ -349,12 +354,16 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // cbAuto
             // 
             this.cbAuto.AutoSize = true;
-            this.cbAuto.Location = new System.Drawing.Point(645, 24);
+            this.cbAuto.Checked = true;
+            this.cbAuto.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbAuto.Font = new System.Drawing.Font("宋体", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbAuto.Location = new System.Drawing.Point(626, 17);
             this.cbAuto.Name = "cbAuto";
-            this.cbAuto.Size = new System.Drawing.Size(72, 16);
+            this.cbAuto.Size = new System.Drawing.Size(108, 23);
             this.cbAuto.TabIndex = 29;
             this.cbAuto.Text = "自动读取";
             this.cbAuto.UseVisualStyleBackColor = true;
+            this.cbAuto.CheckedChanged += new System.EventHandler(this.cbAuto_CheckedChanged);
             // 
             // TxtPZ
             // 
@@ -362,7 +371,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.TxtPZ.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtPZ.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
             this.TxtPZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.TxtPZ.Location = new System.Drawing.Point(520, 84);
+            this.TxtPZ.Location = new System.Drawing.Point(501, 85);
             this.TxtPZ.Multiline = true;
             this.TxtPZ.Name = "TxtPZ";
             this.TxtPZ.Size = new System.Drawing.Size(119, 30);
@@ -376,7 +385,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.TxtMZ.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtMZ.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
             this.TxtMZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.TxtMZ.Location = new System.Drawing.Point(378, 82);
+            this.TxtMZ.Location = new System.Drawing.Point(359, 83);
             this.TxtMZ.Multiline = true;
             this.TxtMZ.Name = "TxtMZ";
             this.TxtMZ.Size = new System.Drawing.Size(119, 32);
@@ -390,7 +399,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.TxtZZL.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtZZL.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TxtZZL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.TxtZZL.Location = new System.Drawing.Point(378, 10);
+            this.TxtZZL.Location = new System.Drawing.Point(359, 11);
             this.TxtZZL.Multiline = true;
             this.TxtZZL.Name = "TxtZZL";
             this.TxtZZL.Size = new System.Drawing.Size(261, 33);
@@ -403,41 +412,42 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.LabSerial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.LabSerial.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LabSerial.ForeColor = System.Drawing.Color.Red;
-            this.LabSerial.Location = new System.Drawing.Point(437, 191);
+            this.LabSerial.Location = new System.Drawing.Point(418, 192);
             this.LabSerial.Name = "LabSerial";
             this.LabSerial.Size = new System.Drawing.Size(280, 40);
             this.LabSerial.TabIndex = 25;
-            this.LabSerial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LabSerial.Text = "123";
+            this.LabSerial.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabSpec
             // 
             this.LabSpec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.LabSpec.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LabSpec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.LabSpec.Location = new System.Drawing.Point(131, 158);
+            this.LabSpec.Location = new System.Drawing.Point(131, 130);
             this.LabSpec.Name = "LabSpec";
-            this.LabSpec.Size = new System.Drawing.Size(197, 40);
+            this.LabSpec.Size = new System.Drawing.Size(197, 31);
             this.LabSpec.TabIndex = 23;
             this.LabSpec.Text = "0";
-            this.LabSpec.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LabSpec.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabName
             // 
             this.LabName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.LabName.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LabName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.LabName.Location = new System.Drawing.Point(131, 106);
+            this.LabName.Location = new System.Drawing.Point(131, 89);
             this.LabName.Name = "LabName";
-            this.LabName.Size = new System.Drawing.Size(197, 40);
+            this.LabName.Size = new System.Drawing.Size(197, 31);
             this.LabName.TabIndex = 22;
             this.LabName.Text = "0";
-            this.LabName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LabName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(65, 173);
+            this.label15.Location = new System.Drawing.Point(65, 140);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(40, 16);
             this.label15.TabIndex = 21;
@@ -448,7 +458,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.cbbJyy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbJyy.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbbJyy.FormattingEnabled = true;
-            this.cbbJyy.Location = new System.Drawing.Point(135, 272);
+            this.cbbJyy.Location = new System.Drawing.Point(135, 264);
             this.cbbJyy.Name = "cbbJyy";
             this.cbbJyy.Size = new System.Drawing.Size(193, 27);
             this.cbbJyy.TabIndex = 20;
@@ -458,7 +468,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.cbbBz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbBz.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbbBz.FormattingEnabled = true;
-            this.cbbBz.Location = new System.Drawing.Point(135, 220);
+            this.cbbBz.Location = new System.Drawing.Point(135, 177);
             this.cbbBz.Name = "cbbBz";
             this.cbbBz.Size = new System.Drawing.Size(193, 27);
             this.cbbBz.TabIndex = 19;
@@ -468,7 +478,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.cbbhjd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbhjd.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbbhjd.FormattingEnabled = true;
-            this.cbbhjd.Location = new System.Drawing.Point(135, 64);
+            this.cbbhjd.Location = new System.Drawing.Point(135, 50);
             this.cbbhjd.Name = "cbbhjd";
             this.cbbhjd.Size = new System.Drawing.Size(193, 27);
             this.cbbhjd.TabIndex = 18;
@@ -490,7 +500,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnReset.IconColor = System.Drawing.Color.Black;
             this.BtnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnReset.IconSize = 32;
-            this.BtnReset.Location = new System.Drawing.Point(645, 79);
+            this.BtnReset.Location = new System.Drawing.Point(626, 80);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(72, 40);
             this.BtnReset.TabIndex = 16;
@@ -505,7 +515,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnHistory.IconColor = System.Drawing.Color.Black;
             this.BtnHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnHistory.IconSize = 32;
-            this.BtnHistory.Location = new System.Drawing.Point(571, 244);
+            this.BtnHistory.Location = new System.Drawing.Point(552, 245);
             this.BtnHistory.Name = "BtnHistory";
             this.BtnHistory.Size = new System.Drawing.Size(146, 46);
             this.BtnHistory.TabIndex = 15;
@@ -521,7 +531,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnPrint.IconColor = System.Drawing.Color.Black;
             this.BtnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnPrint.IconSize = 32;
-            this.BtnPrint.Location = new System.Drawing.Point(378, 244);
+            this.BtnPrint.Location = new System.Drawing.Point(359, 245);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(146, 46);
             this.BtnPrint.TabIndex = 14;
@@ -535,7 +545,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.LabJz.BackColor = System.Drawing.Color.Black;
             this.LabJz.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LabJz.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.LabJz.Location = new System.Drawing.Point(438, 135);
+            this.LabJz.Location = new System.Drawing.Point(419, 136);
             this.LabJz.Name = "LabJz";
             this.LabJz.Size = new System.Drawing.Size(279, 40);
             this.LabJz.TabIndex = 13;
@@ -546,7 +556,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(375, 206);
+            this.label13.Location = new System.Drawing.Point(356, 207);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 16);
             this.label13.TabIndex = 12;
@@ -556,7 +566,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(375, 150);
+            this.label12.Location = new System.Drawing.Point(356, 151);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 16);
             this.label12.TabIndex = 11;
@@ -566,7 +576,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(517, 55);
+            this.label9.Location = new System.Drawing.Point(498, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 16);
             this.label9.TabIndex = 8;
@@ -576,7 +586,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(375, 55);
+            this.label8.Location = new System.Drawing.Point(356, 56);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 16);
             this.label8.TabIndex = 7;
@@ -586,7 +596,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(65, 277);
+            this.label6.Location = new System.Drawing.Point(65, 269);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 16);
             this.label6.TabIndex = 5;
@@ -596,7 +606,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(65, 225);
+            this.label5.Location = new System.Drawing.Point(65, 182);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 16);
             this.label5.TabIndex = 4;
@@ -606,7 +616,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(65, 69);
+            this.label4.Location = new System.Drawing.Point(65, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 3;
@@ -616,7 +626,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(65, 121);
+            this.label3.Location = new System.Drawing.Point(65, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 16);
             this.label3.TabIndex = 2;
@@ -747,6 +757,26 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductWeight.Name = "ProductWeight";
             this.ProductWeight.ReadOnly = true;
             // 
+            // cbbJqh
+            // 
+            this.cbbJqh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbJqh.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbbJqh.FormattingEnabled = true;
+            this.cbbJqh.Location = new System.Drawing.Point(135, 220);
+            this.cbbJqh.Name = "cbbJqh";
+            this.cbbJqh.Size = new System.Drawing.Size(193, 27);
+            this.cbbJqh.TabIndex = 32;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(65, 225);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 16);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "机器号";
+            // 
             // UCQRCodePrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -808,7 +838,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.TextBox TxtPZ;
         private System.Windows.Forms.TextBox TxtMZ;
         private System.Windows.Forms.CheckBox cbAuto;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton BtnAddProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductSpec;
@@ -828,5 +858,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.DataGridViewTextBoxColumn quality;
         private System.Windows.Forms.DataGridViewTextBoxColumn zl;
         private System.Windows.Forms.DataGridViewTextBoxColumn jzl;
+        private System.Windows.Forms.ComboBox cbbJqh;
+        private System.Windows.Forms.Label label10;
     }
 }

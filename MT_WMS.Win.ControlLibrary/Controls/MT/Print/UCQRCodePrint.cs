@@ -24,6 +24,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             DataBind.InitialItems("班组", cbbBz);
             DataBind.InitialItems("合金度", cbbhjd);
             DataBind.InitialItems("检验员", cbbJyy);
+            DataBind.InitialItems("机器号", cbbJqh);
             Dgv.DataSource = _bus.GetProducts(new List<string>());
             thread = new Thread(LoopGetZzl);
             thread.IsBackground = true;
@@ -57,7 +58,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         /// <summary>
         /// 系统消息
         /// </summary>
-        string msg = "系统消息....";
+        string msg ="系统消息...";
         /// <summary>
         /// 选中的产品
         /// </summary>
@@ -88,14 +89,18 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         {
             if (selectedProduct.IsNullOrEmpty())
             {
-                msg = "系统：不能打印空物料";
+                msg = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}系统：不能打印空物料";
             }
             else
             {
+
                 readcom = false;
+
+
+
                 mz = zzl;
                 jz = zzl - pz;
-                RefreshData();
+
                 //仓库ID
                 string StoreId = ((ComboxItem)cbbCK.SelectedItem).IsNullOrEmpty()?"": ((ComboxItem)cbbCK.SelectedItem).Value();
                 //班组
@@ -106,17 +111,39 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 string MixDegree =((ComboxItem)cbbhjd.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbhjd.SelectedItem).ToString();
                 //质检员
                 string QualityId = ((ComboxItem)cbbJyy.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbJyy.SelectedItem).Value();
+                //机器号
+                string MachineNumber= ((ComboxItem)cbbJqh.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbJyy.SelectedItem).Value();
+
+                string ProductSN = "";
+
+                #region 获取流水号
+
+                List<string> filter1 = new List<string>();
+                filter1.Add($"and ProductId ='{selectedProduct.ProductId}'");
+                filter1.Add($"and TeamId ='{teamId}'");
+                filter1.Add($"and CreateDate between '{DateTime.Now.ToShortDateString()} 0:00:00' and '{DateTime.Now.ToShortDateString()} 23:59:59'");
+                filter1.Add($"order by SwiftNumber DESC");
+                var ls = _printbus.GetSwiftNumber(filter1);
+                lsh = IdHelper.GetId(IdType.Batch, teamStr, ls.ToString().PadLeft(3,'0'));
+                //条码生成规则
+                ProductSN = $"{lsh}-{IdHelper.GetId(IdType.Base8)}";
+                #endregion
+                //
+                RefreshData();
                 //构造二维码数据
                 ProductLabelRecord data = new ProductLabelRecord()
                 {
-                    Id = IdHelper.GetId(IdType.Guid,"",""),
-                    ProductId = selectedProduct.ProductId,
+                    Id = IdHelper.GetId(IdType.Guid, "", ""),
+                    ProductSN = ProductSN,
+                    SwiftNumber = ls,
+                    SwiftNumberStr = lsh,
                     //暂时用雪花ID
-                    ProductSN = IdHelper.GetId(IdType.Snowflake).ToString(),
+                    BatchId = IdHelper.GetId(IdType.Batch, teamStr, ""),
+                    ProductId = selectedProduct.ProductId,
                     ProductSpec = selectedProduct.ProductSpec,
                     ProductUnit = selectedProduct.ProductUnit,
                     ProductLength = "1000",
-                    BatchId = IdHelper.GetId(IdType.Batch, teamStr, ""),
+
                     //初始状态参数
                     StatusMark = 0,
                     DeleteMark = 0,
@@ -131,6 +158,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                     StoreNum = jz,
                     TeamId=teamId,
                     QualityId=QualityId,
+                    MachineNumber=MachineNumber,
 
                     //其他暂时不重要
                     InStorePlaceId = "",
@@ -145,7 +173,12 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
 
 
                 };
+                if (cbAuto.Checked)
+                    readcom = true;
+                else
+                    readcom = false;
                 _printbus.SaveData(data);
+                msg = $"系统：物料【{selectedProduct.ProductName}】流水号【{lsh}】打印成功...";
                 //打印
                 PicPreview.Image = data.ProductSN.ToQrCode();
                 List<string> filter = new List<string>();
@@ -181,7 +214,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 LabJz.ForeColor = Color.FromArgb(0, 192, 0);
             }
             LabJz.Text = jz.ToString();
-            LabMsg.Text = msg;
+            LabMsg.Text = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}  {msg}";
         }
         
         /// <summary>
@@ -262,6 +295,20 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         {
             FrmHistoryPrint frmHistory = new FrmHistoryPrint();
             frmHistory.ShowDialog();
+        }
+
+        private void BtnAddProduct_Click(object sender, EventArgs e)
+        {
+            FrmAddProduct addProduct = new FrmAddProduct();
+            addProduct.ShowDialog();
+        }
+
+        private void cbAuto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAuto.Checked == true)
+                readcom = true;
+            else
+                readcom = false;
         }
     }
 }

@@ -32,9 +32,17 @@ namespace MT_WMS.Entitys
         /// </summary>
         public string BatchId { get; set; }
         /// <summary>
-        /// 流水号
+        /// 流水号-数字
         /// </summary>
-        public string SerialNumber { get; set; }
+        public int SwiftNumber { get; set; }
+        /// <summary>
+        /// 流水号-字符
+        /// </summary>
+        public string SwiftNumberStr { get; set; }
+        /// <summary>
+        /// 机器号
+        /// </summary>
+        public string MachineNumber { get; set; }
         /// <summary>
         /// 源头单号
         /// </summary>
