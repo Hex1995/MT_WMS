@@ -29,7 +29,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         public event EventHandler EditDataHandler;
         private void BtnSave_Click(object sender, EventArgs e)
         {
-
+             
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
