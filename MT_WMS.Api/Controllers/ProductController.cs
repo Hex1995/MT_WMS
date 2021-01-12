@@ -39,7 +39,6 @@ SELECT
       ,[ProductUnit]
       ,[ProductTypeName]
       ,[ProductType]
-      ,[ProductWeight]
   FROM [dbo].[Part_Product]
   where 1=1 and EnableMark=1 
 ";
@@ -66,6 +65,21 @@ SELECT
   FROM [dbo].[Part_Product]
 ";
             return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
+        }
+        [HttpPost]
+        public int SaveData(Product theData)
+        {
+            db.Product.Add(theData);
+            try
+            {
+                return db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+
         }
         protected override void Dispose(bool disposing)
         {

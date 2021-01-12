@@ -83,7 +83,8 @@ namespace MT_WMS
         /// 工作Id
         /// </summary>
         public long workerId = 0;
-
+        public string UserId { get; set; } = "Admin";
+        public string UserName { get; set; } = "何旭阳";
         public  Dictionary<string, Dictionary<string, string>> objValues = new Dictionary<string, Dictionary<string, string>>();
         #region 缓存相关
         /// <summary>

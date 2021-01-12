@@ -85,6 +85,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             RefreshData();
 
         }
+
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             if (selectedProduct.IsNullOrEmpty())
@@ -115,7 +116,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 //质检员
                 string QualityId = ((ComboxItem)cbbJyy.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbJyy.SelectedItem).Value();
                 //机器号
-                string MachineNumber= ((ComboxItem)cbbJqh.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbJyy.SelectedItem).Value();
+                string MachineNumber= ((ComboxItem)cbbJqh.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbJqh.SelectedItem).Value();
 
                 string ProductSN = "";
 
@@ -124,6 +125,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 List<string> filter1 = new List<string>();
                 filter1.Add($"and ProductId ='{selectedProduct.ProductId}'");
                 filter1.Add($"and TeamId ='{teamId}'");
+                filter1.Add($"and MachineNumber ='{MachineNumber}'");
                 filter1.Add($"and CreateDate between '{DateTime.Now.ToShortDateString()} 0:00:00' and '{DateTime.Now.ToShortDateString()} 23:59:59'");
                 filter1.Add($"order by SwiftNumber DESC");
                 var ls = _printbus.GetSwiftNumber(filter1);
@@ -181,7 +183,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 else
                     readcom = false;
                 _printbus.SaveData(data);
-                msg = $"系统：物料【{selectedProduct.ProductName}】流水号【{lsh}】打印成功...";
+                msg = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}   系统：物料【{selectedProduct.ProductName}】流水号【{lsh}】打印成功...";
                 //打印
                 PicPreview.Image = data.ProductSN.ToQrCode();
                 List<string> filter = new List<string>();
@@ -217,7 +219,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 LabJz.ForeColor = Color.FromArgb(0, 192, 0);
             }
             LabJz.Text = jz.ToString();
-            LabMsg.Text = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}  {msg}";
+            LabMsg.Text = $"{msg}";
         }
         
         /// <summary>
@@ -296,16 +298,26 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
 
         private void BtnHistory_Click(object sender, EventArgs e)
         {
-            msg = "历史打印...";
+            msg = $"{DateTime.Now.ToString("yyyy - MM - dd HH: mm: ss,fff")}   历史打印...";
             FrmHistoryPrint frmHistory = new FrmHistoryPrint();
             frmHistory.ShowDialog();
         }
 
         private void BtnAddProduct_Click(object sender, EventArgs e)
         {
-            msg = "产品添加...";
+
             FrmAddProduct addProduct = new FrmAddProduct();
+            addProduct.SaveDataHandler += AddProduct_SaveDataHandler;
             addProduct.ShowDialog();
+        }
+
+        private void AddProduct_SaveDataHandler(object sender, EventArgs e)
+        {
+            var filter = new List<string>();
+            filter.Add("order by CreateDate desc");
+            Dgv.DataSource = _bus.GetProducts(filter);
+            var data = (Product)sender;
+            msg = $"{DateTime.Now.ToString("yyyy - MM - dd HH: mm: ss,fff")}   新增物料编号【{data.ProductId}】物料名称【{data.ProductName}】...";
         }
 
         private void cbAuto_CheckedChanged(object sender, EventArgs e)
@@ -313,13 +325,13 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             if (cbAuto.Checked == true)
             {
                 readcom = true;
-                msg = "自动获取磅秤信息...";
+                msg = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}   自动获取磅秤信息...";
             }
 
             else
             {
                 readcom = false;
-                msg = "手动录入重量...";
+                msg = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}   手动录入重量...";
             }
 
         }
