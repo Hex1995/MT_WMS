@@ -335,5 +335,18 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             }
 
         }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            var select = Dgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (select > 0)
+            {
+                var dr = Dgv.SelectedRows[0];
+                var tmp = dr.Cells["ProductId"].Value.ToString();
+                FrmEditProduct frmEdit = new FrmEditProduct(tmp);
+                frmEdit.ShowDialog();
+            }
+
+        }
     }
 }

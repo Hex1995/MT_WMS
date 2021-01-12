@@ -37,26 +37,43 @@ namespace MT_WMS
         /// </summary>
         /// <param name="obj">权限对象</param>
         /// <param name="ctr"></param>
-        public static void InitialItems(string obj, ComboBox ctr)
+        /// <param name="defaultSelect">默认选择项的值</param>
+        public static void InitialItems(string obj, ComboBox ctr,string defaultSelect= "")
         {
             ctr.Items.Clear();
             if (GlobalSwitch.Instance.objValues != null && GlobalSwitch.Instance.objValues.Count > 0)
             {
                 if (GlobalSwitch.Instance.objValues.Keys.Contains(obj))
                 {
+                    List<ComboxItem> data = new List<ComboxItem>();
                     foreach (KeyValuePair<string, string> dic in GlobalSwitch.Instance.objValues[obj])
                     {
                         if (!string.IsNullOrEmpty(dic.Key))
                         {
-                            ctr.Items.Add(new ComboxItem(dic.Key, dic.Value));
+                            data.Add(new ComboxItem(dic.Key, dic.Value));
+                           
                         }
                     }
-                    if (ctr.Items.Count > 0)
+                    ctr.Items.AddRange(data.ToArray());
+                    if (!defaultSelect.IsNullOrEmpty())
                     {
-                        ctr.SelectedIndex = 0;
+                        var tmp= data.Where(x => x.Value() == defaultSelect || x.ToString() == defaultSelect).FirstOrDefault();
+                        if (!tmp.IsNullOrEmpty())
+                        {
+                            ctr.SelectedIndex= ctr.Items.IndexOf(tmp);
+                        }
                     }
+                    else
+                    {
+                        if (ctr.Items.Count > 0)
+                        {
+                            ctr.SelectedIndex = 0;
+                        }
+                    }
+
                 }
             }
         }
+
     }
 }

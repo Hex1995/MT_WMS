@@ -41,6 +41,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnQuery = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbbJqh = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.DgvLs = new System.Windows.Forms.DataGridView();
             this.PId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tm = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,8 +89,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbbJqh = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicPreview)).BeginInit();
             this.panel2.SuspendLayout();
@@ -171,6 +171,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.iconButton3.Text = "修改";
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // BtnAddProduct
             // 
@@ -249,6 +250,26 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(753, 730);
             this.panel2.TabIndex = 1;
+            // 
+            // cbbJqh
+            // 
+            this.cbbJqh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbJqh.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbbJqh.FormattingEnabled = true;
+            this.cbbJqh.Location = new System.Drawing.Point(135, 220);
+            this.cbbJqh.Name = "cbbJqh";
+            this.cbbJqh.Size = new System.Drawing.Size(193, 27);
+            this.cbbJqh.TabIndex = 32;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(65, 225);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 16);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "机器号";
             // 
             // DgvLs
             // 
@@ -756,26 +777,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.ProductWeight.HeaderText = "产品重量";
             this.ProductWeight.Name = "ProductWeight";
             this.ProductWeight.ReadOnly = true;
-            // 
-            // cbbJqh
-            // 
-            this.cbbJqh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbJqh.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbbJqh.FormattingEnabled = true;
-            this.cbbJqh.Location = new System.Drawing.Point(135, 220);
-            this.cbbJqh.Name = "cbbJqh";
-            this.cbbJqh.Size = new System.Drawing.Size(193, 27);
-            this.cbbJqh.TabIndex = 32;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(65, 225);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 16);
-            this.label10.TabIndex = 31;
-            this.label10.Text = "机器号";
             // 
             // UCQRCodePrint
             // 
