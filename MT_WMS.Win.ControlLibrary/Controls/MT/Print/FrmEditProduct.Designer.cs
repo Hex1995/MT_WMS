@@ -74,6 +74,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // TxtProductId
             // 
             this.TxtProductId.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtProductId.Enabled = false;
             this.TxtProductId.Location = new System.Drawing.Point(169, 102);
             this.TxtProductId.Name = "TxtProductId";
             this.TxtProductId.Size = new System.Drawing.Size(225, 21);
