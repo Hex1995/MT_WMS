@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MT_WMS;
 using MT_WMS.IBusiness;
 using MT_WMS.Win.MT;
+using MT_WMS.Win.OtherForm;
 using MT_WMS.Win.Test;
 
 namespace MT_WMS.Win
@@ -31,10 +33,17 @@ namespace MT_WMS.Win
             var assembly = System.Reflection.Assembly.GetEntryAssembly();
 
             GlobalSwitch.Instance.AddAssembly(assembly);
+            //FrmLoading loading = new FrmLoading();
+            //loading.Show();
 
+            //此处后期做一个加载动画
             //基础数据加载
+            //目前先开启一个线程来加载数据
+
             ISysObjectBusiness sys = FactoryService.Build<ISysObjectBusiness>("MT_WMS.Business.MT.SysObjectBusiness");
-            sys.UpdateObject();
+            Thread t = new Thread(sys.UpdateObject);
+            t.Start();
+            //loading.Dispose();
             //var data = sys.GetDataList();
             //foreach (var item in data)
             //{
