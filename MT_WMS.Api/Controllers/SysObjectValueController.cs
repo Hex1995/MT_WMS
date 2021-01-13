@@ -9,11 +9,10 @@ using System.Web.Http;
 
 namespace MT_WMS.Api.Controllers
 {
-    public class SysObjectValueController : ApiController
+    public class SysObjectValueController : BaseApi<SYSOBJECTVALUE>
     {
-        private MTDbContext db = new MTDbContext();
-        [HttpPost]
-        public int SaveData(SYSOBJECTVALUE theData)
+
+        public override int SaveData(SYSOBJECTVALUE theData)
         {
             var t=  db.SYSOBJECTVALUES.Count(x => x.OBJECTID == theData.OBJECTID && x.OBJECTDESCR==theData.OBJECTDESCR) > 0 ?  null: db.SYSOBJECTVALUES.Add(theData);
             return db.SaveChanges();
@@ -31,12 +30,19 @@ namespace MT_WMS.Api.Controllers
         /// <param name="ids"></param>
         /// <returns></returns>
         [HttpPost]
-        public int DeleteData(List<int> ids)
+        public override int DeleteData(List<string> ids)
         {
-            var deleteobjectvalue = db.SYSOBJECTVALUES.Where(x => ids.Contains(x.PKID)).ToList();
+            var deleteobjectvalue = db.SYSOBJECTVALUES.Where(x => ids.Contains(x.OBJECTVALUE)).ToList();
             db.SYSOBJECTVALUES.RemoveRange(deleteobjectvalue);
             var n = db.SaveChanges();
             return n;
         }
+
+        public override SYSOBJECTVALUE GetTheData(string id)
+        {
+            throw new NotImplementedException("暂不支持");
+        }
+
+
     }
 }

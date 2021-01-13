@@ -13,25 +13,18 @@ using MT_WMS.Entitys;
 
 namespace MT_WMS.Api.Controllers
 {
-    public class ProductLabelRecordController : ApiController
+    public class ProductLabelRecordController :BaseApi<ProductLabelRecord>
     {
-        private MTDbContext db = new MTDbContext();
-
-        [HttpPost]
-        public int SaveData(ProductLabelRecord theData)
+        public override ProductLabelRecord GetTheData(string id)
         {
-            db.ProductLabelRecord.Add(theData);
-
-            try
-            {
-                return db.SaveChanges();
-            }
-            catch
-            {
-                return 0;
-            }
-
+            throw new NotImplementedException("暂不支持");
         }
+
+        public override int DeleteData(List<string> ids)
+        {
+            throw new NotImplementedException("暂不支持");
+        }
+
         [HttpPost]
         public DataTable GetTableTop10(List<string> filter)
         {
@@ -77,18 +70,12 @@ namespace MT_WMS.Api.Controllers
             else
                 return 1;
         }
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
 
         private bool ProductLabelRecordExists(string id)
         {
             return db.ProductLabelRecord.Count(e => e.Id == id) > 0;
         }
+
+
     }
 }

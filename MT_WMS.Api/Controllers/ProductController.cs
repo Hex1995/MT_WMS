@@ -13,10 +13,10 @@ using MT_WMS.Entitys;
 
 namespace MT_WMS.Api.Controllers
 {
-    public class ProductController : ApiController
+    public class ProductController : BaseApi<Product>
     {
-        private MTDbContext db = new MTDbContext();
-        public Product GetTheData(string id)
+        //private MTDbContext db = new MTDbContext();
+        public override Product GetTheData(string id)
         {
             var data = db.Product.Where(x => x.ProductId == id).ToList().FirstOrDefault();
             return data;
@@ -66,33 +66,19 @@ SELECT
 ";
             return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
         }
-        [HttpPost]
-        public int SaveData(Product theData)
-        {
-            db.Product.Add(theData);
-            try
-            {
-                return db.SaveChanges();
-            }
-            catch (Exception)
-            {
-
-                return 0;
-            }
-
-        }
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private bool ProductExists(string id)
         {
             return db.Product.Count(e => e.ProductId == id) > 0;
+        }
+
+        public override int DeleteData(List<string> ids)
+        {
+            var del = db.Product.Where(x => ids.Contains(x.ProductId));
+            foreach (var item in del)
+            {
+                db.Product.Remove(item);
+            }
+            return SaverChanges();
         }
     }
 }

@@ -18,18 +18,30 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         public FrmEditProduct(string Id)
         {
             InitializeComponent();
-            oldData = bus.GetTheData(Id);
-            TxtProductId.Text = oldData.ProductId;
-            TxtProductName.Text = oldData.ProductName;
-            DataBind.InitialItems("产品规格", cbbGg,oldData.ProductSpec);
-            DataBind.InitialItems("产品单位", cbbDw,oldData.ProductUnit);
+            data = bus.GetTheData(Id);
+            TxtProductId.Text = data.ProductId;
+            TxtProductName.Text = data.ProductName;
+            DataBind.InitialItems("产品规格", cbbGg, data.ProductSpec);
+            DataBind.InitialItems("产品单位", cbbDw, data.ProductUnit);
         }
         IProductBusiness bus = FactoryService.BulidByConfigKey<IProductBusiness>("MT0001");
-        Product oldData;
+        Product data;
         public event EventHandler EditDataHandler;
         private void BtnSave_Click(object sender, EventArgs e)
         {
-             
+            //目前仅仅做简单的修改，后期根据实际要求进行调整和完善
+            var productName = TxtProductName.Text.Trim();
+            var productSpec = cbbGg.SelectedItem.ToString();
+            var productUnit = cbbDw.SelectedItem.ToString();
+            var productSimpleSpelling = productName.ToSimpleSpelling();
+            data.ProductSpec = productSpec;
+            data.ProductName = productName;
+            data.SimpleSpelling = productSimpleSpelling;
+            data.ProductUnit = productUnit;
+            data.ModifyDate = DateTime.Now;
+            data.ModifyUserId = GlobalSwitch.Instance.UserId;
+            data.ModifyUserName = GlobalSwitch.Instance.UserName;
+            
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

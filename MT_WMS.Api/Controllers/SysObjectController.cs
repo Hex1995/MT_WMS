@@ -9,9 +9,12 @@ using System.Web.Http;
 
 namespace MT_WMS.Api.Controllers
 {
+    //暂不继承BaseAPI
     public class SysObjectController : ApiController
     {
+
         private MTDbContext db = new MTDbContext();
+
         [HttpGet]
         public virtual List<UserObjects> GetDataList()
         {
@@ -72,8 +75,7 @@ namespace MT_WMS.Api.Controllers
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
-        [HttpPost]
-        public int DeleteData(List<string>ids)
+        public  int DeleteData(List<string>ids)
         {
             var deleteobject = db.SYSOBJECTS.Where(x => ids.Contains(x.OBJECTID) || ids.Contains(x.OBJECTNAME)).ToList();
             var deleteobjectvalue = db.SYSOBJECTVALUES.Where(x => ids.Contains(x.OBJECTID)).ToList();
@@ -83,5 +85,7 @@ namespace MT_WMS.Api.Controllers
             var n = db.SaveChanges();
             return m;
         }
+
+
     }
 }
