@@ -12,7 +12,11 @@ namespace MT_WMS.Business.MT
     public class ProductLabelRecordBusiness: BaseBusiness<ProductLabelRecord>, IProductLabelRecordBusiness
     {
         protected override string RouteUrl => "ProductLabelRecord";
-
+        /// <summary>
+        /// 获取流水号
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         public int GetSwiftNumber(List<string> filter)
         {
             ActionUrl = "GetSwiftNumber";

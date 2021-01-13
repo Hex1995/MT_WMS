@@ -13,5 +13,7 @@ namespace MT_WMS.IBusiness
         List<Product> GetDataList();
         DataTable GetTable(List<string> filter);
         int SaveData(Product theData);
+        int DeleteData(List<string> ids);
+        int UpdateData(Product theData);
     }
 }

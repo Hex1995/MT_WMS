@@ -335,8 +335,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             }
 
         }
-
-        private void iconButton3_Click(object sender, EventArgs e)
+        private void BtnEditProduct_Click(object sender, EventArgs e)
         {
             var select = Dgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (select > 0)
@@ -344,9 +343,34 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 var dr = Dgv.SelectedRows[0];
                 var tmp = dr.Cells["ProductId"].Value.ToString();
                 FrmEditProduct frmEdit = new FrmEditProduct(tmp);
+                frmEdit.EditDataHandler += EditProduct_SaveDataHandler;
                 frmEdit.ShowDialog();
             }
+        }
+        private void EditProduct_SaveDataHandler(object sender, EventArgs e)
+        {
+            var filter = new List<string>();
+            filter.Add("order by ModifyDate desc");
+            Dgv.DataSource = _bus.GetTable(filter);
+            var data = (Product)sender;
+            msg = $"{DateTime.Now.ToString("yyyy - MM - dd HH: mm: ss,fff")}   物料编号【{data.ProductId}】修改成功 物料名称【{data.ProductName}】物料规格【{data.ProductSpec}】物料单位【{data.ProductUnit}】...";
+        }
 
+        private void BtnDelProduct_Click(object sender, EventArgs e)
+        {
+            var select = Dgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (select > 0)
+            {
+                var dr = Dgv.SelectedRows[0];
+                var tmp = dr.Cells["ProductId"].Value.ToString();
+                List<string> ids = new List<string>();
+                ids.Add(tmp);
+                if (_bus.DeleteData(ids)>0)
+                {
+                    Dgv.DataSource = _bus.GetTable(new List<string>());
+                }
+
+            }
         }
     }
 }

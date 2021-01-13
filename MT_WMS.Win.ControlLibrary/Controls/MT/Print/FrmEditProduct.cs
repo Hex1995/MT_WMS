@@ -41,7 +41,12 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             data.ModifyDate = DateTime.Now;
             data.ModifyUserId = GlobalSwitch.Instance.UserId;
             data.ModifyUserName = GlobalSwitch.Instance.UserName;
-            
+            var res = bus.UpdateData(data);
+            if (res>0&& !EditDataHandler.IsNullOrEmpty())
+            {
+                EditDataHandler.Invoke(data, null);
+            } 
+
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

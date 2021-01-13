@@ -29,14 +29,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PicPreview = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.BtnDelProduct = new FontAwesome.Sharp.IconButton();
+            this.BtnEditProduct = new FontAwesome.Sharp.IconButton();
             this.BtnAddProduct = new FontAwesome.Sharp.IconButton();
             this.BtnQuery = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -103,8 +103,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel1.Controls.Add(this.PicPreview);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.TxtName);
-            this.panel1.Controls.Add(this.iconButton4);
-            this.panel1.Controls.Add(this.iconButton3);
+            this.panel1.Controls.Add(this.BtnDelProduct);
+            this.panel1.Controls.Add(this.BtnEditProduct);
             this.panel1.Controls.Add(this.BtnAddProduct);
             this.panel1.Controls.Add(this.BtnQuery);
             this.panel1.Controls.Add(this.label1);
@@ -142,36 +142,37 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.TxtName.Size = new System.Drawing.Size(211, 26);
             this.TxtName.TabIndex = 5;
             // 
-            // iconButton4
+            // BtnDelProduct
             // 
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButton4.IconColor = System.Drawing.Color.Black;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 32;
-            this.iconButton4.Location = new System.Drawing.Point(743, 13);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(94, 46);
-            this.iconButton4.TabIndex = 4;
-            this.iconButton4.Text = "删除";
-            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton4.UseVisualStyleBackColor = true;
+            this.BtnDelProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDelProduct.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.BtnDelProduct.IconColor = System.Drawing.Color.Black;
+            this.BtnDelProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnDelProduct.IconSize = 32;
+            this.BtnDelProduct.Location = new System.Drawing.Point(743, 13);
+            this.BtnDelProduct.Name = "BtnDelProduct";
+            this.BtnDelProduct.Size = new System.Drawing.Size(94, 46);
+            this.BtnDelProduct.TabIndex = 4;
+            this.BtnDelProduct.Text = "删除";
+            this.BtnDelProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnDelProduct.UseVisualStyleBackColor = true;
+            this.BtnDelProduct.Click += new System.EventHandler(this.BtnDelProduct_Click);
             // 
-            // iconButton3
+            // BtnEditProduct
             // 
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 32;
-            this.iconButton3.Location = new System.Drawing.Point(614, 13);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(94, 46);
-            this.iconButton3.TabIndex = 3;
-            this.iconButton3.Text = "修改";
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            this.BtnEditProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditProduct.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
+            this.BtnEditProduct.IconColor = System.Drawing.Color.Black;
+            this.BtnEditProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnEditProduct.IconSize = 32;
+            this.BtnEditProduct.Location = new System.Drawing.Point(614, 13);
+            this.BtnEditProduct.Name = "BtnEditProduct";
+            this.BtnEditProduct.Size = new System.Drawing.Size(94, 46);
+            this.BtnEditProduct.TabIndex = 3;
+            this.BtnEditProduct.Text = "修改";
+            this.BtnEditProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEditProduct.UseVisualStyleBackColor = true;
+            this.BtnEditProduct.Click += new System.EventHandler(this.BtnEditProduct_Click);
             // 
             // BtnAddProduct
             // 
@@ -296,14 +297,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.DgvLs.Location = new System.Drawing.Point(3, 297);
             this.DgvLs.Name = "DgvLs";
             this.DgvLs.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.DgvLs.RowTemplate.Height = 23;
             this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvLs.Size = new System.Drawing.Size(750, 433);
@@ -676,7 +677,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.LabMsg.BackColor = System.Drawing.Color.Transparent;
             this.LabMsg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabMsg.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LabMsg.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LabMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.LabMsg.Location = new System.Drawing.Point(0, 0);
             this.LabMsg.Name = "LabMsg";
@@ -715,14 +716,14 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.Dgv.Location = new System.Drawing.Point(0, 0);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.Dgv.RowTemplate.Height = 23;
             this.Dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dgv.Size = new System.Drawing.Size(524, 671);
@@ -806,8 +807,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton BtnQuery;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton BtnDelProduct;
+        private FontAwesome.Sharp.IconButton BtnEditProduct;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
