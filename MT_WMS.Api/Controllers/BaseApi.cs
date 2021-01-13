@@ -1,6 +1,7 @@
 ﻿using MT_WMS.Api.DataSource;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -16,14 +17,29 @@ namespace MT_WMS.Api.Controllers
         }
         public MTDbContext db = new MTDbContext();
         DbSet<T> _dbSet;
-        [HttpGet]
-        public  abstract T GetTheData(string id);
+
+        #region 增
         [HttpPost]
         public virtual int SaveData(T theData)
         {
             _dbSet.Add(theData);
             return db.SaveChanges();
         }
+        #endregion
+
+        #region 查
+        [HttpGet]
+        public abstract T GetTheData(string id);
+        [HttpPost]
+        public abstract DataTable GetTable(List<string> filter);
+        #endregion
+
+        #region 删
+        [HttpPost]
+        public abstract int DeleteData(List<string> ids);
+        #endregion
+
+        #region 改
         [HttpPost]
         public virtual int UpdateData(T theData)
         {
@@ -31,13 +47,18 @@ namespace MT_WMS.Api.Controllers
             d.State = EntityState.Modified;
             return SaverChanges();
         }
-        [HttpPost]
-        public abstract int DeleteData(List<string> ids);
-        
+        #endregion
+
+
+
+        #region 统一提交
         public int SaverChanges()
         {
             return db.SaveChanges();
         }
+        #endregion
+
+        #region 回收
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -46,5 +67,7 @@ namespace MT_WMS.Api.Controllers
             }
             base.Dispose(disposing);
         }
+        #endregion
+
     }
 }

@@ -25,7 +25,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             DataBind.InitialItems("合金度", cbbhjd);
             DataBind.InitialItems("检验员", cbbJyy);
             DataBind.InitialItems("机器号", cbbJqh);
-            Dgv.DataSource = _bus.GetProducts(new List<string>());
+            Dgv.DataSource = _bus.GetTable(new List<string>());
             thread = new Thread(LoopGetZzl);
             thread.IsBackground = true;
             thread.Start();
@@ -75,7 +75,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             var name = TxtName.Text;
             List<string> filter = new List<string>();
             filter.Add($"and ProductName like'%{name}%'");
-            Dgv.DataSource = _bus.GetProducts(filter);
+            Dgv.DataSource = _bus.GetTable(filter);
 
         }
 
@@ -188,7 +188,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 PicPreview.Image = data.ProductSN.ToQrCode();
                 List<string> filter = new List<string>();
                 filter.Add(" order by a.CreateDate desc");
-                DgvLs.DataSource= _printbus.GetTableTop10(filter);
+                DgvLs.DataSource= _printbus.GetTable(filter);
             }
         }
         /// <summary>
@@ -315,7 +315,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         {
             var filter = new List<string>();
             filter.Add("order by CreateDate desc");
-            Dgv.DataSource = _bus.GetProducts(filter);
+            Dgv.DataSource = _bus.GetTable(filter);
             var data = (Product)sender;
             msg = $"{DateTime.Now.ToString("yyyy - MM - dd HH: mm: ss,fff")}   新增物料编号【{data.ProductId}】物料名称【{data.ProductName}】...";
         }

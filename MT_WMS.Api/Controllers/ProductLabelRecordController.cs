@@ -19,14 +19,7 @@ namespace MT_WMS.Api.Controllers
         {
             throw new NotImplementedException("暂不支持");
         }
-
-        public override int DeleteData(List<string> ids)
-        {
-            throw new NotImplementedException("暂不支持");
-        }
-
-        [HttpPost]
-        public DataTable GetTableTop10(List<string> filter)
+        public override DataTable GetTable(List<string> filter)
         {
             var sql = $@"
   SELECT TOP 10
@@ -51,6 +44,12 @@ namespace MT_WMS.Api.Controllers
             }
             return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
         }
+        public override int DeleteData(List<string> ids)
+        {
+            throw new NotImplementedException("暂不支持");
+        }
+
+
         [HttpPost]
         public int GetSwiftNumber(List<string> filter)
         {

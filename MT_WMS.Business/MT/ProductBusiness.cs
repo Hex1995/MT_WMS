@@ -15,16 +15,10 @@ namespace MT_WMS.Business.MT
         }
         protected override string RouteUrl => "Product";
 
-        public DataTable GetProducts(List<string> filter)
-        {
-            ActionUrl = "GetProducts";
-            return HttpHelper.HttpData(GetUrl(),Parameter:filter.ToJson(),HttpMethod:"POST").ToDataTable();
-        }
-
-        public DataTable GetTable()
+        public DataTable GetTable(List<string> filter)
         {
             ActionUrl = "GetTable";
-            return    HttpHelper.HttpData(GetUrl()).ToDataTable();
+            return HttpHelper.HttpData(GetUrl(),Parameter:filter.ToJson(),HttpMethod:"POST").ToDataTable();
         }
     }
 }

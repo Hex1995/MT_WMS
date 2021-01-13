@@ -11,8 +11,7 @@ namespace MT_WMS.IBusiness
     {
         Product GetTheData(string Id);
         List<Product> GetDataList();
-        DataTable GetProducts(List<string> filter);
-        DataTable GetTable();
+        DataTable GetTable(List<string> filter);
         int SaveData(Product theData);
     }
 }

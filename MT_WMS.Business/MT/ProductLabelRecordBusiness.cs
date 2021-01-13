@@ -19,9 +19,9 @@ namespace MT_WMS.Business.MT
             return HttpHelper.HttpData(GetUrl(), "POST", new Dictionary<string, string>(), filter.ToJson()).ToInt();
         }
 
-        public DataTable GetTableTop10(List<string> filter)
+        public DataTable GetTable(List<string> filter)
         {
-            ActionUrl = "GetTableTop10";
+            ActionUrl = "GetTable";
             return HttpHelper.HttpData(GetUrl(), "POST", new Dictionary<string, string>(), filter.ToJson()).ToDataTable();
         }
     }

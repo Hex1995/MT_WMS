@@ -11,7 +11,7 @@ namespace MT_WMS.IBusiness
     public interface IProductLabelRecordBusiness
     {
         int SaveData(ProductLabelRecord theData);
-        DataTable GetTableTop10(List<string> filter);
+        DataTable GetTable(List<string> filter);
         /// <summary>
         /// 获取流水号
         /// </summary>

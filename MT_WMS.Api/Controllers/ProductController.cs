@@ -80,5 +80,25 @@ SELECT
             }
             return SaverChanges();
         }
+
+        public override DataTable GetTable(List<string> filter)
+        {
+            var sql = $@"
+SELECT 
+	   [ProductId]
+      ,[ProductName]
+      ,[ProductSpec]
+      ,[ProductUnit]
+      ,[ProductTypeName]
+      ,[ProductType]
+  FROM [dbo].[Part_Product]
+  where 1=1 and EnableMark=1 
+";
+            foreach (var item in filter)
+            {
+                sql += $" {item} ";
+            }
+            return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
+        }
     }
 }

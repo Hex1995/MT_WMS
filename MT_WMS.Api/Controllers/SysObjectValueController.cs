@@ -2,6 +2,7 @@
 using MT_WMS.Entitys;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,7 +12,14 @@ namespace MT_WMS.Api.Controllers
 {
     public class SysObjectValueController : BaseApi<SYSOBJECTVALUE>
     {
-
+        public override SYSOBJECTVALUE GetTheData(string id)
+        {
+            throw new NotImplementedException("暂不支持");
+        }
+        public override DataTable GetTable(List<string> filter)
+        {
+            throw new NotImplementedException("暂不支持");
+        }
         public override int SaveData(SYSOBJECTVALUE theData)
         {
             var t=  db.SYSOBJECTVALUES.Count(x => x.OBJECTID == theData.OBJECTID && x.OBJECTDESCR==theData.OBJECTDESCR) > 0 ?  null: db.SYSOBJECTVALUES.Add(theData);
@@ -38,10 +46,6 @@ namespace MT_WMS.Api.Controllers
             return n;
         }
 
-        public override SYSOBJECTVALUE GetTheData(string id)
-        {
-            throw new NotImplementedException("暂不支持");
-        }
 
 
     }
