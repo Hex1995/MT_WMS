@@ -35,7 +35,7 @@ namespace MT_WMS.Win
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 466);
+            this.ClientSize = new System.Drawing.Size(964, 574);
             this.Name = "BaseUI";
             this.Text = "BaseUI";
             this.ResumeLayout(false);
