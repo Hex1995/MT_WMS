@@ -19,10 +19,6 @@ namespace MT_WMS.Business.MT
             return HttpHelper.HttpData(GetUrl(), "POST", new Dictionary<string, string>(), filter.ToJson()).ToInt();
         }
 
-        public DataTable GetTable(List<string> filter)
-        {
-            ActionUrl = "GetTable";
-            return HttpHelper.HttpData(GetUrl(), "POST", new Dictionary<string, string>(), filter.ToJson()).ToDataTable();
-        }
+
     }
 }

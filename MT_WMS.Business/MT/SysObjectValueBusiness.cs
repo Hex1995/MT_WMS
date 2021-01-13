@@ -12,12 +12,7 @@ namespace MT_WMS.Business.MT
     {
         protected override string RouteUrl => "SysObjectValue";
 
-        public int DeleteData(List<int> ids)
-        {
-            ActionUrl = "DeleteData";
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            return HttpHelper.HttpData(GetUrl(), "POST", dic,ids.ToJson()).ToInt();
-        }
+
 
         public List<SYSOBJECTVALUE> GetDataListByObjectid(string id)
         {

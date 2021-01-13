@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MT_WMS.Business.MT
 {
+    //比较特殊，后期在优化
     public class SysObjectBusiness: BaseBusiness<UserObjects>, ISysObjectBusiness
     {
         public SysObjectBusiness()
@@ -31,7 +32,7 @@ namespace MT_WMS.Business.MT
         }
 
 
-        #region 数据更新
+        #region 本地缓存数据更新
         public void UpdateObject()
         {
             GlobalSwitch.Instance.objValues.Clear();
@@ -54,6 +55,8 @@ namespace MT_WMS.Business.MT
             }
         }
 
+
+        #endregion
         public List<SYSOBJECT> GetAllData()
         {
             ActionUrl = "GetAllData";
@@ -65,8 +68,7 @@ namespace MT_WMS.Business.MT
             ActionUrl = "GetValueCount";
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("id", id);
-            return HttpHelper.HttpData(GetUrl(),"GET",dic).ToInt();
+            return HttpHelper.HttpData(GetUrl(), "GET", dic).ToInt();
         }
-        #endregion
     }
 }

@@ -11,6 +11,6 @@ namespace MT_WMS.IBusiness
     {
         List<SYSOBJECTVALUE> GetDataListByObjectid(string id);
         int SaveData(SYSOBJECTVALUE theData);
-        int DeleteData(List<int> ids);
+        int DeleteData(List<string> ids);
     }
 }

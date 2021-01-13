@@ -1,6 +1,7 @@
 ﻿using MT_WMS;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -76,6 +77,11 @@ namespace MT_WMS.Business
             var res = HttpHelper.HttpData(GetUrl(), dic: dic);// HttpGetService( dic, GetUrl());
             return res.ToList<T>();
         }
+        public virtual DataTable GetTable(List<string> filter)
+        {
+            ActionUrl = "GetTable";
+            return HttpHelper.HttpData(GetUrl(), "POST", new Dictionary<string, string>(), filter.ToJson()).ToDataTable();
+        }
         /// <summary>
         /// 保存当前数据，返回影响行数
         /// </summary>
@@ -98,7 +104,7 @@ namespace MT_WMS.Business
             ActionUrl = "DeleteData";
             return DeleteData(ids, ActionUrl);
         }
-        public int DeleteData(List<string> ids,string ActionUrl)
+        public virtual int DeleteData(List<string> ids,string ActionUrl)
         {
             this.ActionUrl = ActionUrl;
             var dic = new Dictionary<string, string>();

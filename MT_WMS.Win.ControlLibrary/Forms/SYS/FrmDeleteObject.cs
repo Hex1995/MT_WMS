@@ -51,8 +51,8 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
                 {
                     TreeNode t = new TreeNode()
                     {
-                        Name = item.OBJECTVALUE,
-                        Tag = item.PKID,
+                        Name = item.PKID.ToString(),
+                        Tag = item.OBJECTVALUE,
                         Text = item.OBJECTDESCR
                     };
                     TrvObjectValue.Nodes.Add(t);
@@ -112,10 +112,10 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
         {
             StringBuilder str = new StringBuilder("");
             var select = GetCheckNode(TrvObjectValue.Nodes);
-            List<int> ids = new List<int>();
+            List<string> ids = new List<string>();
             foreach (var item in select)
             {
-                ids.Add((int)item.Tag);
+                ids.Add((string)item.Tag);
                 str.Append($"已删除对象值【{item.Text}】\n\r");
             }
             var data =  ids.Count>0? _value.DeleteData(ids):0;
