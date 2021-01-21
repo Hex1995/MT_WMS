@@ -33,16 +33,19 @@ namespace MT_WMS.Win
             var assembly = System.Reflection.Assembly.GetEntryAssembly();
 
             GlobalSwitch.Instance.AddAssembly(assembly);
-            //FrmLoading loading = new FrmLoading();
-            //loading.Show();
+            FrmLoading loading = new FrmLoading();
+
 
             //此处后期做一个加载动画
             //基础数据加载
             //目前先开启一个线程来加载数据
 
             ISysObjectBusiness sys = FactoryService.Build<ISysObjectBusiness>("MT_WMS.Business.MT.SysObjectBusiness");
-            Thread t = new Thread(sys.UpdateObject);
+            Thread t = new Thread(loading.Show);
+            t.IsBackground = true;
             t.Start();
+
+            sys.UpdateObject();
             //loading.Dispose();
             //var data = sys.GetDataList();
             //foreach (var item in data)
@@ -61,7 +64,7 @@ namespace MT_WMS.Win
             //        GlobalSwitch.Instance.objValues.Add(item.ObjectName, arr);
             //    }
             //}
-
+            
             Application.Run(new FrmMTMain());
         }
 

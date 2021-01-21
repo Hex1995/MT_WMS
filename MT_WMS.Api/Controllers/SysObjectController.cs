@@ -2,6 +2,7 @@
 using MT_WMS.Entitys;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -36,6 +37,22 @@ namespace MT_WMS.Api.Controllers
         public virtual List<SYSOBJECT> GetAllData()
         {
             return db.SYSOBJECTS.ToList();
+        }
+        [HttpPost]
+        public virtual DataTable GetTable(List<string> filter)
+        {
+            var sql = $@"
+SELECT TOP (1000) [PKID]
+      ,[OBJECTID]
+      ,[OBJECTNAME]
+  FROM [SYS_OBJECT]
+ where 1=1 
+";
+            foreach (var item in filter)
+            {
+                sql += $" {item} ";
+            }
+            return SqlDbHelpr.Query(sql, SqlDbHelpr.MT).Tables[0];
         }
         /// <summary>
         /// 对象值数量
