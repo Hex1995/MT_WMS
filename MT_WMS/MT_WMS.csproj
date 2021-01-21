@@ -115,6 +115,7 @@
     <Compile Include="Util\IdInputDTO.cs" />
     <Compile Include="Util\Logger.cs" />
     <Compile Include="Util\BuildBitmapUtil.cs" />
+    <Compile Include="Util\ProductLabelRecord.cs" />
     <Compile Include="Util\SearchEngineUtil.cs" />
     <Compile Include="Util\UserObjects.cs" />
   </ItemGroup>

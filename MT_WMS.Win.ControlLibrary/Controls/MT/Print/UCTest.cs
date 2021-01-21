@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,10 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             RicTxt.Text = IdHelper.GetId(IdType.Base8);
             string qrcode = RicTxt.Text;
             pictureBox1.Image = qrcode.ToQrCode();
+            foreach (var item in PrinterSettings.InstalledPrinters)
+            {
+                RicTxt.AppendText(item + "\r\n");
+            }
         }
     }
 }

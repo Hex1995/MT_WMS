@@ -7,8 +7,10 @@ using System.Text;
 
 namespace MT_WMS.Entitys
 {
+
+
     [Table("Part_ProductLabelRecord")]
-    public class ProductLabelRecord
+    public partial class ProductLabelRecord
     {
         /// <summary>
         /// 数据ID

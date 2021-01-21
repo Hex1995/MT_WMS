@@ -111,7 +111,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1277, 77);
+            this.panel1.Size = new System.Drawing.Size(1277, 109);
             this.panel1.TabIndex = 0;
             // 
             // PicPreview
@@ -119,7 +119,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.PicPreview.BackColor = System.Drawing.Color.Transparent;
             this.PicPreview.Location = new System.Drawing.Point(889, 0);
             this.PicPreview.Name = "PicPreview";
-            this.PicPreview.Size = new System.Drawing.Size(83, 77);
+            this.PicPreview.Size = new System.Drawing.Size(104, 105);
             this.PicPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicPreview.TabIndex = 13;
             this.PicPreview.TabStop = false;
@@ -247,9 +247,9 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(524, 77);
+            this.panel2.Location = new System.Drawing.Point(524, 109);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(753, 730);
+            this.panel2.Size = new System.Drawing.Size(753, 698);
             this.panel2.TabIndex = 1;
             // 
             // cbbJqh
@@ -307,7 +307,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvLs.RowTemplate.Height = 23;
             this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvLs.Size = new System.Drawing.Size(750, 433);
+            this.DgvLs.Size = new System.Drawing.Size(750, 401);
             this.DgvLs.TabIndex = 30;
             // 
             // PId
@@ -690,9 +690,9 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             this.panel4.Controls.Add(this.Dgv);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 77);
+            this.panel4.Location = new System.Drawing.Point(0, 109);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(524, 671);
+            this.panel4.Size = new System.Drawing.Size(524, 639);
             this.panel4.TabIndex = 3;
             // 
             // Dgv
@@ -726,7 +726,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv.RowTemplate.Height = 23;
             this.Dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dgv.Size = new System.Drawing.Size(524, 671);
+            this.Dgv.Size = new System.Drawing.Size(524, 639);
             this.Dgv.TabIndex = 0;
             this.Dgv.SelectionChanged += new System.EventHandler(this.Dgv_SelectionChanged);
             // 

@@ -186,6 +186,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 msg = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}   系统：物料【{selectedProduct.ProductName}】流水号【{lsh}】打印成功...";
                 //打印
                 PicPreview.Image = data.ProductSN.ToQrCode();
+                data.PrintModel();
                 List<string> filter = new List<string>();
                 filter.Add(" order by a.CreateDate desc");
                 DgvLs.DataSource= _printbus.GetTable(filter);
