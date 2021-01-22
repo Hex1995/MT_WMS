@@ -22,9 +22,17 @@ namespace MT_WMS.Entitys
         /// </summary>
         public string ProductSN { get; set; }
         /// <summary>
+        /// 包号
+        /// </summary>
+        public string PackageNumber { get; set; }
+        /// <summary>
         /// 班组Id
         /// </summary>
         public string TeamId { get; set; }
+        /// <summary>
+        /// 车间
+        /// </summary>
+        public string WorkShop { get; set; }
         /// <summary>
         /// 质检员Id
         /// </summary>
@@ -53,6 +61,10 @@ namespace MT_WMS.Entitys
         /// 产品编码
         /// </summary>
         public string ProductId { get; set; }
+        /// <summary>
+        /// 项目名称
+        /// </summary>
+        public string ProjectName { get; set; }
         /// <summary>
         /// 规格
         /// </summary>

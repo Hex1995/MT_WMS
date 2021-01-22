@@ -20,11 +20,12 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            DataBind.InitialItems("仓库", cbbCK);
+            DataBind.InitialItems("车间", cbbCJ);
             DataBind.InitialItems("班组", cbbBz);
             DataBind.InitialItems("合金度", cbbhjd);
             DataBind.InitialItems("检验员", cbbJyy);
             DataBind.InitialItems("机器号", cbbJqh);
+            DataBind.InitialItems("项目", cbbXM);
             Dgv.DataSource = _bus.GetTable(new List<string>());
             thread = new Thread(LoopGetZzl);
             thread.IsBackground = true;
@@ -105,8 +106,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 mz = zzl;
                 jz = zzl - pz;
 
-                //仓库ID
-                string StoreId = ((ComboxItem)cbbCK.SelectedItem).IsNullOrEmpty()?"": ((ComboxItem)cbbCK.SelectedItem).Value();
+                //车间
+                string workshop = ((ComboxItem)cbbCJ.SelectedItem).IsNullOrEmpty()?"": ((ComboxItem)cbbCJ.SelectedItem).Value();
                 //班组
                 string teamId = ((ComboxItem)cbbBz.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbBz.SelectedItem).Value();
                 //班组字符
@@ -148,20 +149,21 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                     ProductSpec = selectedProduct.ProductSpec,
                     ProductUnit = selectedProduct.ProductUnit,
                     ProductLength = "1000",
-
+                    ProjectName = ((ComboxItem)cbbXM.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbXM.SelectedItem).Value(),
                     //初始状态参数
                     StatusMark = 0,
                     DeleteMark = 0,
                     EnableMark = 1,
-
+                    
                     //重要输入参数绑定
-                    PrintIn_StoreId = StoreId,
-                    StoreId = StoreId,
-                    MixDegree = MixDegree,
+                     PrintIn_StoreId="",
                     GroWeight = mz,
                     Num = jz,
                     StoreNum = jz,
-                    TeamId=teamId,
+
+                    WorkShop = workshop,
+                    MixDegree = MixDegree,
+                    TeamId =teamId,
                     QualityId=QualityId,
                     MachineNumber=MachineNumber,
 
@@ -182,11 +184,29 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                     readcom = true;
                 else
                     readcom = false;
-                _printbus.SaveData(data);
-                msg = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}   系统：物料【{selectedProduct.ProductName}】流水号【{lsh}】打印成功...";
+
                 //打印
                 PicPreview.Image = data.ProductSN.ToQrCode();
-                data.PrintModel();
+                PrintProductLabelRecordDTO printProductLabelRecordDTO = new PrintProductLabelRecordDTO()
+                {
+                    BatchNumber = data.BatchId,
+                    QrCode = data.ProductSN,
+                    WorkShop = data.WorkShop,
+                    GroWeight = data.GroWeight.ToString(),
+                    NetWeight = data.Num.ToString(),
+                    MixDegree = data.MixDegree,
+                    Date = data.CreateDate.Value.Date.ToString("yyyyMMdd"),
+                    ProductId = data.ProductId,
+                    ProductName = selectedProduct.ProductName,
+                    ProductSpec = data.ProductSpec,
+                    Quality = ((ComboxItem)cbbJyy.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbJyy.SelectedItem).ToString(),
+                    ProjectName = ((ComboxItem)cbbXM.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbXM.SelectedItem).ToString(),
+                    Length = "",
+                    PackageNumber= data.PackageNumber
+            };
+                _printbus.SaveData(data);
+                printProductLabelRecordDTO.PrintModel();
+                msg = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}   系统：物料【{selectedProduct.ProductName}】流水号【{lsh}】打印成功...";
                 List<string> filter = new List<string>();
                 filter.Add(" order by a.CreateDate desc");
                 DgvLs.DataSource= _printbus.GetTable(filter);
