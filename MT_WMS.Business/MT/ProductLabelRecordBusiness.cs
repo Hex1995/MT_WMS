@@ -19,7 +19,7 @@ namespace MT_WMS.Business.MT
         /// <returns></returns>
         public int GetSwiftNumber(List<string> filter)
         {
-            ActionUrl = "GetSwiftNumber";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"GetSwiftNumber";
             return HttpHelper.HttpData(GetUrl(), "POST", new Dictionary<string, string>(), filter.ToJson()).ToInt();
         }
 

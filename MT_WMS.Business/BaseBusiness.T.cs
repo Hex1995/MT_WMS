@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace MT_WMS.Business
@@ -14,6 +16,13 @@ namespace MT_WMS.Business
     /// <typeparam name="T"></typeparam>
     public abstract class BaseBusiness<T> where T : class, new()
     {
+        public BaseBusiness()
+        {
+            BaseUrl = ConfigHelper.GetKeyValue("RELEASEURL");
+#if DEBUG
+            BaseUrl = ConfigHelper.GetKeyValue("DEBUGURL");
+#endif
+        }
         //服务请求在这里请求
 
         /// <summary>
@@ -44,7 +53,7 @@ namespace MT_WMS.Business
         /// <returns></returns>
         public virtual T GetTheData(string Id)
         {
-            ActionUrl = "GetTheData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"GetTheData";
             return GetTheData(Id, ActionUrl);
         }
         /// <summary>
@@ -67,7 +76,7 @@ namespace MT_WMS.Business
         /// <returns></returns>
         public virtual List<T> GetDataList()
         {
-            ActionUrl = "GetDataList";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"GetDataList";
             return GetDataList(ActionUrl);
         }
         public virtual List<T> GetDataList(string ActionUrl)
@@ -79,7 +88,7 @@ namespace MT_WMS.Business
         }
         public virtual DataTable GetTable(List<string> filter)
         {
-            ActionUrl = "GetTable";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"GetTable";
             return HttpHelper.HttpData(GetUrl(), "POST", new Dictionary<string, string>(), filter.ToJson()).ToDataTable();
         }
         /// <summary>
@@ -89,7 +98,7 @@ namespace MT_WMS.Business
         /// <returns></returns>
         public virtual int SaveData(T theData)
         {
-            ActionUrl = "SaveData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"SaveData";
             return SaveData(theData,ActionUrl);
         }
         public virtual int SaveData(T theData, string ActionUrl)
@@ -101,7 +110,7 @@ namespace MT_WMS.Business
         }
         public int DeleteData(List<string> ids)
         {
-            ActionUrl = "DeleteData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"DeleteData";
             return DeleteData(ids, ActionUrl);
         }
         public virtual int DeleteData(List<string> ids,string ActionUrl)
@@ -113,7 +122,7 @@ namespace MT_WMS.Business
         }
         public virtual int UpdateData(T theData)
         {
-            ActionUrl = "UpdateData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"UpdateData";
             return UpdateData(theData,ActionUrl);
         }
         

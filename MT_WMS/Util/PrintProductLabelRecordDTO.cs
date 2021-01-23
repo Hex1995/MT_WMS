@@ -118,27 +118,30 @@ namespace MT_WMS
             Font titlefont = new Font("宋体", 17, FontStyle.Bold);
             Font font = new Font("宋体", 10);
             g.FillRectangle(new SolidBrush(Color.White), new Rectangle(0, 0, 1000, 1000));
-
+            
             g.DrawString("产品合格证", titlefont, brush, new Rectangle(250, 10, 500, 100));
-            g.DrawString("Product  Qualification  Certificate", titlefont, brush, new Rectangle(100, 40, 500, 100));
-            g.DrawImage(QrCode.ToQrCode(), new Rectangle(0, 60, 100, 100));
+            g.DrawString("Product  Qualification  Certificate", font, brush, new Rectangle(200, 40, 500, 100));
+            //二维码
+            g.DrawImage(QrCode.ToQrCode(), new Rectangle(50, 75, 100, 100));
             //第一行
-            g.DrawString($"项目名称：{ProjectName}", font, brush, new Rectangle(100, 80, 500, 100));
-            g.DrawString($"型号：{this.ProductSpec}", font, brush, new Rectangle(400, 80, 500, 100));
+            g.DrawString($"项目名称：{this.ProjectName}", font, brush, new Rectangle(150, 80, 500, 100));
+            g.DrawString($"型    号：{this.ProductSpec}", font, brush, new Rectangle(400, 80, 500, 100));
             //第二行
-            g.DrawString($"品名：{this.ProductName}", font, brush, new Rectangle(100, 90, 500, 100));
-            g.DrawString($"批号：{this.BatchNumber}", font, brush, new Rectangle(400, 90, 500, 100));
+            g.DrawString($"品    名：{this.ProductName}", font, brush, new Rectangle(150, 100, 500, 100));
+            g.DrawString($"批    号：{this.BatchNumber}", font, brush, new Rectangle(400, 100, 500, 100));
             //第三行
-            g.DrawString($"物料号：{this.ProductId}", font, brush, new Rectangle(100, 110, 500, 100));
-            g.DrawString($"合金状态：{this.MixDegree}", font, brush, new Rectangle(400, 110, 500, 100));
+            g.DrawString($"物 料 号：{this.ProductId}", font, brush, new Rectangle(150, 120, 500, 100));
+            g.DrawString($"合金状态：{this.MixDegree}", font, brush, new Rectangle(400, 120, 500, 100));
             //第四行
-            g.DrawString($"毛重：{this.GroWeight}", font, brush, new Rectangle(100, 130, 500, 100));
-            g.DrawString($"净重：{this.NetWeight}", font, brush, new Rectangle(400, 130, 500, 100));
+            g.DrawString($"毛    重：{this.GroWeight}", font, brush, new Rectangle(150, 140, 500, 100));
+            g.DrawString($"净    重：{this.NetWeight}", font, brush, new Rectangle(400, 140, 500, 100));
             //第五行
-            g.DrawString($"长度：{this.Length}", font, brush, new Rectangle(100, 150, 500, 100));
-            g.DrawString($"包号：{this.PackageNumber}", font, brush, new Rectangle(400, 150, 500, 100));
+            g.DrawString($"长    度：{this.Length}", font, brush, new Rectangle(150, 160, 500, 100));
+            g.DrawString($"包    号：{this.PackageNumber}", font, brush, new Rectangle(400, 160, 500, 100));
             //第六行
-            g.DrawString($"车间：{WorkShop}     检验员：{this.Quality}      日期：{Date}", font, brush, new Rectangle(0, 170, 500, 100));
+            g.DrawString($"车    间：{this.WorkShop}", font, brush, new Rectangle(50, 180, 500, 100));
+            g.DrawString($"检 验 员：{this.Quality}", font, brush, new Rectangle(250, 180, 500, 100));
+            g.DrawString($"日    期：{this.Date}", font, brush, new Rectangle(450, 180, 500, 100));
         }
     }
 }

@@ -191,7 +191,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 {
                     BatchNumber = data.BatchId,
                     QrCode = data.ProductSN,
-                    WorkShop = data.WorkShop,
+                    WorkShop = ((ComboxItem)cbbCJ.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbCJ.SelectedItem).ToString(),
                     GroWeight = data.GroWeight.ToString(),
                     NetWeight = data.Num.ToString(),
                     MixDegree = data.MixDegree,
@@ -203,7 +203,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                     ProjectName = ((ComboxItem)cbbXM.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbXM.SelectedItem).ToString(),
                     Length = "",
                     PackageNumber= data.PackageNumber
-            };
+                };
                 _printbus.SaveData(data);
                 printProductLabelRecordDTO.PrintModel();
                 msg = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}   系统：物料【{selectedProduct.ProductName}】流水号【{lsh}】打印成功...";
