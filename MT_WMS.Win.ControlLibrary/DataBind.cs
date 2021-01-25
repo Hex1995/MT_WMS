@@ -27,8 +27,12 @@ using System.Windows.Forms;
 
 namespace MT_WMS.Win.ControlLibrary
 {
+    /// <summary>
+    /// 控件数据绑定
+    /// </summary>
     public class DataBind
     {
+        
         /// <summary>
         /// 初始化ComboBox的值
         /// 指定
@@ -81,6 +85,20 @@ namespace MT_WMS.Win.ControlLibrary
         public static void InitialIDgv(List<string> filter, IBaseBusiness bus, DataGridView dgv)
         {
             var data = bus.GetTable(filter);
+            if (data == null || data.Rows.Count <= 0)
+            {
+                DataTable old = (DataTable)dgv.DataSource;
+                old.Rows.Clear();
+                dgv.DataSource = old;
+            }
+            else
+            {
+                dgv.DataSource = data;
+            }
+        }
+        public static void InitialIDgv(List<string> filter,Func<List<string>, DataTable>bus, DataGridView dgv)
+        {
+            var data = bus.Invoke(filter);
             if (data == null || data.Rows.Count <= 0)
             {
                 DataTable old = (DataTable)dgv.DataSource;

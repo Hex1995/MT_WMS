@@ -43,7 +43,6 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             List<string> filter = new List<string>();
             filter.Add($" and OBJECTNAME like '%{query}%'");
             DataBind.InitialIDgv(filter, _sys, DgvObject);
-
         }
     }
 }
