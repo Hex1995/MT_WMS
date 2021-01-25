@@ -26,7 +26,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             DataBind.InitialItems("检验员", cbbJyy);
             DataBind.InitialItems("机器号", cbbJqh);
             DataBind.InitialItems("项目", cbbXM);
-            Dgv.DataSource = _bus.GetTable(new List<string>());
+
+            DataBind.InitialIDgv(new List<string>(),_bus,Dgv);
             thread = new Thread(LoopGetZzl);
             thread.IsBackground = true;
             thread.Start();
@@ -76,8 +77,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             var name = TxtName.Text;
             List<string> filter = new List<string>();
             filter.Add($"and ProductName like'%{name}%'");
-            var ds = _bus.GetTable(filter);
-            Dgv.DataSource = ds;
+            DataBind.InitialIDgv(filter,_bus,Dgv);
         }
 
         private void BtnReset_Click(object sender, EventArgs e)
@@ -209,7 +209,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 msg = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss,fff")}   系统：物料【{selectedProduct.ProductName}】流水号【{lsh}】打印成功...";
                 List<string> filter = new List<string>();
                 filter.Add(" order by a.CreateDate desc");
-                DgvLs.DataSource= _printbus.GetTable(filter);
+                DataBind.InitialIDgv(filter, _printbus, DgvLs);
             }
         }
         /// <summary>
@@ -274,6 +274,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
 
         /// <summary>
         /// 在此处写获取磅秤重量的方法
+        /// 读取秤砣信息
         /// </summary>
         /// <returns></returns>
         public decimal ReadSerialPortData()
@@ -390,7 +391,6 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
                 {
                     Dgv.DataSource = _bus.GetTable(new List<string>());
                 }
-
             }
         }
     }

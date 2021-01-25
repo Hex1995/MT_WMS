@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace MT_WMS.IBusiness
 {
-    public interface IProductLabelRecordBusiness
+    public interface IProductLabelRecordBusiness: IBaseBusiness
     {
         int SaveData(ProductLabelRecord theData);
-        DataTable GetTable(List<string> filter);
         /// <summary>
         /// 获取流水号
         /// </summary>

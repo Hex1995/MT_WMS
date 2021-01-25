@@ -20,7 +20,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             InitializeComponent();
             HexStyleUI.SetDataGridView(this.DgvObject);
             HexStyleUI.SetDataGridView(this.DgvObjectValue);
-            DgvObject.DataSource = _sys.GetTable(new List<string>());
+            DataBind.InitialIDgv(new List<string>(),_sys, DgvObject);
         }
 
         private void DgvObject_SelectionChanged(object sender, EventArgs e)
@@ -42,8 +42,8 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             var query = TxtName.Text.Trim();
             List<string> filter = new List<string>();
             filter.Add($" and OBJECTNAME like '%{query}%'");
-            var data = _sys.GetTable(filter);
-            DgvObject.DataSource = _sys.GetTable(filter);
+            DataBind.InitialIDgv(filter, _sys, DgvObject);
+
         }
     }
 }

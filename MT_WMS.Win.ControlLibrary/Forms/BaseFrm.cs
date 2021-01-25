@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using CSharpWin;
+using MT_WMS.IBusiness;
 
 namespace MT_WMS.Win.ControlLibrary.Forms
 {
@@ -67,5 +68,6 @@ namespace MT_WMS.Win.ControlLibrary.Forms
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
     }
 }

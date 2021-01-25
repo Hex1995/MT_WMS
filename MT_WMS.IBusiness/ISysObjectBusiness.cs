@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MT_WMS.IBusiness
 {
-    public interface ISysObjectBusiness
+    public interface ISysObjectBusiness: IBaseBusiness
     {
         int SaveData(SYSOBJECT theData);
         List<UserObjects> GetDataList();
@@ -17,6 +17,5 @@ namespace MT_WMS.IBusiness
         List<SYSOBJECT> GetAllData();
         int GetValueCount(string id);
         int DeleteData(List<string> ids);
-        DataTable GetTable(List<string> filter);
     }
 }
