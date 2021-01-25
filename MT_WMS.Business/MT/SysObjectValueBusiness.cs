@@ -16,7 +16,7 @@ namespace MT_WMS.Business.MT
 
         public List<SYSOBJECTVALUE> GetDataListByObjectid(string id)
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name; //"GetDataListByObjectid";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("id", id);
             return HttpHelper.HttpData(GetUrl(),"GET",dic).ToList<SYSOBJECTVALUE>();

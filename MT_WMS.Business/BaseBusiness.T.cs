@@ -53,7 +53,7 @@ namespace MT_WMS.Business
         /// <returns></returns>
         public virtual T GetTheData(string Id)
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"GetTheData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;;
             return GetTheData(Id, ActionUrl);
         }
         /// <summary>
@@ -76,19 +76,19 @@ namespace MT_WMS.Business
         /// <returns></returns>
         public virtual List<T> GetDataList()
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"GetDataList";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;
             return GetDataList(ActionUrl);
         }
         public virtual List<T> GetDataList(string ActionUrl)
         {
             this.ActionUrl = ActionUrl;
             var dic = new Dictionary<string, string>();
-            var res = HttpHelper.HttpData(GetUrl(), dic: dic);// HttpGetService( dic, GetUrl());
+            var res = HttpHelper.HttpData(GetUrl(), dic: dic);
             return res.ToList<T>();
         }
         public virtual DataTable GetTable(List<string> filter)
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"GetTable";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;
             return HttpHelper.HttpData(GetUrl(), "POST", new Dictionary<string, string>(), filter.ToJson()).ToDataTable();
         }
         /// <summary>
@@ -98,31 +98,31 @@ namespace MT_WMS.Business
         /// <returns></returns>
         public virtual int SaveData(T theData)
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"SaveData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;
             return SaveData(theData,ActionUrl);
         }
         public virtual int SaveData(T theData, string ActionUrl)
         {
             this.ActionUrl = ActionUrl;
             var dic = new Dictionary<string, string>();
-            var res = HttpHelper.HttpData(GetUrl(),HttpMethod:"POST", dic: dic,Parameter:theData.ToJson());// HttpGetService( dic, GetUrl());
+            var res = HttpHelper.HttpData(GetUrl(),HttpMethod:"POST", dic: dic,Parameter:theData.ToJson());
             return int.Parse(res);
         }
         public int DeleteData(List<string> ids)
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"DeleteData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;;
             return DeleteData(ids, ActionUrl);
         }
         public virtual int DeleteData(List<string> ids,string ActionUrl)
         {
             this.ActionUrl = ActionUrl;
             var dic = new Dictionary<string, string>();
-            var res = HttpHelper.HttpData(GetUrl(), HttpMethod: "POST", dic: dic, Parameter: ids.ToJson());// HttpGetService( dic, GetUrl());
+            var res = HttpHelper.HttpData(GetUrl(), HttpMethod: "POST", dic: dic, Parameter: ids.ToJson());
             return int.Parse(res);
         }
         public virtual int UpdateData(T theData)
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"UpdateData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;
             return UpdateData(theData,ActionUrl);
         }
         
@@ -130,7 +130,7 @@ namespace MT_WMS.Business
         {
             this.ActionUrl = ActionUrl;
             var dic = new Dictionary<string, string>();
-            var res = HttpHelper.HttpData(GetUrl(), HttpMethod: "POST", dic: dic, Parameter: theData.ToJson());// HttpGetService( dic, GetUrl());
+            var res = HttpHelper.HttpData(GetUrl(), HttpMethod: "POST", dic: dic, Parameter: theData.ToJson());
             return int.Parse(res);
         }
     }

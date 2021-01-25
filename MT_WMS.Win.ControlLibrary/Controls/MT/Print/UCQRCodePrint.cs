@@ -76,8 +76,8 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             var name = TxtName.Text;
             List<string> filter = new List<string>();
             filter.Add($"and ProductName like'%{name}%'");
-            Dgv.DataSource = _bus.GetTable(filter);
-
+            var ds = _bus.GetTable(filter);
+            Dgv.DataSource = ds;
         }
 
         private void BtnReset_Click(object sender, EventArgs e)

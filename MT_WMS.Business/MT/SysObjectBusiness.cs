@@ -19,14 +19,14 @@ namespace MT_WMS.Business.MT
         public int SaveData(SYSOBJECT theData)
         {
 
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name; //"SaveData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;
             return HttpHelper.HttpData(GetUrl(), HttpMethod: "POST",Parameter:theData.ToJson()).ToInt();
         }
 
 
         public bool UserObjectsExistsByName(string name)
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name; //"UserObjectsExistsByName";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("name", name);
             return HttpHelper.HttpData(GetUrl(),HttpMethod:"GET",dic).ToBool();
@@ -60,13 +60,13 @@ namespace MT_WMS.Business.MT
         #endregion
         public List<SYSOBJECT> GetAllData()
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"GetAllData";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;
             return HttpHelper.HttpData(GetUrl()).ToList<SYSOBJECT>();
         }
 
         public int GetValueCount(string id)
         {
-            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;//"GetValueCount";
+            ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("id", id);
             return HttpHelper.HttpData(GetUrl(), "GET", dic).ToInt();
