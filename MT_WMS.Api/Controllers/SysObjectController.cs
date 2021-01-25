@@ -92,6 +92,7 @@ SELECT TOP (1000) [PKID]
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
+        [HttpPost]
         public  int DeleteData(List<string>ids)
         {
             var deleteobject = db.SYSOBJECTS.Where(x => ids.Contains(x.OBJECTID) || ids.Contains(x.OBJECTNAME)).ToList();

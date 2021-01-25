@@ -61,5 +61,11 @@ namespace MT_WMS.Win.MT
             FrmPreviewObject preiew = new FrmPreviewObject();
             preiew.ShowDialog();
         }
+
+        private void BthPrintSet_Click(object sender, EventArgs e)
+        {
+            FrmPrintSet print = new FrmPrintSet();
+            print.ShowDialog();
+        }
     }
 }

@@ -48,9 +48,9 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.panel1.Controls.Add(this.BtnDeleteObject);
             this.panel1.Controls.Add(this.BtnRefresh);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 366);
+            this.panel1.Location = new System.Drawing.Point(3, 332);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(799, 65);
+            this.panel1.Size = new System.Drawing.Size(794, 65);
             this.panel1.TabIndex = 1;
             // 
             // BtnDeleteObjectValue
@@ -60,7 +60,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.BtnDeleteObjectValue.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.BtnDeleteObjectValue.IconColor = System.Drawing.Color.Black;
             this.BtnDeleteObjectValue.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnDeleteObjectValue.Location = new System.Drawing.Point(501, 6);
+            this.BtnDeleteObjectValue.Location = new System.Drawing.Point(499, 6);
             this.BtnDeleteObjectValue.Name = "BtnDeleteObjectValue";
             this.BtnDeleteObjectValue.Size = new System.Drawing.Size(147, 56);
             this.BtnDeleteObjectValue.TabIndex = 2;
@@ -76,7 +76,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.BtnDeleteObject.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.BtnDeleteObject.IconColor = System.Drawing.Color.Black;
             this.BtnDeleteObject.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnDeleteObject.Location = new System.Drawing.Point(325, 6);
+            this.BtnDeleteObject.Location = new System.Drawing.Point(323, 6);
             this.BtnDeleteObject.Name = "BtnDeleteObject";
             this.BtnDeleteObject.Size = new System.Drawing.Size(147, 56);
             this.BtnDeleteObject.TabIndex = 1;
@@ -92,7 +92,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.BtnRefresh.IconChar = FontAwesome.Sharp.IconChar.Retweet;
             this.BtnRefresh.IconColor = System.Drawing.Color.Black;
             this.BtnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnRefresh.Location = new System.Drawing.Point(149, 6);
+            this.BtnRefresh.Location = new System.Drawing.Point(147, 6);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(147, 56);
             this.BtnRefresh.TabIndex = 0;
@@ -117,16 +117,16 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(799, 340);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 306);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("宋体", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(402, 0);
+            this.label2.Location = new System.Drawing.Point(400, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(394, 30);
+            this.label2.Size = new System.Drawing.Size(391, 30);
             this.label2.TabIndex = 11;
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -136,7 +136,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.TrvObject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TrvObject.Location = new System.Drawing.Point(3, 33);
             this.TrvObject.Name = "TrvObject";
-            this.TrvObject.Size = new System.Drawing.Size(393, 304);
+            this.TrvObject.Size = new System.Drawing.Size(391, 270);
             this.TrvObject.TabIndex = 8;
             this.TrvObject.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrvObject_AfterSelect);
             this.TrvObject.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TrvObject_NodeMouseClick);
@@ -145,9 +145,9 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             // 
             this.TrvObjectValue.CheckBoxes = true;
             this.TrvObjectValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TrvObjectValue.Location = new System.Drawing.Point(402, 33);
+            this.TrvObjectValue.Location = new System.Drawing.Point(400, 33);
             this.TrvObjectValue.Name = "TrvObjectValue";
-            this.TrvObjectValue.Size = new System.Drawing.Size(394, 304);
+            this.TrvObjectValue.Size = new System.Drawing.Size(391, 270);
             this.TrvObjectValue.TabIndex = 9;
             // 
             // label1
@@ -156,7 +156,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.label1.Font = new System.Drawing.Font("宋体", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(393, 30);
+            this.label1.Size = new System.Drawing.Size(391, 30);
             this.label1.TabIndex = 10;
             this.label1.Text = "对象";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,7 +165,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 434);
+            this.ClientSize = new System.Drawing.Size(800, 400);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmDeleteObject";

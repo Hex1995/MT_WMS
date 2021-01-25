@@ -95,7 +95,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1007, 83);
+            this.panel1.Size = new System.Drawing.Size(794, 83);
             this.panel1.TabIndex = 9;
             // 
             // BtnSave
@@ -128,7 +128,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1007, 496);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 288);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // label3
@@ -136,9 +136,9 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(504, 0);
+            this.label3.Location = new System.Drawing.Point(398, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(500, 47);
+            this.label3.Size = new System.Drawing.Size(393, 47);
             this.label3.TabIndex = 8;
             this.label3.Text = "键信息";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,7 +150,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(495, 47);
+            this.label2.Size = new System.Drawing.Size(389, 47);
             this.label2.TabIndex = 7;
             this.label2.Text = "键";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -166,7 +166,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.DgvObject.Location = new System.Drawing.Point(3, 50);
             this.DgvObject.Name = "DgvObject";
             this.DgvObject.RowTemplate.Height = 23;
-            this.DgvObject.Size = new System.Drawing.Size(495, 443);
+            this.DgvObject.Size = new System.Drawing.Size(389, 235);
             this.DgvObject.TabIndex = 0;
             this.DgvObject.SelectionChanged += new System.EventHandler(this.DgvObject_SelectionChanged);
             // 
@@ -200,10 +200,10 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.OBJECTVALUE,
             this.OBJECTDESCR});
             this.DgvObjectValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvObjectValue.Location = new System.Drawing.Point(504, 50);
+            this.DgvObjectValue.Location = new System.Drawing.Point(398, 50);
             this.DgvObjectValue.Name = "DgvObjectValue";
             this.DgvObjectValue.RowTemplate.Height = 23;
-            this.DgvObjectValue.Size = new System.Drawing.Size(500, 443);
+            this.DgvObjectValue.Size = new System.Drawing.Size(393, 235);
             this.DgvObjectValue.TabIndex = 1;
             // 
             // ID
@@ -239,7 +239,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 608);
+            this.ClientSize = new System.Drawing.Size(800, 400);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmPreviewObject";
