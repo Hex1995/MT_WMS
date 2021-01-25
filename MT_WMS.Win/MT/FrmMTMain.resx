@@ -216,6 +216,18 @@
         k67RFbGcP+leuStQhF2/hAGKAbHcKMObsDDcpyscFm2WZ738G+rmcbu7oN5xAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="BthPrintSet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAYNJREFUWEft
+        lr1KxEAUhfMIIgiWC2prIxaC7lr4AGIripWdhWBh6Vtsae8DiGCSSQJJ5QtYWYiljS+wnjucDZPMGid/
+        Lkg+OCx35t4zdzI7u/EGBlxQSm1Cj9DMUS9JkmyzvD0w/IIeoENHTcMw/GR5O2g4Y6gxFiqI0xrE8iQK
+        Y42ged5AEAR3NLckc0zrrwEB8X4URQdYcBzH8RiPe4Izn3Ba01sDWPiM5pbQyDnTen8C+szL4rQGcfMG
+        0jTdMI3nZjVVqMFRbdH+Z5C4Aj1B+pH2oOcsy1a5nA0SjnGOrzjnXQ51BrxH0Bt0yiEbXjHFsDXYzCXs
+        jhhKE8q8qhY9NHAC7TD8+wbK1G5A4i5Eu3oN4EO+NF0xomfzI8BP7RqmzHtepXWWFcB4swZwLa8wvOhe
+        V+me5TkYq27A9/09Keb1MXckhhdM+xWjxvS4mY8xbTHY7TWS3pmci9POlOvh+4HPW067gyK9G4bOcOH2
+        /4YCjJb3SibAcLkvpQMD/xjP+wYUdj0wLR1KcgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="BtnExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAn5JREFUWEft
@@ -230,18 +242,6 @@
         eQkYNhIcpTwRCZ5gXxyW2mAv5fEgoMfA9X6krlOuBSbwPCuO23WCX0V/m5DVQLJqq+GsvoCZr2WxU+2n
         gdGzSOJvSNg6kq3gEy1IEWeDw+LjOurQoKsVjtcCdvnmrGHvGjlNUggb8iES/vwneaGhkbWi35FT0e8E
         +2WWsdWvUegj/v4YFpTN6l/SnpwcbLY9DNmhAq3WH7aNHStXYs/kAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="BthPrintSet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAYNJREFUWEft
-        lr1KxEAUhfMIIgiWC2prIxaC7lr4AGIripWdhWBh6Vtsae8DiGCSSQJJ5QtYWYiljS+wnjucDZPMGid/
-        Lkg+OCx35t4zdzI7u/EGBlxQSm1Cj9DMUS9JkmyzvD0w/IIeoENHTcMw/GR5O2g4Y6gxFiqI0xrE8iQK
-        Y42ged5AEAR3NLckc0zrrwEB8X4URQdYcBzH8RiPe4Izn3Ba01sDWPiM5pbQyDnTen8C+szL4rQGcfMG
-        0jTdMI3nZjVVqMFRbdH+Z5C4Aj1B+pH2oOcsy1a5nA0SjnGOrzjnXQ51BrxH0Bt0yiEbXjHFsDXYzCXs
-        jhhKE8q8qhY9NHAC7TD8+wbK1G5A4i5Eu3oN4EO+NF0xomfzI8BP7RqmzHtepXWWFcB4swZwLa8wvOhe
-        V+me5TkYq27A9/09Keb1MXckhhdM+xWjxvS4mY8xbTHY7TWS3pmci9POlOvh+4HPW067gyK9G4bOcOH2
-        /4YCjJb3SibAcLkvpQMD/xjP+wYUdj0wLR1KcgAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

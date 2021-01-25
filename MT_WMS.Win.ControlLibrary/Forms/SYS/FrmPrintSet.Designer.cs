@@ -29,19 +29,58 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.TrvPrintList = new System.Windows.Forms.TreeView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 26);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(794, 58);
+            this.panel1.TabIndex = 0;
+            // 
+            // TrvPrintList
+            // 
+            this.TrvPrintList.CheckBoxes = true;
+            this.TrvPrintList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TrvPrintList.Location = new System.Drawing.Point(3, 84);
+            this.TrvPrintList.Name = "TrvPrintList";
+            this.TrvPrintList.Size = new System.Drawing.Size(794, 313);
+            this.TrvPrintList.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
             // 
             // FrmPrintSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 400);
+            this.Controls.Add(this.TrvPrintList);
+            this.Controls.Add(this.panel1);
             this.Name = "FrmPrintSet";
             this.Text = "打印机设置";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TreeView TrvPrintList;
     }
 }
