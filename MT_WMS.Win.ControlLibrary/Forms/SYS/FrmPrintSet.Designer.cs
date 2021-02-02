@@ -47,7 +47,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(794, 58);
+            this.panel1.Size = new System.Drawing.Size(699, 58);
             this.panel1.TabIndex = 0;
             // 
             // BtnPrintRefresh
@@ -76,6 +76,7 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.BtnPrintSave.TabIndex = 2;
             this.BtnPrintSave.Text = "设置当前打印机";
             this.BtnPrintSave.UseVisualStyleBackColor = true;
+            this.BtnPrintSave.Click += new System.EventHandler(this.BtnPrintSave_Click);
             // 
             // TxtPrintNow
             // 
@@ -103,14 +104,14 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
             this.TrvPrintList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TrvPrintList.Location = new System.Drawing.Point(3, 84);
             this.TrvPrintList.Name = "TrvPrintList";
-            this.TrvPrintList.Size = new System.Drawing.Size(794, 313);
+            this.TrvPrintList.Size = new System.Drawing.Size(699, 300);
             this.TrvPrintList.TabIndex = 9;
             // 
             // FrmPrintSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 400);
+            this.ClientSize = new System.Drawing.Size(705, 387);
             this.Controls.Add(this.TrvPrintList);
             this.Controls.Add(this.panel1);
             this.Name = "FrmPrintSet";
@@ -125,9 +126,9 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TreeView TrvPrintList;
         private FontAwesome.Sharp.IconButton BtnPrintSave;
         private System.Windows.Forms.TextBox TxtPrintNow;
         private FontAwesome.Sharp.IconButton BtnPrintRefresh;
+        private System.Windows.Forms.TreeView TrvPrintList;
     }
 }

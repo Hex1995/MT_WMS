@@ -34,5 +34,35 @@ namespace MT_WMS.Win.ControlLibrary.Forms.SYS
         {
             InitialPrint();
         }
+
+        private void BtnPrintSave_Click(object sender, EventArgs e)
+        {
+            int check = 0;
+            foreach (TreeNode item in TrvPrintList.Nodes)
+            {
+                if (item.Checked)
+                {
+                    check++;
+                } 
+            }
+            if (check==1)
+            {
+                foreach (TreeNode item in TrvPrintList.Nodes)
+                {
+                    if (item.Checked)
+                    {
+                        ConfigHelper.SetConfigValue("PrintName",item.Text );
+                        TxtPrintNow.Text = ConfigHelper.GetKeyValue("PrintName");
+                    }
+                }
+
+
+            }
+            else if (check>1)
+            {
+                MessageBox.Show("不可选择多个打印机","提示");
+            }
+
+        }
     }
 }

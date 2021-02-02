@@ -93,11 +93,15 @@ namespace MT_WMS
     }
     public partial class PrintProductLabelRecordDTO
     {
-        public void PrintModel()
+        public void PrintModel(string printName="")
         {
             PrintDocument pd = new PrintDocument();
             pd.PrintPage += printDocument_PrintA4Page;
-            pd.DefaultPageSettings.PrinterSettings.PrinterName = "Microsoft Print to PDF";       //打印机名称
+            if (printName.IsNullOrEmpty())
+            {
+                printName = ConfigHelper.GetKeyValue("PrintName");
+            }
+            pd.DefaultPageSettings.PrinterSettings.PrinterName = printName;       //打印机名称
             pd.PrintController = new System.Drawing.Printing.StandardPrintController();
             pd.Print();
         }
