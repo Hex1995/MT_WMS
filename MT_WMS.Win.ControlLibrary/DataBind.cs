@@ -88,7 +88,10 @@ namespace MT_WMS.Win.ControlLibrary
             if (data == null || data.Rows.Count <= 0)
             {
                 DataTable old = (DataTable)dgv.DataSource;
-                old.Rows.Clear();
+                if (!old.IsNullOrEmpty())
+                {
+                    old.Rows.Clear();
+                }
                 dgv.DataSource = old;
             }
             else
@@ -102,7 +105,10 @@ namespace MT_WMS.Win.ControlLibrary
             if (data == null || data.Rows.Count <= 0)
             {
                 DataTable old = (DataTable)dgv.DataSource;
-                old.Rows.Clear();
+                if (!old.IsNullOrEmpty())
+                {
+                    old.Rows.Clear();
+                }
                 dgv.DataSource = old;
             }
             else

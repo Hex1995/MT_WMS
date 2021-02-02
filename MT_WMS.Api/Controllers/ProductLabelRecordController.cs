@@ -22,7 +22,7 @@ namespace MT_WMS.Api.Controllers
         public override DataTable GetTable(List<string> filter)
         {
             var sql = $@"
-  SELECT TOP 10
+  SELECT 
   a.ProductSN,
   b.ProductId,
  a.ProductSpec,
