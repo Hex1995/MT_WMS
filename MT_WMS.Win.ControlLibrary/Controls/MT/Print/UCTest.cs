@@ -29,7 +29,11 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             //RicTxt.AppendText(sys.GetDataList().ToJson() + "\r\n");
             RicTxt.Text = IdHelper.GetId(IdType.Base8);
             string qrcode = RicTxt.Text;
-            pictureBox1.Image = qrcode.ToQrCode();
+            //pictureBox1.Image = qrcode.ToQrCode();
+            Bitmap bit = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            Graphics g = Graphics.FromImage(bit);
+            g.CopyFromScreen(new Point(0, 0), new Point(0, 0), bit.Size);
+            pictureBox1.Image = bit;
             foreach (var item in PrinterSettings.InstalledPrinters)
             {
                 RicTxt.AppendText(item + "\r\n");
