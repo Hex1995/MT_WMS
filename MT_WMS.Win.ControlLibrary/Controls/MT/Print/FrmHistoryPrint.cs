@@ -30,7 +30,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             if (StartTime.CurrentTime<EndTime.CurrentTime)
             {
                 filter.Add($" and  a.CreateDate between  '{StartTime.CurrentTime}' and  '{EndTime.CurrentTime}' ");
-                filter.Add(" order by a.CreateDate desc");
+                filter.Add($" order by a.CreateDate desc");
                 DataBind.InitialIDgv(filter, _printbus, DgvLs);
             }
 
