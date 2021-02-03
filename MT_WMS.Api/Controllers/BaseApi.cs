@@ -32,6 +32,13 @@ namespace MT_WMS.Api.Controllers
         public abstract T GetTheData(string id);
         [HttpPost]
         public abstract DataTable GetTable(List<string> filter);
+
+        [HttpPost]
+        public virtual DataSet ExecuteSql(SqlDTO sql)
+        {
+            return null;
+        }
+
         #endregion
 
         #region 删

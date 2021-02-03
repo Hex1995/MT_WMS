@@ -56,6 +56,10 @@ namespace MT_WMS.Business
             ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name;;
             return GetTheData(Id, ActionUrl);
         }
+        public virtual DataSet ExecuteSql(SqlDTO sql)
+        {
+            return null;
+        }
         /// <summary>
         /// 获取某个对象，不可重写
         /// </summary>

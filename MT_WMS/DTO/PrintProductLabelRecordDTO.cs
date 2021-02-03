@@ -110,6 +110,10 @@ namespace MT_WMS
             Graphics g = e.Graphics;
             GetBitmapModel(g);
         }
+        /// <summary>
+        /// 绘画打印的内容
+        /// </summary>
+        /// <param name="g"></param>
         public void GetBitmapModel(Graphics g)
         {
             g.SmoothingMode = SmoothingMode.AntiAlias; //使绘图质量最高，即消除锯齿

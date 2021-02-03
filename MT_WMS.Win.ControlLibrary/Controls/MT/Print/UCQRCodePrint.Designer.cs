@@ -121,7 +121,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.PicPreview.BackColor = System.Drawing.Color.Transparent;
             this.PicPreview.Location = new System.Drawing.Point(889, 0);
             this.PicPreview.Name = "PicPreview";
-            this.PicPreview.Size = new System.Drawing.Size(104, 105);
+            this.PicPreview.Size = new System.Drawing.Size(73, 71);
             this.PicPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicPreview.TabIndex = 13;
             this.PicPreview.TabStop = false;

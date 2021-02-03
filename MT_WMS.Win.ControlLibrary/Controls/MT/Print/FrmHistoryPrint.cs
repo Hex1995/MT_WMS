@@ -20,6 +20,10 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         public FrmHistoryPrint()
         {
             InitializeComponent();
+
+        }
+        private void FrmHistoryPrint_Shown(object sender, EventArgs e)
+        {
             StartTime.CurrentTime = DateTime.Now.AddHours(-1);
             EndTime.CurrentTime = DateTime.Now;
         }
@@ -31,9 +35,32 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             {
                 filter.Add($" and  a.CreateDate between  '{StartTime.CurrentTime}' and  '{EndTime.CurrentTime}' ");
                 filter.Add($" order by a.CreateDate desc");
-                DataBind.InitialIDgv(filter, _printbus, DgvLs);
+                DataBind.InitialIDgv(filter, _printbus, Dgv);
             }
 
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
+        PrintProductLabelRecordDTO selectedProduct;
+        private void DgvLs_SelectionChanged(object sender, EventArgs e)
+        {
+            var select = Dgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (select > 0)
+            {
+                var dr = Dgv.SelectedRows[0];
+                var tmp = new PrintProductLabelRecordDTO();
+                tmp.ProductId = dr.Cells["ProductId"].Value.ToString();
+                tmp.ProductName = dr.Cells["ProductName"].Value.ToString();
+                tmp.ProductSpec = dr.Cells["ProductSpec"].Value.ToString();
+                selectedProduct = tmp;
+            }
+            else
+            {
+                selectedProduct = null;
+            }
         }
     }
 }

@@ -37,7 +37,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnPrint = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.DgvLs = new System.Windows.Forms.DataGridView();
+            this.Dgv = new System.Windows.Forms.DataGridView();
             this.PId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Team = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +49,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.jzl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // StartTime
@@ -131,6 +131,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.BtnPrint.TabIndex = 34;
             this.BtnPrint.Text = "打印";
             this.BtnPrint.UseVisualStyleBackColor = true;
+            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // label1
             // 
@@ -143,22 +144,22 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.DgvLs);
+            this.panel2.Controls.Add(this.Dgv);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 126);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1239, 673);
             this.panel2.TabIndex = 34;
             // 
-            // DgvLs
+            // Dgv
             // 
-            this.DgvLs.AllowUserToAddRows = false;
-            this.DgvLs.AllowUserToDeleteRows = false;
-            this.DgvLs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvLs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(248)))));
-            this.DgvLs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvLs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvLs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Dgv.AllowUserToAddRows = false;
+            this.Dgv.AllowUserToDeleteRows = false;
+            this.Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(238)))), ((int)(((byte)(248)))));
+            this.Dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PId,
             this.tm,
             this.Team,
@@ -168,11 +169,11 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.quality,
             this.zl,
             this.jzl});
-            this.DgvLs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvLs.GridColor = System.Drawing.Color.MediumSpringGreen;
-            this.DgvLs.Location = new System.Drawing.Point(0, 0);
-            this.DgvLs.Name = "DgvLs";
-            this.DgvLs.ReadOnly = true;
+            this.Dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Dgv.GridColor = System.Drawing.Color.MediumSpringGreen;
+            this.Dgv.Location = new System.Drawing.Point(0, 0);
+            this.Dgv.Name = "Dgv";
+            this.Dgv.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -180,11 +181,12 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DgvLs.RowTemplate.Height = 23;
-            this.DgvLs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvLs.Size = new System.Drawing.Size(1239, 673);
-            this.DgvLs.TabIndex = 32;
+            this.Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Dgv.RowTemplate.Height = 23;
+            this.Dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Dgv.Size = new System.Drawing.Size(1239, 673);
+            this.Dgv.TabIndex = 32;
+            this.Dgv.SelectionChanged += new System.EventHandler(this.DgvLs_SelectionChanged);
             // 
             // PId
             // 
@@ -258,10 +260,11 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             this.Controls.Add(this.panel1);
             this.Name = "FrmHistoryPrint";
             this.Text = "历史补打";
+            this.Shown += new System.EventHandler(this.FrmHistoryPrint_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DgvLs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -275,7 +278,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
         private FontAwesome.Sharp.IconButton BtnPrint;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView DgvLs;
+        private System.Windows.Forms.DataGridView Dgv;
         private System.Windows.Forms.DataGridViewTextBoxColumn PId;
         private System.Windows.Forms.DataGridViewTextBoxColumn tm;
         private System.Windows.Forms.DataGridViewTextBoxColumn Team;
