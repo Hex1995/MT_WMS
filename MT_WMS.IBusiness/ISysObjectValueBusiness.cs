@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MT_WMS.IBusiness
 {
-    public interface ISysObjectValueBusiness
+    public interface ISysObjectValueBusiness:IBaseBusiness
     {
         List<SYSOBJECTVALUE> GetDataListByObjectid(string id);
         int SaveData(SYSOBJECTVALUE theData);

@@ -35,7 +35,7 @@ namespace MT_WMS.Win.OtherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 423);
+            this.ClientSize = new System.Drawing.Size(633, 380);
             this.Name = "FrmLoading";
             this.Text = "基础数据加载...";
             this.ResumeLayout(false);

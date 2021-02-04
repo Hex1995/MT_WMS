@@ -28,12 +28,14 @@ namespace MT_WMS.Win
 {
     public class RunApplicationContext: ApplicationContext
     {
-
+        /// <summary>
+        /// 程序运行执行窗口
+        /// </summary>
         public RunApplicationContext()
         {
             try
             {
-                RunFrm();
+                StartRunFrm();
             }
             catch (Exception)
             {
@@ -41,16 +43,31 @@ namespace MT_WMS.Win
                 throw;
             }
         }
-
-        void RunFrm()
+        /// <summary>
+        /// 第一个启动窗体
+        /// </summary>
+        void StartRunFrm()
         {
-            FrmLoading Loading = FrmLoading.Instance;
-            Loading.Show();
-            bool t =  Loading.NetCheck();
+            //数据加载窗口
+            base.MainForm= FrmLoading.Instance;
+            base.MainForm.Show();
         }
         protected override void OnMainFormClosed(object sender, EventArgs e)
         {
-            base.OnMainFormClosed(sender, e);
+
+            if (sender is FrmLoading)
+            {
+                //IsDisposed不建议这样判断，为了模拟启动过程先临时这样
+                if (((FrmLoading)sender).IsDisposed == true)
+                {
+                    base.MainForm = new FrmLogin();
+                    base.MainForm.Show();
+                }
+                else
+                {
+                    base.OnMainFormClosed(sender, e);
+                }
+            }
         }
     }
 }

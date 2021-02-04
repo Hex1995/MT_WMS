@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,8 +21,21 @@ namespace MT_WMS.Win.OtherForm
         public FrmLoading()
         {
             InitializeComponent();
+            action += LoadAssemblyData;
+            action += NetCheck;
+            action += LoadNetData;
+            action += Check;
+            Thread t = new Thread(new ThreadStart(action));
+            t.IsBackground = true;
+            //t.Start();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            Instance.Dispose();
         }
         ISysObjectBusiness sys = FactoryService.Build<ISysObjectBusiness>("MT_WMS.Business.MT.SysObjectBusiness");
+        IBaseBusiness check = FactoryService.Build<IBaseBusiness>("MT_WMS.Business.MT.SysObjectValueBusiness");
         private static FrmLoading instance;
         public static FrmLoading Instance
         {
@@ -38,12 +52,13 @@ namespace MT_WMS.Win.OtherForm
         public bool IsLoadNetData = false;
         //默认为true打开状态
         public bool IsShow = true;
+        Action action;
         /// <summary>
         /// 加载程序集合
         /// 执行顺序1
         /// </summary>
         /// <returns></returns>
-        public bool LoadAssemblyData()
+        public void LoadAssemblyData()
         {
             try
             {
@@ -53,11 +68,11 @@ namespace MT_WMS.Win.OtherForm
                 //反射程序集合，且解析程序集合内的类和方法
                 var assembly = System.Reflection.Assembly.GetEntryAssembly();
                 GlobalSwitch.Instance.AddAssembly(assembly);
-                return true;
+                IsLoadAssemblyData = true;
             }
             catch
             {
-                return false;
+                IsLoadAssemblyData = false;
             }
         }
         /// <summary>
@@ -65,16 +80,16 @@ namespace MT_WMS.Win.OtherForm
         /// 执行顺序2
         /// </summary>
         /// <returns></returns>
-        public bool NetCheck()
+        public void NetCheck()
         {
             try
             {
-                return sys.NetCheck();
+                IsNetCheck = check.NetCheck();
             }
             catch 
             {
 
-                return false;
+                IsNetCheck = false;
             }
         }
         /// <summary>
@@ -82,22 +97,29 @@ namespace MT_WMS.Win.OtherForm
         /// 执行顺序3
         /// </summary>
         /// <returns></returns>
-        public bool LoadNetData()
+        public void LoadNetData()
         {
             try
             {
-                //此处后期做一个加载动画
-                //基础数据加载
-                //目前先开启一个线程来加载数据
                 sys.UpdateObject();
-                return true;
+                IsLoadNetData = true;
             }
             catch 
             {
-                return false;
+                IsLoadNetData = false;
             }
 
         }
 
+        public void Check()
+        {
+            if (IsNetCheck==true&&IsLoadNetData==true)
+            {
+                IsShow = false;
+                Action a = Close;
+                Invoke(a);
+            }
+        }
+        
     }
 }
