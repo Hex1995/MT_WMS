@@ -137,5 +137,12 @@ namespace MT_WMS.Business
             var res = HttpHelper.HttpData(GetUrl(), HttpMethod: "POST", dic: dic, Parameter: theData.ToJson());
             return int.Parse(res);
         }
+        public bool NetCheck()
+        {
+            this.ActionUrl = System.Reflection.MethodBase.GetCurrentMethod().Name; 
+            var dic = new Dictionary<string, string>();
+            var res = HttpHelper.HttpData(GetUrl(), dic: dic);
+            return res.ToBool();
+        }
     }
 }

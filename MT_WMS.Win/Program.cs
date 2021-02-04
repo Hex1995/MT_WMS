@@ -29,43 +29,8 @@ namespace MT_WMS.Win
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //反射程序集合，且解析程序集合内的类和方法
-            var assembly = System.Reflection.Assembly.GetEntryAssembly();
-
-            GlobalSwitch.Instance.AddAssembly(assembly);
-            FrmLoading loading = new FrmLoading();
-
-
-            //此处后期做一个加载动画
-            //基础数据加载
-            //目前先开启一个线程来加载数据
-
-            ISysObjectBusiness sys = FactoryService.Build<ISysObjectBusiness>("MT_WMS.Business.MT.SysObjectBusiness");
-            Thread t = new Thread(loading.Show);
-            t.IsBackground = true;
-            t.Start();
-
-            sys.UpdateObject();
-            //loading.Dispose();
-            //var data = sys.GetDataList();
-            //foreach (var item in data)
-            //{
-            //    Dictionary<string, string> arr = new Dictionary<string, string>();
-            //    arr.Add(item.ObjectValue, item.ValueDesc);
-            //    if (GlobalSwitch.Instance.objValues.ContainsKey(item.ObjectName))
-            //    {
-            //        arr = GlobalSwitch.Instance.objValues[item.ObjectName];
-            //        if (!arr.ContainsKey(item.ObjectValue))
-            //            arr.Add(item.ObjectValue, item.ValueDesc);
-
-            //    }
-            //    else
-            //    {
-            //        GlobalSwitch.Instance.objValues.Add(item.ObjectName, arr);
-            //    }
-            //}
-            
-            Application.Run(new FrmMTMain());
+            //new FrmMTMain()
+            Application.Run(new RunApplicationContext());
         }
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

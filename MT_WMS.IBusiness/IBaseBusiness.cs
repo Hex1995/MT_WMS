@@ -29,5 +29,6 @@ namespace MT_WMS.IBusiness
     {
         DataTable GetTable(List<string> filter);
         DataSet ExecuteSql(SqlDTO sql);
+        bool  NetCheck();
     }
 }

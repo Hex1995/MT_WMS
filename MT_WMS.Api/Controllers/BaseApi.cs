@@ -39,6 +39,8 @@ namespace MT_WMS.Api.Controllers
             return null;
         }
 
+
+
         #endregion
 
         #region 删
@@ -76,5 +78,17 @@ namespace MT_WMS.Api.Controllers
         }
         #endregion
 
+
+        #region 网络检测
+        /// <summary>
+        /// 检测网络
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public bool NetCheck()
+        {
+            return true;
+        }
+        #endregion
     }
 }

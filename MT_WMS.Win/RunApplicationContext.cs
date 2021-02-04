@@ -16,6 +16,7 @@
  * ----------------------------------------------------------------
  */
 #endregion
+using MT_WMS.Win.OtherForm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +29,28 @@ namespace MT_WMS.Win
     public class RunApplicationContext: ApplicationContext
     {
 
+        public RunApplicationContext()
+        {
+            try
+            {
+                RunFrm();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        void RunFrm()
+        {
+            FrmLoading Loading = FrmLoading.Instance;
+            Loading.Show();
+            bool t =  Loading.NetCheck();
+        }
+        protected override void OnMainFormClosed(object sender, EventArgs e)
+        {
+            base.OnMainFormClosed(sender, e);
+        }
     }
 }
