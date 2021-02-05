@@ -25,14 +25,15 @@ namespace MT_WMS.Win.OtherForm
             action += NetCheck;
             action += LoadNetData;
             action += Check;
+            msg = SendMsg;
             Thread t = new Thread(new ThreadStart(action));
             t.IsBackground = true;
-            //t.Start();
+            t.Start();
         }
 
         protected override void OnClosed(EventArgs e)
         {
-            Instance.Dispose();
+            this.DialogResult = DialogResult.OK;
         }
         ISysObjectBusiness sys = FactoryService.Build<ISysObjectBusiness>("MT_WMS.Business.MT.SysObjectBusiness");
         IBaseBusiness check = FactoryService.Build<IBaseBusiness>("MT_WMS.Business.MT.SysObjectValueBusiness");
@@ -53,6 +54,7 @@ namespace MT_WMS.Win.OtherForm
         //默认为true打开状态
         public bool IsShow = true;
         Action action;
+        Action<string> msg;
         /// <summary>
         /// 加载程序集合
         /// 执行顺序1
@@ -62,6 +64,7 @@ namespace MT_WMS.Win.OtherForm
         {
             try
             {
+                Invoke(msg, "加载本地程序集...");
                 //先清空一下原有的程序集合和类型集合
                 GlobalSwitch.Instance.AllTypes.Clear();
                 GlobalSwitch.Instance.AllAssemblies.Clear();
@@ -69,9 +72,11 @@ namespace MT_WMS.Win.OtherForm
                 var assembly = System.Reflection.Assembly.GetEntryAssembly();
                 GlobalSwitch.Instance.AddAssembly(assembly);
                 IsLoadAssemblyData = true;
+                Invoke(msg, "程序集完成...");
             }
             catch
             {
+                Invoke(msg, "程序集加载失败...");
                 IsLoadAssemblyData = false;
             }
         }
@@ -84,11 +89,13 @@ namespace MT_WMS.Win.OtherForm
         {
             try
             {
+                Invoke(msg, "网络检测...");
                 IsNetCheck = check.NetCheck();
+                Invoke(msg, "网络检测通过...");
             }
             catch 
             {
-
+                Invoke(msg, "网络检测不通过...");
                 IsNetCheck = false;
             }
         }
@@ -101,11 +108,16 @@ namespace MT_WMS.Win.OtherForm
         {
             try
             {
+                Invoke(msg, "加载服务器数据中...");
                 sys.UpdateObject();
                 IsLoadNetData = true;
+                Invoke(msg, "加载服务器数据完成...");
+                Invoke(msg, "完毕");
+                //Thread.Sleep(100);
             }
             catch 
             {
+                Invoke(msg, "服务器数据加载失败...");
                 IsLoadNetData = false;
             }
 
@@ -115,10 +127,12 @@ namespace MT_WMS.Win.OtherForm
         {
             if (IsNetCheck==true&&IsLoadNetData==true)
             {
-                IsShow = false;
-                Action a = Close;
-                Invoke(a);
+                this.DialogResult = DialogResult.OK;
             }
+        }
+        public void SendMsg(string msg)
+        {
+            Msg.Text = msg;
         }
         
     }

@@ -50,15 +50,14 @@ namespace MT_WMS.Win
         {
             //数据加载窗口
             base.MainForm= FrmLoading.Instance;
-            base.MainForm.Show();
+            base.MainForm.ShowDialog();
         }
         protected override void OnMainFormClosed(object sender, EventArgs e)
         {
 
             if (sender is FrmLoading)
             {
-                //IsDisposed不建议这样判断，为了模拟启动过程先临时这样
-                if (((FrmLoading)sender).IsDisposed == true)
+                if (((FrmLoading)sender).DialogResult == DialogResult.OK)
                 {
                     base.MainForm = new FrmLogin();
                     base.MainForm.Show();
@@ -67,6 +66,10 @@ namespace MT_WMS.Win
                 {
                     base.OnMainFormClosed(sender, e);
                 }
+            }
+            else
+            {
+                base.OnMainFormClosed(sender, e);
             }
         }
     }
