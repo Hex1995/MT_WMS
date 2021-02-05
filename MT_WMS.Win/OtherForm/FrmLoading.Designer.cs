@@ -29,7 +29,10 @@ namespace MT_WMS.Win.OtherForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoading));
             this.Msg = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Msg
@@ -42,14 +45,28 @@ namespace MT_WMS.Win.OtherForm
             this.Msg.TabIndex = 0;
             this.Msg.Text = "启动中...";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(290, 165);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmLoading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 380);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Msg);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmLoading";
             this.Text = "基础数据加载...";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -57,5 +74,6 @@ namespace MT_WMS.Win.OtherForm
         #endregion
 
         private System.Windows.Forms.Label Msg;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

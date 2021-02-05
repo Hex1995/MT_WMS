@@ -26,6 +26,7 @@ namespace MT_WMS.Win.OtherForm
             action += LoadNetData;
             action += Check;
             msg = SendMsg;
+            Exit += ExitForm;
             Thread t = new Thread(new ThreadStart(action));
             t.IsBackground = true;
             t.Start();
@@ -54,6 +55,7 @@ namespace MT_WMS.Win.OtherForm
         //默认为true打开状态
         public bool IsShow = true;
         Action action;
+        Action Exit;
         Action<string> msg;
         /// <summary>
         /// 加载程序集合
@@ -95,6 +97,7 @@ namespace MT_WMS.Win.OtherForm
             }
             catch 
             {
+                action -= LoadNetData;
                 Invoke(msg, "网络检测不通过...");
                 IsNetCheck = false;
             }
@@ -112,12 +115,13 @@ namespace MT_WMS.Win.OtherForm
                 sys.UpdateObject();
                 IsLoadNetData = true;
                 Invoke(msg, "加载服务器数据完成...");
-                Invoke(msg, "完毕");
-                //Thread.Sleep(100);
+                Invoke(msg, "加载完毕！");
+                Thread.Sleep(100);
             }
             catch 
             {
                 Invoke(msg, "服务器数据加载失败...");
+
                 IsLoadNetData = false;
             }
 
@@ -127,13 +131,21 @@ namespace MT_WMS.Win.OtherForm
         {
             if (IsNetCheck==true&&IsLoadNetData==true)
             {
-                this.DialogResult = DialogResult.OK;
+                IsShow = false;
             }
+            else
+            {
+                IsShow = true;
+            }
+            this.Invoke(Exit);
         }
         public void SendMsg(string msg)
         {
             Msg.Text = msg;
         }
-        
+        public void ExitForm()
+        {
+            this.Close();
+        }
     }
 }

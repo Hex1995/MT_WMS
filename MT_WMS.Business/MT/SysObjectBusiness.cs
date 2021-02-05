@@ -38,6 +38,10 @@ namespace MT_WMS.Business.MT
         {
             GlobalSwitch.Instance.objValues.Clear();
             var data = GetDataList();
+            if (data.IsNullOrEmpty())
+            {
+                return;
+            }
             foreach (var item in data)
             {
                 Dictionary<string, string> arr = new Dictionary<string, string>();

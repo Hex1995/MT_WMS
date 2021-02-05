@@ -78,6 +78,12 @@
     <Compile Include="MT\FrmMTMain.Designer.cs">
       <DependentUpon>FrmMTMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="OtherForm\FrmConfigSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\FrmConfigSetting.Designer.cs">
+      <DependentUpon>FrmConfigSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="OtherForm\FrmLoading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,8 +118,14 @@
     <EmbeddedResource Include="MT\FrmMTMain.resx">
       <DependentUpon>FrmMTMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\FrmConfigSetting.resx">
+      <DependentUpon>FrmConfigSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OtherForm\FrmLoading.resx">
       <DependentUpon>FrmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
