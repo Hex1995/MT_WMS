@@ -96,6 +96,7 @@ namespace MT_WMS.Win.OtherForm
             // 
             // BtnExit
             // 
+            this.BtnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExit.IconChar = FontAwesome.Sharp.IconChar.None;
             this.BtnExit.IconColor = System.Drawing.Color.Black;
@@ -105,7 +106,7 @@ namespace MT_WMS.Win.OtherForm
             this.BtnExit.Size = new System.Drawing.Size(92, 30);
             this.BtnExit.TabIndex = 5;
             this.BtnExit.Text = "退出";
-            this.BtnExit.UseVisualStyleBackColor = true;
+            this.BtnExit.UseVisualStyleBackColor = false;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // txtAccount

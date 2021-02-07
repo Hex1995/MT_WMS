@@ -20,6 +20,17 @@ namespace MT_WMS.Win.OtherForm
         {
             InitializeComponent();
             InitialItems("系统", cbbSystem);
+            var types = GlobalSwitch.Instance.AllTypes.Where(x => x.IsSubclassOf(typeof(BaseUI))).ToList();
+#if DEBUG
+            txtAccount.Text = "Admin";
+            txtPwd.Text = "Admin";
+            List<ComboxItem> data = new List<ComboxItem>();
+            foreach (var item in types)
+            {
+                data.Add(new ComboxItem(item.FullName, item.Name));
+            }
+            cbbSystem.Items.AddRange(data.ToArray());
+#endif
         }
         /// <summary>
         /// 是否登录成功
@@ -34,7 +45,7 @@ namespace MT_WMS.Win.OtherForm
         {
             string account = txtAccount.Text.Trim();
             string pwd = txtPwd.Text.Trim();
-#if RELEASE
+            OpenForm = ((ComboxItem)cbbSystem.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbSystem.SelectedItem).Value();
             if (account.IsNullOrEmpty())
             {
                 MessageBoxEx.Show("请输入账号");
@@ -45,8 +56,6 @@ namespace MT_WMS.Win.OtherForm
                 MessageBoxEx.Show("请输入密码");
                 return;
             }
-#endif
-            OpenForm = ((ComboxItem)cbbSystem.SelectedItem).IsNullOrEmpty() ? "" : ((ComboxItem)cbbSystem.SelectedItem).Value();
             if (OpenForm.IsNullOrEmpty())
             {
                 MessageBoxEx.Show("请选择登录系统");

@@ -27,7 +27,7 @@ namespace MT_WMS.Win.OtherForm
             action += Check;
             msg = SendMsg;
             Exit += ExitForm;
-            Thread t = new Thread(new ThreadStart(action));
+            t = new Thread(new ThreadStart(action));
             t.IsBackground = true;
             t.Start();
         }
@@ -48,15 +48,22 @@ namespace MT_WMS.Win.OtherForm
                 return instance;
             }
         }
-
+        Thread t;
         public bool IsLoadAssemblyData = false;
         public bool IsNetCheck = false;
         public bool IsLoadNetData = false;
         //默认为true打开状态
         public bool IsShow = true;
+
         Action action;
+
         Action Exit;
+
         Action<string> msg;
+
+
+
+
         /// <summary>
         /// 加载程序集合
         /// 执行顺序1
@@ -78,9 +85,12 @@ namespace MT_WMS.Win.OtherForm
             }
             catch
             {
+                
                 Invoke(msg, "程序集加载失败...");
                 IsLoadAssemblyData = false;
+
             }
+
         }
         /// <summary>
         /// 网络检测
@@ -97,9 +107,10 @@ namespace MT_WMS.Win.OtherForm
             }
             catch 
             {
-                action -= LoadNetData;
+
                 Invoke(msg, "网络检测不通过...");
                 IsNetCheck = false;
+                ShowMsg("网络检测不通过");
             }
         }
         /// <summary>
@@ -139,13 +150,15 @@ namespace MT_WMS.Win.OtherForm
             }
             this.Invoke(Exit);
         }
-        public void SendMsg(string msg)
-        {
-            Msg.Text = msg;
-        }
+
         public void ExitForm()
         {
             this.Close();
         }
+        public void SendMsg(string msg)
+        {
+            Msg.Text = msg;
+        }
+
     }
 }

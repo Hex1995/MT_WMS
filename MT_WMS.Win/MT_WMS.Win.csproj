@@ -84,6 +84,12 @@
     <Compile Include="OtherForm\FrmConfigSetting.Designer.cs">
       <DependentUpon>FrmConfigSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="OtherForm\FrmContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\FrmContact.Designer.cs">
+      <DependentUpon>FrmContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="OtherForm\FrmLoading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OtherForm\FrmConfigSetting.resx">
       <DependentUpon>FrmConfigSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\FrmContact.resx">
+      <DependentUpon>FrmContact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OtherForm\FrmLoading.resx">
       <DependentUpon>FrmLoading.cs</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿using MT_WMS.IBusiness;
 using MT_WMS.Win.ControlLibrary.Forms;
+using MT_WMS.Win.OtherForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -121,6 +122,17 @@ namespace MT_WMS.Win
         private void button1_Click(object sender, EventArgs e)
         {
             ShowMask();
+        }
+
+        public virtual void ShowMsg()
+        {
+            FrmContact frmContact = new FrmContact();
+            frmContact.ShowDialog();
+        }
+        public virtual void ShowMsg(string msg)
+        {
+            FrmContact frmContact = new FrmContact(msg);
+            frmContact.ShowDialog();
         }
     }
 }

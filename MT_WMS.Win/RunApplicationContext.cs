@@ -83,7 +83,8 @@ namespace MT_WMS.Win
                     }
                     else
                     {
-                        MessageBoxEx.Show("不支持启动的系统，请与开发商联系！");
+                        FrmContact frmContact = new FrmContact("不支持启动的系统，请与开发商联系！");
+                        frmContact.ShowDialog();
                         base.OnMainFormClosed(sender, e);
                     }
                 }
