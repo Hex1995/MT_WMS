@@ -16,6 +16,8 @@
  * ----------------------------------------------------------------
  */
 #endregion
+using CSharpWin;
+using MT_WMS.Win.MT;
 using MT_WMS.Win.OtherForm;
 using System;
 using System.Collections.Generic;
@@ -69,10 +71,21 @@ namespace MT_WMS.Win
             }
             else if(sender is FrmLogin)
             {
-                if (((FrmLogin)sender).IsDisposed)
+                string FrmMain = ((FrmLogin)sender).OpenForm;
+                var FrmMainType = GlobalSwitch.Instance.AllTypes.Where(x=>x.FullName==FrmMain).FirstOrDefault();
+                var isLogin = ((FrmLogin)sender).IsLogin;
+                if (isLogin)
                 {
-                    base.MainForm = new FrmLogin();
-                    base.MainForm.Show();
+                    if (!FrmMainType.IsNullOrEmpty())
+                    {
+                        base.MainForm = (Form)Activator.CreateInstance(FrmMainType, null);
+                        base.MainForm.Show();
+                    }
+                    else
+                    {
+                        MessageBoxEx.Show("不支持启动的系统，请与开发商联系！");
+                        base.OnMainFormClosed(sender, e);
+                    }
                 }
                 else
                 {
