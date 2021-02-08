@@ -128,7 +128,7 @@ namespace MT_WMS.Win.OtherForm
             // 
             this.picLogo.Location = new System.Drawing.Point(98, 38);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(318, 80);
+            this.picLogo.Size = new System.Drawing.Size(318, 89);
             this.picLogo.TabIndex = 8;
             this.picLogo.TabStop = false;
             // 

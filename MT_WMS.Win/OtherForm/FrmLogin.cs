@@ -76,6 +76,11 @@ namespace MT_WMS.Win.OtherForm
                     BtnLogin_Click(null, null);
                     return true;
                 }
+                else if (keyData ==Keys.Escape)
+                {
+                    BtnExit_Click(null, null);
+                    return true;
+                }
             }
             catch
             {
