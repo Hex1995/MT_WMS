@@ -1,4 +1,5 @@
 ﻿using CSharpWin;
+using MT_WMS.Win.ControlLibrary.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,7 @@ namespace MT_WMS.Win.OtherForm
         {
             InitializeComponent();
             InitialItems("系统", cbbSystem);
-            var types = GlobalSwitch.Instance.AllTypes.Where(x => x.IsSubclassOf(typeof(BaseUI))).ToList();
+            var types = GlobalSwitch.Instance.AllTypes.Where(x => x.IsSubclassOf(typeof(BaseUI)) || x.IsSubclassOf(typeof(BaseFrm))).ToList();
 #if DEBUG
             txtAccount.Text = "Admin";
             txtPwd.Text = "Admin";

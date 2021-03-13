@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace MT_WMS.Win.Test
 {
@@ -18,7 +19,15 @@ namespace MT_WMS.Win.Test
         }
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            richTextBox1.AppendText(ConfigHelper.GetKeyValue("MT0001"));
+            foreach (Process item in Process.GetProcesses(System.Environment.MachineName))
+            {
+                richTextBox1.AppendText(item.ProcessName + "---"+ item.Id+"\r\n");
+                Console.WriteLine(item); //string s = p.ToString ();
+                if (item.MainWindowHandle != IntPtr.Zero)
+                {
+
+                }
+            }
         }
 
     }

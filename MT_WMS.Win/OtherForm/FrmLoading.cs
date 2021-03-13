@@ -75,8 +75,14 @@ namespace MT_WMS.Win.OtherForm
             {
                 Invoke(msg, "加载本地程序集...");
                 //反射程序集合，且解析程序集合内的类和方法
-                var assembly = System.Reflection.Assembly.GetEntryAssembly();
-                GlobalSwitch.Instance.AddAssembly(assembly);
+                //var assembly = System.Reflection.Assembly.GetEntryAssembly();
+                var assemblys = AppDomain.CurrentDomain.GetAssemblies();
+                foreach (var item in assemblys)
+                {
+                    string version = item.GetName().Version.ToString();
+                    GlobalSwitch.Instance.AddAssembly(item);
+                }
+
                 IsLoadAssemblyData = true;
                 Invoke(msg, "程序集完成...");
             }

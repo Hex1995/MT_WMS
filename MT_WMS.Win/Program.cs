@@ -30,11 +30,8 @@ namespace MT_WMS.Win
             Application.SetCompatibleTextRenderingDefault(false);
 
             //反射程序集合，且解析程序集合内的类和方法
-            //GlobalSwitch.Instance.AllTypes.Clear();
-            //GlobalSwitch.Instance.AllAssemblies.Clear();
             //var assembly = System.Reflection.Assembly.GetEntryAssembly();
             //GlobalSwitch.Instance.AddAssembly(assembly);
-            //new FrmMTMain()
             Application.Run(new RunApplicationContext());
         }
 
