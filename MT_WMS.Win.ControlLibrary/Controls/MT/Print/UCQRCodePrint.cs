@@ -32,6 +32,7 @@ namespace MT_WMS.Win.ControlLibrary.Controls.MT.Print
             thread.IsBackground = true;
             thread.Start();
 
+
         }
         #region 磅秤相关参数
         /// <summary>
