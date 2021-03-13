@@ -23,12 +23,22 @@ namespace MT_WMS.Win.Test
             {
                 richTextBox1.AppendText(item.ProcessName + "---"+ item.Id+"\r\n");
                 Console.WriteLine(item); //string s = p.ToString ();
+
                 if (item.MainWindowHandle != IntPtr.Zero)
                 {
-
+                    item.EnableRaisingEvents = true;
+                    item.Exited += new EventHandler(myprocess_Exited);
+                }
+                foreach (var item1 in item.Threads)
+                {
+                    var t = item1.GetType();
                 }
             }
         }
-
+        private void myprocess_Exited(object sender, EventArgs e)//被触发的程序
+        {
+            var p = (Process)sender;
+            MessageBox.Show(p.ProcessName+"关闭");
+        }
     }
 }
